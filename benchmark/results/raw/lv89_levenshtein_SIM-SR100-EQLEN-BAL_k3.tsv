@@ -1,0 +1,2 @@
+method	mode	dataset	threshold	mismatch	gap_open	gap_extend	repeat	warmup	num_pairs	seconds	pairs_per_second	ns_per_pair	checksum	score_mismatches	pass_mismatches	cigar_replay_failures	notes
+lv89	levenshtein	SIM-SR100-EQLEN-BAL	3	2	3	1	0	1	10000	0.00978141	1.02235e+06	978.141	ae5850b594dd1f58	45	0	0	backend_actual=lv89;mode=global;bandwidth=threshold;dataset_equal_length=true

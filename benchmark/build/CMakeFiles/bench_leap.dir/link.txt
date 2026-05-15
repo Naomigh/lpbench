@@ -1,0 +1,2 @@
+/usr/bin/ar qc libbench_leap.a CMakeFiles/bench_leap.dir/home/minghao/project/2026/leapbench/leap/SIMD_ED.cc.o CMakeFiles/bench_leap.dir/home/minghao/project/2026/leapbench/leap/avx512_shift.c.o CMakeFiles/bench_leap.dir/home/minghao/project/2026/leapbench/leap/print.c.o CMakeFiles/bench_leap.dir/src/wrappers/leap_bit_convert_shim.cpp.o
+/usr/bin/ranlib libbench_leap.a

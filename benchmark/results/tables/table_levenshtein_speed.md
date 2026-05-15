@@ -1,0 +1,11 @@
+# Levenshtein speed table
+
+Unit: seconds per 10 million pairs. `N/A` means unsupported, failed, fallback, or unavailable.
+
+| k | LEAP-AVX512 | edlib | lv89 | miniWFA | WFA2 | KSW2 | Best non-LEAP | Speedup vs best non-LEAP |
+|---|---|---|---|---|---|---|---|---|
+| 1 | N/A | 13.728 | N/A | 5.609 | 12.607 | 505.397 | 5.609 | N/A |
+| 2 | N/A | 15.316 | N/A | 6.068 | 12.131 | 507.006 | 6.068 | N/A |
+| 3 | N/A | 16.017 | N/A | 6.517 | 12.167 | 503.430 | 6.517 | N/A |
+| 5 | N/A | 17.436 | 10.337 | 7.544 | 14.050 | 505.603 | 7.544 | N/A |
+| 8 | N/A | 19.200 | 10.360 | 8.915 | 12.120 | 503.450 | 8.915 | N/A |

@@ -1,0 +1,2 @@
+method	mode	dataset	threshold	mismatch	gap_open	gap_extend	repeat	warmup	num_pairs	seconds	pairs_per_second	ns_per_pair	checksum	score_mismatches	pass_mismatches	cigar_replay_failures	notes
+ksw2	levenshtein	SIM-SR100-EQLEN-BAL	5	2	3	1	0	1	10000	0.505603	19778.4	50560.3	2f221dfae19d9407	0	0	0	backend_actual=ksw2;mode=global;score_negated;dataset_equal_length=true

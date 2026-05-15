@@ -1,0 +1,11 @@
+method	mode	dataset	threshold	total_pairs	equal_length_pairs	non_equal_length_pairs	avx512_pairs	fallback_pairs	fallback_reasons
+leap	affine	SIM-SR100-EQLEN-GAP	10	10000	10000	0	10000	0	
+leap	affine	SIM-SR100-EQLEN-GAP	15	10000	10000	0	10000	0	
+leap	affine	SIM-SR100-EQLEN-GAP	20	10000	10000	0	10000	0	
+leap	affine	SIM-SR100-EQLEN-GAP	30	10000	10000	0	10000	0	
+leap	affine	SIM-SR100-EQLEN-GAP	5	10000	10000	0	10000	0	
+leap	levenshtein	SIM-SR100-EQLEN-BAL	1	10000	10000	0	10000	0	
+leap	levenshtein	SIM-SR100-EQLEN-BAL	2	10000	10000	0	10000	0	
+leap	levenshtein	SIM-SR100-EQLEN-BAL	3	10000	10000	0	10000	0	
+leap	levenshtein	SIM-SR100-EQLEN-BAL	5	10000	10000	0	10000	0	
+leap	levenshtein	SIM-SR100-EQLEN-BAL	8	10000	10000	0	10000	0	

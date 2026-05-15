@@ -1,0 +1,2 @@
+method	mode	dataset	threshold	mismatch	gap_open	gap_extend	repeat	warmup	num_pairs	seconds	pairs_per_second	ns_per_pair	checksum	score_mismatches	pass_mismatches	cigar_replay_failures	notes
+miniwfa	affine	SIM-SR100-EQLEN-GAP	5	2	3	1	0	1	10000	0.127548	78401.7	12754.8	cc4b1e368427e7ff	0	0	0	backend_actual=miniwfa;gap_convention=gap_open+gap_extend*L;max_s_exceeded_or_failed;dataset_equal_length=true

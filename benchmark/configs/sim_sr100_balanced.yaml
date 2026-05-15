@@ -1,0 +1,7 @@
+name: SIM-SR100-BAL
+num_pairs: 100000
+ref_length: 100
+max_distance: 15
+alphabet: ACGT
+seed: 42
+

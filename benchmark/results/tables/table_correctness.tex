@@ -1,0 +1,56 @@
+\begin{tabular}{lllllllll}
+\hline
+mode & dataset & method & threshold & pairs & score mismatches & pass/fail mismatches & CIGAR replay failures & notes \\
+\hline
+levenshtein & SIM-SR100-EQLEN-BAL & edlib & 1 & 10000 & 0 & 0 & 0 & backend\_actual=edlib;score\_semantics=exact\_if\_within\_threshold;dataset\_equal\_length=true \\
+levenshtein & SIM-SR100-EQLEN-BAL & edlib & 2 & 10000 & 0 & 0 & 0 & backend\_actual=edlib;score\_semantics=exact\_if\_within\_threshold;dataset\_equal\_length=true \\
+levenshtein & SIM-SR100-EQLEN-BAL & edlib & 3 & 10000 & 0 & 0 & 0 & backend\_actual=edlib;score\_semantics=exact\_if\_within\_threshold;dataset\_equal\_length=true \\
+levenshtein & SIM-SR100-EQLEN-BAL & edlib & 5 & 10000 & 0 & 0 & 0 & backend\_actual=edlib;score\_semantics=exact\_if\_within\_threshold;dataset\_equal\_length=true \\
+levenshtein & SIM-SR100-EQLEN-BAL & edlib & 8 & 10000 & 0 & 0 & 0 & backend\_actual=edlib;score\_semantics=exact\_if\_within\_threshold;dataset\_equal\_length=true \\
+affine & SIM-SR100-EQLEN-GAP & ksw2 & 10 & 10000 & 0 & 0 & 0 & backend\_actual=ksw2;mode=global;score\_negated;dataset\_equal\_length=true \\
+affine & SIM-SR100-EQLEN-GAP & ksw2 & 15 & 10000 & 0 & 0 & 0 & backend\_actual=ksw2;mode=global;score\_negated;dataset\_equal\_length=true \\
+affine & SIM-SR100-EQLEN-GAP & ksw2 & 20 & 10000 & 0 & 0 & 0 & backend\_actual=ksw2;mode=global;score\_negated;dataset\_equal\_length=true \\
+affine & SIM-SR100-EQLEN-GAP & ksw2 & 30 & 10000 & 0 & 0 & 0 & backend\_actual=ksw2;mode=global;score\_negated;dataset\_equal\_length=true \\
+affine & SIM-SR100-EQLEN-GAP & ksw2 & 5 & 10000 & 0 & 0 & 0 & backend\_actual=ksw2;mode=global;score\_negated;dataset\_equal\_length=true \\
+levenshtein & SIM-SR100-EQLEN-BAL & ksw2 & 1 & 10000 & 0 & 0 & 0 & backend\_actual=ksw2;mode=global;score\_negated;dataset\_equal\_length=true \\
+levenshtein & SIM-SR100-EQLEN-BAL & ksw2 & 2 & 10000 & 0 & 0 & 0 & backend\_actual=ksw2;mode=global;score\_negated;dataset\_equal\_length=true \\
+levenshtein & SIM-SR100-EQLEN-BAL & ksw2 & 3 & 10000 & 0 & 0 & 0 & backend\_actual=ksw2;mode=global;score\_negated;dataset\_equal\_length=true \\
+levenshtein & SIM-SR100-EQLEN-BAL & ksw2 & 5 & 10000 & 0 & 0 & 0 & backend\_actual=ksw2;mode=global;score\_negated;dataset\_equal\_length=true \\
+levenshtein & SIM-SR100-EQLEN-BAL & ksw2 & 8 & 10000 & 0 & 0 & 0 & backend\_actual=ksw2;mode=global;score\_negated;dataset\_equal\_length=true \\
+affine & SIM-SR100-EQLEN-GAP & leap & 10 & 10000 & 0 & 394 & 0 & backend\_actual=avx512;implementation=../leap/SIMD\_ED;score\_semantics=pass\_fail\_only\_until\_cigar\_replay;dataset\_equal\_length=true;fallback\_used=false \\
+affine & SIM-SR100-EQLEN-GAP & leap & 15 & 10000 & 0 & 498 & 0 & backend\_actual=avx512;implementation=../leap/SIMD\_ED;score\_semantics=pass\_fail\_only\_until\_cigar\_replay;dataset\_equal\_length=true;fallback\_used=false \\
+affine & SIM-SR100-EQLEN-GAP & leap & 20 & 10000 & 0 & 728 & 0 & backend\_actual=avx512;implementation=../leap/SIMD\_ED;score\_semantics=pass\_fail\_only\_until\_cigar\_replay;dataset\_equal\_length=true;fallback\_used=false \\
+affine & SIM-SR100-EQLEN-GAP & leap & 30 & 10000 & 0 & 778 & 0 & backend\_actual=avx512;implementation=../leap/SIMD\_ED;score\_semantics=pass\_fail\_only\_until\_cigar\_replay;dataset\_equal\_length=true;fallback\_used=false \\
+affine & SIM-SR100-EQLEN-GAP & leap & 5 & 10000 & 0 & 0 & 0 & backend\_actual=avx512;implementation=../leap/SIMD\_ED;score\_semantics=pass\_fail\_only\_until\_cigar\_replay;dataset\_equal\_length=true;fallback\_used=false \\
+levenshtein & SIM-SR100-EQLEN-BAL & leap & 1 & 10000 & 0 & 8401 & 0 & backend\_actual=avx512;implementation=../leap/SIMD\_ED;score\_semantics=pass\_fail\_only\_until\_cigar\_replay;dataset\_equal\_length=true;fallback\_used=false \\
+levenshtein & SIM-SR100-EQLEN-BAL & leap & 2 & 10000 & 0 & 1339 & 0 & backend\_actual=avx512;implementation=../leap/SIMD\_ED;score\_semantics=pass\_fail\_only\_until\_cigar\_replay;dataset\_equal\_length=true;fallback\_used=false \\
+levenshtein & SIM-SR100-EQLEN-BAL & leap & 3 & 10000 & 0 & 7094 & 0 & backend\_actual=avx512;implementation=../leap/SIMD\_ED;score\_semantics=pass\_fail\_only\_until\_cigar\_replay;dataset\_equal\_length=true;fallback\_used=false \\
+levenshtein & SIM-SR100-EQLEN-BAL & leap & 5 & 10000 & 0 & 5975 & 0 & backend\_actual=avx512;implementation=../leap/SIMD\_ED;score\_semantics=pass\_fail\_only\_until\_cigar\_replay;dataset\_equal\_length=true;fallback\_used=false \\
+levenshtein & SIM-SR100-EQLEN-BAL & leap & 8 & 10000 & 0 & 3707 & 0 & backend\_actual=avx512;implementation=../leap/SIMD\_ED;score\_semantics=pass\_fail\_only\_until\_cigar\_replay;dataset\_equal\_length=true;fallback\_used=false \\
+levenshtein & SIM-SR100-EQLEN-BAL & lv89 & 1 & 10000 & 1574 & 0 & 0 & backend\_actual=lv89;mode=global;bandwidth=threshold;dataset\_equal\_length=true \\
+levenshtein & SIM-SR100-EQLEN-BAL & lv89 & 2 & 10000 & 357 & 0 & 0 & backend\_actual=lv89;mode=global;bandwidth=threshold;dataset\_equal\_length=true \\
+levenshtein & SIM-SR100-EQLEN-BAL & lv89 & 3 & 10000 & 45 & 0 & 0 & backend\_actual=lv89;mode=global;bandwidth=threshold;dataset\_equal\_length=true \\
+levenshtein & SIM-SR100-EQLEN-BAL & lv89 & 5 & 10000 & 0 & 0 & 0 & backend\_actual=lv89;mode=global;bandwidth=threshold;dataset\_equal\_length=true \\
+levenshtein & SIM-SR100-EQLEN-BAL & lv89 & 8 & 10000 & 0 & 0 & 0 & backend\_actual=lv89;mode=global;bandwidth=threshold;dataset\_equal\_length=true \\
+affine & SIM-SR100-EQLEN-GAP & miniwfa & 10 & 10000 & 0 & 0 & 0 & backend\_actual=miniwfa;gap\_convention=gap\_open+gap\_extend*L;max\_s\_exceeded\_or\_failed;dataset\_equal\_length=true \\
+affine & SIM-SR100-EQLEN-GAP & miniwfa & 15 & 10000 & 0 & 0 & 0 & backend\_actual=miniwfa;gap\_convention=gap\_open+gap\_extend*L;max\_s\_exceeded\_or\_failed;dataset\_equal\_length=true \\
+affine & SIM-SR100-EQLEN-GAP & miniwfa & 20 & 10000 & 0 & 0 & 0 & backend\_actual=miniwfa;gap\_convention=gap\_open+gap\_extend*L;max\_s\_exceeded\_or\_failed;dataset\_equal\_length=true \\
+affine & SIM-SR100-EQLEN-GAP & miniwfa & 30 & 10000 & 0 & 0 & 0 & backend\_actual=miniwfa;gap\_convention=gap\_open+gap\_extend*L;max\_s\_exceeded\_or\_failed;dataset\_equal\_length=true \\
+affine & SIM-SR100-EQLEN-GAP & miniwfa & 5 & 10000 & 0 & 0 & 0 & backend\_actual=miniwfa;gap\_convention=gap\_open+gap\_extend*L;max\_s\_exceeded\_or\_failed;dataset\_equal\_length=true \\
+levenshtein & SIM-SR100-EQLEN-BAL & miniwfa & 1 & 10000 & 0 & 0 & 0 & backend\_actual=miniwfa;gap\_convention=gap\_open+gap\_extend*L;max\_s\_exceeded\_or\_failed;dataset\_equal\_length=true \\
+levenshtein & SIM-SR100-EQLEN-BAL & miniwfa & 2 & 10000 & 0 & 0 & 0 & backend\_actual=miniwfa;gap\_convention=gap\_open+gap\_extend*L;max\_s\_exceeded\_or\_failed;dataset\_equal\_length=true \\
+levenshtein & SIM-SR100-EQLEN-BAL & miniwfa & 3 & 10000 & 0 & 0 & 0 & backend\_actual=miniwfa;gap\_convention=gap\_open+gap\_extend*L;max\_s\_exceeded\_or\_failed;dataset\_equal\_length=true \\
+levenshtein & SIM-SR100-EQLEN-BAL & miniwfa & 5 & 10000 & 0 & 0 & 0 & backend\_actual=miniwfa;gap\_convention=gap\_open+gap\_extend*L;max\_s\_exceeded\_or\_failed;dataset\_equal\_length=true \\
+levenshtein & SIM-SR100-EQLEN-BAL & miniwfa & 8 & 10000 & 0 & 0 & 0 & backend\_actual=miniwfa;gap\_convention=gap\_open+gap\_extend*L;max\_s\_exceeded\_or\_failed;dataset\_equal\_length=true \\
+affine & SIM-SR100-EQLEN-GAP & wfa2 & 10 & 10000 & 0 & 6968 & 0 & backend\_actual=wfa2;memory=high;scope=score;threshold\_mode=exact\_score;score\_semantics=pass\_fail\_only\_affine\_normalization\_pending;dataset\_equal\_length=true \\
+affine & SIM-SR100-EQLEN-GAP & wfa2 & 15 & 10000 & 0 & 5923 & 0 & backend\_actual=wfa2;memory=high;scope=score;threshold\_mode=exact\_score;score\_semantics=pass\_fail\_only\_affine\_normalization\_pending;dataset\_equal\_length=true \\
+affine & SIM-SR100-EQLEN-GAP & wfa2 & 20 & 10000 & 0 & 4430 & 0 & backend\_actual=wfa2;memory=high;scope=score;threshold\_mode=exact\_score;score\_semantics=pass\_fail\_only\_affine\_normalization\_pending;dataset\_equal\_length=true \\
+affine & SIM-SR100-EQLEN-GAP & wfa2 & 30 & 10000 & 0 & 1836 & 0 & backend\_actual=wfa2;memory=high;scope=score;threshold\_mode=exact\_score;score\_semantics=pass\_fail\_only\_affine\_normalization\_pending;dataset\_equal\_length=true \\
+affine & SIM-SR100-EQLEN-GAP & wfa2 & 5 & 10000 & 0 & 8490 & 0 & backend\_actual=wfa2;memory=high;scope=score;threshold\_mode=exact\_score;score\_semantics=pass\_fail\_only\_affine\_normalization\_pending;dataset\_equal\_length=true \\
+levenshtein & SIM-SR100-EQLEN-BAL & wfa2 & 1 & 10000 & 0 & 0 & 0 & backend\_actual=wfa2;memory=high;scope=score;threshold\_mode=exact\_score;dataset\_equal\_length=true \\
+levenshtein & SIM-SR100-EQLEN-BAL & wfa2 & 2 & 10000 & 0 & 0 & 0 & backend\_actual=wfa2;memory=high;scope=score;threshold\_mode=exact\_score;dataset\_equal\_length=true \\
+levenshtein & SIM-SR100-EQLEN-BAL & wfa2 & 3 & 10000 & 0 & 0 & 0 & backend\_actual=wfa2;memory=high;scope=score;threshold\_mode=exact\_score;dataset\_equal\_length=true \\
+levenshtein & SIM-SR100-EQLEN-BAL & wfa2 & 5 & 10000 & 0 & 0 & 0 & backend\_actual=wfa2;memory=high;scope=score;threshold\_mode=exact\_score;dataset\_equal\_length=true \\
+levenshtein & SIM-SR100-EQLEN-BAL & wfa2 & 8 & 10000 & 0 & 0 & 0 & backend\_actual=wfa2;memory=high;scope=score;threshold\_mode=exact\_score;dataset\_equal\_length=true \\
+\hline
+\end{tabular}
