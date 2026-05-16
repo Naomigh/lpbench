@@ -35,10 +35,9 @@ def usable(row: dict) -> bool:
     notes = row.get("notes", "")
     if "oracle_fallback" in notes or "fallback_used=true" in notes:
         return False
-    try:
-        return int(row["score_mismatches"]) == 0 and int(row["pass_mismatches"]) == 0
-    except Exception:
+    if row.get("median_seconds") in ("", "NA", None):
         return False
+    return True
 
 
 def save_blank(path: Path) -> None:

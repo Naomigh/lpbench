@@ -36,8 +36,8 @@ def fnum(value: str):
 
 def key(row: dict) -> tuple:
     return (
-        row["method"], row["mode"], row["dataset"], row["threshold"],
-        row["mismatch"], row["gap_open"], row["gap_extend"],
+        row["method"], row["mode"], row["dataset"], row.get("threshold", "exact"),
+        row.get("mismatch", "NA"), row.get("gap_open", "NA"), row.get("gap_extend", "NA"),
     )
 
 
@@ -46,9 +46,25 @@ def main() -> None:
     groups = defaultdict(list)
     source_files = defaultdict(list)
     for path in sorted(Path(args.raw_dir).glob("*.tsv")):
+      if path.name.startswith("test_"):
+        continue
       with path.open(newline="") as fh:
         reader = csv.DictReader(fh, delimiter="\t")
         for row in reader:
+            if row.get("seconds") == "NA":
+                row.setdefault("threshold", row.get("threshold", "exact"))
+                row.setdefault("mismatch", row.get("mismatch", "NA"))
+                row.setdefault("gap_open", row.get("gap_open", "NA"))
+                row.setdefault("gap_extend", row.get("gap_extend", "NA"))
+            elif row.get("mode") == "levenshtein_exact":
+                row["threshold"] = "exact"
+                row["mismatch"] = "NA"
+                row["gap_open"] = "NA"
+                row["gap_extend"] = "NA"
+                row["pairs_per_second"] = "NA"
+                row["ns_per_pair"] = row.get("avg_total_ns_per_pair", "NA")
+                row["checksum"] = ""
+                row["pass_mismatches"] = "NA"
             k = key(row)
             groups[k].append(row)
             source_files[k].append(path.name)

@@ -31,7 +31,7 @@ std::vector<uint8_t> encode_dna(const std::string& seq) {
 class Ksw2Aligner final : public Aligner {
  public:
   std::string name() const override { return "ksw2"; }
-  bool supports(Mode) const override { return true; }
+  bool supports(Mode mode) const override { return mode != Mode::LevenshteinExact; }
   std::string notes() const override { return "backend_actual=ksw2;mode=global;score_negated"; }
   AlignResult align(const std::string& reference,
                     const std::string& read,
@@ -71,4 +71,3 @@ std::unique_ptr<Aligner> make_native_ksw2() {
 }
 
 }  // namespace bench
-

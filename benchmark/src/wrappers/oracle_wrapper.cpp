@@ -14,6 +14,7 @@ class OracleAligner final : public Aligner {
 
   std::string name() const override { return method_; }
   bool supports(Mode mode) const override {
+    if (mode == Mode::LevenshteinExact) return false;
     if (method_ == "edlib" || method_ == "lv89") return mode == Mode::Levenshtein;
     return true;
   }
@@ -48,11 +49,14 @@ std::unique_ptr<Aligner> make_oracle_fallback(const std::string& method) {
 }  // namespace
 
 std::string mode_name(Mode mode) {
-  return mode == Mode::Levenshtein ? "levenshtein" : "affine";
+  if (mode == Mode::Levenshtein) return "levenshtein";
+  if (mode == Mode::LevenshteinExact) return "levenshtein_exact";
+  return "affine";
 }
 
 Mode parse_mode(const std::string& mode) {
   if (mode == "levenshtein") return Mode::Levenshtein;
+  if (mode == "levenshtein_exact") return Mode::LevenshteinExact;
   if (mode == "affine") return Mode::Affine;
   throw std::runtime_error("unknown mode: " + mode);
 }
@@ -86,4 +90,3 @@ std::unique_ptr<Aligner> make_aligner(const std::string& method) {
 }
 
 }  // namespace bench
-

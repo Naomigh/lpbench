@@ -55,12 +55,15 @@ CMakeFiles/bench_leap.dir/home/minghao/project/2026/leapbench/leap/SIMD_ED.cc.o:
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/stl_algobase.h \
+  /usr/include/c++/13/bits/stl_bvector.h \
   /usr/include/c++/13/bits/stl_construct.h \
   /usr/include/c++/13/bits/stl_function.h \
   /usr/include/c++/13/bits/stl_iterator.h \
   /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/13/bits/stl_iterator_base_types.h \
   /usr/include/c++/13/bits/stl_pair.h \
+  /usr/include/c++/13/bits/stl_uninitialized.h \
+  /usr/include/c++/13/bits/stl_vector.h \
   /usr/include/c++/13/bits/streambuf.tcc \
   /usr/include/c++/13/bits/streambuf_iterator.h \
   /usr/include/c++/13/bits/string_view.tcc \
@@ -68,11 +71,13 @@ CMakeFiles/bench_leap.dir/home/minghao/project/2026/leapbench/leap/SIMD_ED.cc.o:
   /usr/include/c++/13/bits/uses_allocator.h \
   /usr/include/c++/13/bits/uses_allocator_args.h \
   /usr/include/c++/13/bits/utility.h \
+  /usr/include/c++/13/bits/vector.tcc \
   /usr/include/c++/13/cassert \
   /usr/include/c++/13/cctype \
   /usr/include/c++/13/cerrno \
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cstddef \
+  /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
   /usr/include/c++/13/cstdlib \
   /usr/include/c++/13/cstring \
@@ -103,6 +108,7 @@ CMakeFiles/bench_leap.dir/home/minghao/project/2026/leapbench/leap/SIMD_ED.cc.o:
   /usr/include/c++/13/tuple \
   /usr/include/c++/13/type_traits \
   /usr/include/c++/13/typeinfo \
+  /usr/include/c++/13/vector \
   /usr/include/ctype.h \
   /usr/include/endian.h \
   /usr/include/errno.h \
@@ -680,8 +686,6 @@ CMakeFiles/bench_leap.dir/src/wrappers/leap_bit_convert_shim.cpp.o: /home/mingha
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h
 
 
-/usr/include/c++/13/cstdint:
-
 /home/minghao/project/2026/leapbench/leap/print.c:
 
 /home/minghao/project/2026/leapbench/leap/avx512_shift.c:
@@ -764,27 +768,25 @@ CMakeFiles/bench_leap.dir/src/wrappers/leap_bit_convert_shim.cpp.o: /home/mingha
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/clzerointrin.h:
 
-/usr/include/c++/13/exception:
+/usr/lib/gcc/x86_64-linux-gnu/13/include/clflushoptintrin.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/13/include/amxcomplexintrin.h:
+/usr/lib/gcc/x86_64-linux-gnu/13/include/cldemoteintrin.h:
 
-/usr/include/x86_64-linux-gnu/bits/endianness.h:
+/usr/lib/gcc/x86_64-linux-gnu/13/include/bmiintrin.h:
 
-/usr/include/c++/13/bits/basic_string.h:
-
-/usr/include/x86_64-linux-gnu/bits/byteswap.h:
-
-/usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
+/usr/lib/gcc/x86_64-linux-gnu/13/include/bmi2intrin.h:
 
 /usr/include/x86_64-linux-gnu/asm/errno.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdlib.h:
 
+/usr/include/c++/13/exception:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/amxcomplexintrin.h:
+
 /usr/include/strings.h:
 
 /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
-
-/usr/include/x86_64-linux-gnu/bits/endian.h:
 
 /usr/include/string.h:
 
@@ -805,8 +807,6 @@ CMakeFiles/bench_leap.dir/src/wrappers/leap_bit_convert_shim.cpp.o: /home/mingha
 /usr/include/stdint.h:
 
 /usr/include/endian.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/bmiintrin.h:
 
 /usr/include/c++/13/typeinfo:
 
@@ -864,6 +864,8 @@ CMakeFiles/bench_leap.dir/src/wrappers/leap_bit_convert_shim.cpp.o: /home/mingha
 
 /usr/include/c++/13/cstdlib:
 
+/usr/include/c++/13/cstdint:
+
 /usr/include/c++/13/cstdio:
 
 /usr/include/x86_64-linux-gnu/bits/errno.h:
@@ -873,6 +875,8 @@ CMakeFiles/bench_leap.dir/src/wrappers/leap_bit_convert_shim.cpp.o: /home/mingha
 /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/avx5124fmapsintrin.h:
+
+/usr/include/c++/13/vector:
 
 /usr/include/c++/13/cstddef:
 
@@ -890,15 +894,15 @@ CMakeFiles/bench_leap.dir/src/wrappers/leap_bit_convert_shim.cpp.o: /home/mingha
 
 /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
 
+/usr/include/c++/13/bits/vector.tcc:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/amxfp16intrin.h:
+
 /usr/include/c++/13/stdlib.h:
 
 /usr/include/c++/13/bits/stl_function.h:
 
 /usr/include/c++/13/bits/uses_allocator_args.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/wbnoinvdintrin.h:
-
-/usr/include/c++/13/bits/new_allocator.h:
 
 /usr/include/x86_64-linux-gnu/bits/long-double.h:
 
@@ -907,6 +911,20 @@ CMakeFiles/bench_leap.dir/src/wrappers/leap_bit_convert_shim.cpp.o: /home/mingha
 /usr/include/c++/13/bits/postypes.h:
 
 /usr/include/c++/13/bits/std_abs.h:
+
+/usr/include/c++/13/bits/stl_vector.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/wbnoinvdintrin.h:
+
+/usr/include/c++/13/bits/new_allocator.h:
+
+/usr/include/c++/13/bits/stl_uninitialized.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/movdirintrin.h:
+
+/usr/include/stdio.h:
+
+/usr/include/c++/13/bits/stl_iterator_base_types.h:
 
 /usr/include/c++/13/ios:
 
@@ -936,17 +954,15 @@ CMakeFiles/bench_leap.dir/src/wrappers/leap_bit_convert_shim.cpp.o: /home/mingha
 
 /usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/13/include/movdirintrin.h:
-
-/usr/include/stdio.h:
-
-/usr/include/c++/13/bits/stl_iterator_base_types.h:
-
 /usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h:
 
 /usr/include/stdc-predef.h:
+
+/usr/include/c++/13/bits/basic_string.h:
+
+/usr/include/x86_64-linux-gnu/bits/endianness.h:
 
 /usr/include/c++/13/bits/utility.h:
 
@@ -1020,8 +1036,6 @@ CMakeFiles/bench_leap.dir/src/wrappers/leap_bit_convert_shim.cpp.o: /home/mingha
 
 /usr/include/c++/13/bits/istream.tcc:
 
-/usr/lib/gcc/x86_64-linux-gnu/13/include/clflushoptintrin.h:
-
 /home/minghao/project/2026/leapbench/leap/leap_compat.h:
 
 /usr/include/x86_64-linux-gnu/bits/locale.h:
@@ -1062,15 +1076,13 @@ CMakeFiles/bench_leap.dir/src/wrappers/leap_bit_convert_shim.cpp.o: /home/mingha
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/adxintrin.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/13/include/bmi2intrin.h:
-
 /usr/include/c++/13/bits/allocator.h:
+
+/usr/include/c++/13/bits/stl_bvector.h:
 
 /usr/include/c++/13/bits/locale_classes.tcc:
 
 /usr/include/c++/13/bits/invoke.h:
-
-/usr/include/x86_64-linux-gnu/bits/cpu-set.h:
 
 /usr/include/c++/13/bits/ostream_insert.h:
 
@@ -1091,6 +1103,14 @@ CMakeFiles/bench_leap.dir/src/wrappers/leap_bit_convert_shim.cpp.o: /home/mingha
 /usr/include/c++/13/bits/stl_algobase.h:
 
 /usr/include/c++/13/bits/stl_construct.h:
+
+/usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
+
+/usr/include/x86_64-linux-gnu/bits/byteswap.h:
+
+/usr/include/x86_64-linux-gnu/bits/cpu-set.h:
+
+/usr/include/x86_64-linux-gnu/bits/endian.h:
 
 /usr/include/c++/13/bits/requires_hosted.h:
 
@@ -1127,6 +1147,10 @@ CMakeFiles/bench_leap.dir/src/wrappers/leap_bit_convert_shim.cpp.o: /home/mingha
 /usr/include/c++/13/bits/ptr_traits.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdio2-decl.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/clwbintrin.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/FILE.h:
 
@@ -1258,8 +1282,6 @@ CMakeFiles/bench_leap.dir/src/wrappers/leap_bit_convert_shim.cpp.o: /home/mingha
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/amxbf16intrin.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/13/include/amxfp16intrin.h:
-
 /usr/lib/gcc/x86_64-linux-gnu/13/include/avx5124vnniwintrin.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512bitalgintrin.h:
@@ -1305,9 +1327,3 @@ CMakeFiles/bench_leap.dir/src/wrappers/leap_bit_convert_shim.cpp.o: /home/mingha
 /usr/include/c++/13/bits/cpp_type_traits.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/avxvnniintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/cldemoteintrin.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdio2.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/clwbintrin.h:

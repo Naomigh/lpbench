@@ -1,6 +1,7 @@
 #ifndef BENCH_ALIGNER_API_HPP
 #define BENCH_ALIGNER_API_HPP
 
+#include <cstdint>
 #include <memory>
 #include <string>
 #include <vector>
@@ -9,6 +10,7 @@ namespace bench {
 
 enum class Mode {
   Levenshtein,
+  LevenshteinExact,
   Affine,
 };
 
@@ -25,8 +27,13 @@ struct AlignResult {
   bool pass = false;
   bool score_valid = true;
   int score = 0;
+  std::string cigar;
   bool cigar_valid = false;
   bool cigar_replay_ok = true;
+  std::uint64_t preprocess_ns = 0;
+  std::uint64_t forward_ns = 0;
+  std::uint64_t traceback_ns = 0;
+  std::uint64_t total_ns = 0;
   std::string notes;
 };
 
@@ -49,4 +56,3 @@ Mode parse_mode(const std::string& mode);
 }  // namespace bench
 
 #endif
-

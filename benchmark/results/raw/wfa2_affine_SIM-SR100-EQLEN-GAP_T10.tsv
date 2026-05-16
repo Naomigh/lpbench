@@ -1,2 +1,2 @@
 method	mode	dataset	threshold	mismatch	gap_open	gap_extend	repeat	warmup	num_pairs	seconds	pairs_per_second	ns_per_pair	checksum	score_mismatches	pass_mismatches	cigar_replay_failures	notes
-wfa2	affine	SIM-SR100-EQLEN-GAP	10	2	3	1	0	1	10000	0.167956	59539.2	16795.6	875e4d0c1d385d83	0	6968	0	backend_actual=wfa2;memory=high;scope=score;threshold_mode=exact_score;score_semantics=pass_fail_only_affine_normalization_pending;dataset_equal_length=true
+wfa2	affine	SIM-SR100-EQLEN-GAP	10	2	3	1	0	0	10000	0.166621	60016.5	16662.1	875e4d0c1d385d83	0	6968	0	backend_actual=wfa2;memory=high;scope=score;threshold_mode=exact_score;score_semantics=pass_fail_only_affine_normalization_pending;dataset_equal_length=true

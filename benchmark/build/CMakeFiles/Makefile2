@@ -113,12 +113,12 @@ wfa2-build/clean: wfa2-build/CMakeFiles/align_benchmark.dir/clean
 
 # All Build rule for target.
 CMakeFiles/bench_align.dir/all: CMakeFiles/bench_edlib.dir/all
-CMakeFiles/bench_align.dir/all: CMakeFiles/bench_leap.dir/all
+CMakeFiles/bench_align.dir/all: CMakeFiles/bench_lv89.dir/all
 CMakeFiles/bench_align.dir/all: CMakeFiles/bench_miniwfa.dir/all
 CMakeFiles/bench_align.dir/all: CMakeFiles/bench_ksw2.dir/all
-CMakeFiles/bench_align.dir/all: wfa2-build/CMakeFiles/wfa2cpp_static.dir/all
-CMakeFiles/bench_align.dir/all: CMakeFiles/bench_lv89.dir/all
+CMakeFiles/bench_align.dir/all: CMakeFiles/bench_leap.dir/all
 CMakeFiles/bench_align.dir/all: wfa2-build/CMakeFiles/wfa2_static.dir/all
+CMakeFiles/bench_align.dir/all: wfa2-build/CMakeFiles/wfa2cpp_static.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench_align.dir/build.make CMakeFiles/bench_align.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench_align.dir/build.make CMakeFiles/bench_align.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles --progress-num=21,22,23,24,25,26,27,28,29,30 "Built target bench_align"

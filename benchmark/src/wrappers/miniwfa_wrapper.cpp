@@ -15,7 +15,7 @@ namespace {
 class MiniwfaAligner final : public Aligner {
  public:
   std::string name() const override { return "miniwfa"; }
-  bool supports(Mode) const override { return true; }
+  bool supports(Mode mode) const override { return mode != Mode::LevenshteinExact; }
   std::string notes() const override { return "backend_actual=miniwfa;gap_convention=gap_open+gap_extend*L"; }
   AlignResult align(const std::string& reference,
                     const std::string& read,

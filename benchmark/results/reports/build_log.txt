@@ -1,4 +1,4 @@
-Build started: 2026-05-15T05:07:51Z
+Build started: 2026-05-15T07:19:09Z
 Root: /home/minghao/project/2026/leapbench
 Compiler:
 c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
@@ -7,84 +7,23 @@ This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 
--- Found PkgConfig: /usr/bin/pkg-config (found version "1.8.1") 
 -- 
 
--- Performing Test CMAKE_HAVE_LIBC_PTHREAD
--- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
--- Found Threads: TRUE  
--- Configuring done (0.2s)
+-- Configuring done (0.0s)
 -- Generating done (0.0s)
 -- Build files have been written to: /home/minghao/project/2026/leapbench/benchmark/build
-[  2%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/wavefront/wavefront.c.o
-[  2%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/wavefront/wavefront_compute_affine2p.c.o
-[  4%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/wavefront/wavefront_compute_linear.c.o
-[  6%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/wavefront/wavefront_components.c.o
-[  8%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/wavefront/wavefront_debug.c.o
-[  8%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/wavefront/wavefront_display.c.o
-[ 10%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/wavefront/wavefront_backtrace_buffer.c.o
-[ 12%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/wavefront/wavefront_extend.c.o
-[ 12%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/wavefront/wavefront_bialigner.c.o
-[ 12%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/wavefront/wavefront_backtrace.c.o
-[ 16%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/wavefront/wavefront_attributes.c.o
-[ 16%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/wavefront/wavefront_align.c.o
-[ 18%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/wavefront/wavefront_bialign.c.o
-[ 20%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/wavefront/wavefront_aligner.c.o
-[ 20%] Built target bench_ksw2
-[ 22%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/wavefront/wavefront_penalties.c.o
-[ 24%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/wavefront/wavefront_backtrace_offload.c.o
-[ 24%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/wavefront/wavefront_compute_edit.c.o
-[ 26%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/wavefront/wavefront_compute_affine.c.o
-[ 28%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/wavefront/wavefront_compute.c.o
-[ 30%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/wavefront/wavefront_plot.c.o
-[ 32%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/wavefront/wavefront_slab.c.o
-[ 34%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/wavefront/wavefront_termination.c.o
-[ 34%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/wavefront/wavefront_sequences.c.o
-[ 36%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/wavefront/wavefront_heuristic.c.o
-[ 38%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/wavefront/wavefront_extend_kernels_avx.c.o
-[ 38%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/wavefront/wavefront_unialign.c.o
-[ 38%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/wavefront/wavefront_pcigar.c.o
-[ 42%] Built target bench_edlib
-[ 44%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/system/mm_stack.c.o
-[ 44%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/wavefront/wavefront_extend_kernels.c.o
-[ 46%] Built target bench_lv89
-[ 50%] Built target bench_miniwfa
-[ 52%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/system/mm_allocator.c.o
-[ 58%] Built target bench_leap
-[ 58%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/system/profiler_counter.c.o
-[ 60%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/system/profiler_timer.c.o
-[ 62%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/utils/bitmap.c.o
-[ 62%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/utils/dna_text.c.o
-[ 66%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/utils/sequence_buffer.c.o
-[ 66%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/utils/vector.c.o
-[ 66%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/utils/commons.c.o
-[ 68%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/utils/heatmap.c.o
-[ 70%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/alignment/affine2p_penalties.c.o
-[ 70%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/alignment/affine_penalties.c.o
-[ 72%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/alignment/cigar.c.o
-[ 74%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/alignment/cigar_utils.c.o
-[ 74%] Building C object wfa2-build/CMakeFiles/wfa2_static.dir/alignment/score_matrix.c.o
-[ 76%] Linking C static library libwfa2.a
-[ 76%] Built target wfa2_static
-[ 78%] Building CXX object wfa2-build/CMakeFiles/wfa2cpp_static.dir/bindings/cpp/WFAligner.cpp.o
-[ 80%] Linking CXX static library libwfa2cpp.a
-[ 80%] Built target wfa2cpp_static
-[ 82%] Building CXX object CMakeFiles/bench_align.dir/src/dataset_io.cpp.o
-[ 84%] Building CXX object CMakeFiles/bench_align.dir/src/edit_oracle.cpp.o
-[ 86%] Building CXX object CMakeFiles/bench_align.dir/src/wrappers/leap_wrapper.cpp.o
-[ 86%] Building CXX object CMakeFiles/bench_align.dir/src/affine_oracle.cpp.o
-[ 88%] Building CXX object CMakeFiles/bench_align.dir/src/wrappers/wfa2_wrapper.cpp.o
-[ 88%] Building CXX object CMakeFiles/bench_align.dir/src/timer.cpp.o
-[ 88%] Building CXX object CMakeFiles/bench_align.dir/src/wrappers/ksw2_wrapper.cpp.o
-[ 92%] Building CXX object CMakeFiles/bench_align.dir/src/bench_main.cpp.o
-[ 92%] Building CXX object CMakeFiles/bench_align.dir/src/checksum.cpp.o
-[ 94%] Building CXX object CMakeFiles/bench_align.dir/src/wrappers/miniwfa_wrapper.cpp.o
-[ 94%] Building CXX object CMakeFiles/bench_align.dir/src/wrappers/edlib_wrapper.cpp.o
-[ 96%] Building CXX object CMakeFiles/bench_align.dir/src/wrappers/oracle_wrapper.cpp.o
-[ 98%] Building CXX object CMakeFiles/bench_align.dir/src/wrappers/parasail_wrapper.cpp.o
-[100%] Building CXX object CMakeFiles/bench_align.dir/src/wrappers/lv89_wrapper.cpp.o
-[100%] Linking CXX executable bench_align
+[  4%] Built target bench_edlib
+[  8%] Built target bench_miniwfa
+[ 10%] Built target bench_lv89
+[ 12%] Built target bench_ksw2
+[ 12%] Building CXX object CMakeFiles/bench_leap.dir/home/minghao/project/2026/leapbench/leap/SIMD_ED.cc.o
+[ 70%] Built target wfa2_static
+[ 74%] Built target wfa2cpp_static
+[ 76%] Linking CXX static library libbench_leap.a
+[ 80%] Built target bench_leap
+[ 82%] Building CXX object CMakeFiles/bench_align.dir/src/wrappers/leap_wrapper.cpp.o
+[ 82%] Linking CXX executable bench_align
 [100%] Built target bench_align
 
-Build finished: 2026-05-15T05:07:53Z
+Build finished: 2026-05-15T07:19:11Z
 Executable: /home/minghao/project/2026/leapbench/benchmark/build/bench_align

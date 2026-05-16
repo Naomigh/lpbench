@@ -11,7 +11,7 @@ namespace {
 class Wfa2Aligner final : public Aligner {
  public:
   std::string name() const override { return "wfa2"; }
-  bool supports(Mode) const override { return true; }
+  bool supports(Mode mode) const override { return mode != Mode::LevenshteinExact; }
   std::string notes() const override { return "backend_actual=wfa2;memory=high;scope=score;threshold_mode=exact_score"; }
   AlignResult align(const std::string& reference,
                     const std::string& read,

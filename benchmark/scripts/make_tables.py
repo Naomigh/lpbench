@@ -26,10 +26,16 @@ def read_summary(path: Path) -> list[dict]:
         return list(csv.DictReader(fh, delimiter="\t"))
 
 
-def usable(row: dict) -> bool:
+def runnable(row: dict) -> bool:
     notes = row.get("notes", "")
     if "oracle_fallback" in notes or "fallback_used=true" in notes:
         return False
+    if row.get("median_seconds") in ("", "NA", None):
+        return False
+    return True
+
+
+def correctness_ok(row: dict) -> bool:
     try:
         return (
             int(row["score_mismatches"]) == 0
@@ -37,11 +43,17 @@ def usable(row: dict) -> bool:
             and int(row["cigar_replay_failures"]) == 0
         )
     except Exception:
-        return False
+        try:
+            return (
+                int(row["score_mismatches"]) == 0
+                and int(row["cigar_replay_failures"]) == 0
+            )
+        except Exception:
+            return False
 
 
 def fmt_speed(row: dict | None) -> str:
-    if row is None or not usable(row):
+    if row is None or not runnable(row):
         return "N/A"
     try:
         return f"{float(row['seconds_per_10M']):.3f}"
@@ -113,6 +125,21 @@ def correctness_tables(rows: list[dict]) -> tuple[list[str], list[list[str]]]:
     return header, body
 
 
+def correctness_issue_tables(rows: list[dict]) -> tuple[list[str], list[list[str]]]:
+    header = ["mode", "dataset", "method", "threshold", "pairs", "score mismatches", "pass/fail mismatches", "CIGAR replay failures", "notes"]
+    body = []
+    for r in rows:
+        if correctness_ok(r):
+            continue
+        body.append([
+            r["mode"], r["dataset"], r["method"], r["threshold"], r["num_pairs"],
+            r["score_mismatches"], r["pass_mismatches"], r["cigar_replay_failures"], r["notes"],
+        ])
+    if not body:
+        body.append(["none", "none", "none", "none", "0", "0", "0", "0", "no correctness issues in collected rows"])
+    return header, body
+
+
 def write_reports(results_dir: Path) -> None:
     reports = results_dir / "reports"
     tables = results_dir / "tables"
@@ -120,17 +147,23 @@ def write_reports(results_dir: Path) -> None:
     lev = (tables / "table_levenshtein_speed.md").read_text() if (tables / "table_levenshtein_speed.md").exists() else ""
     aff = (tables / "table_affine_speed.md").read_text() if (tables / "table_affine_speed.md").exists() else ""
     correctness = (tables / "table_correctness.md").read_text() if (tables / "table_correctness.md").exists() else ""
+    correctness_issues = (tables / "table_correctness_issues.md").read_text() if (tables / "table_correctness_issues.md").exists() else ""
+    phase = (results_dir / "leap_phase_timing.md").read_text() if (results_dir / "leap_phase_timing.md").exists() else ""
     (reports / "benchmark_report.md").write_text(
         "# Benchmark report\n\n"
         "LEAP means the current AVX512 implementation in `./leap`; original LEAP-BV is not included.\n\n"
+        "Speed tables below report measured time even when a row has correctness mismatches. "
+        "Correctness issues are listed separately and are not used to hide timing numbers.\n\n"
         "The first LEAP-AVX512 benchmark uses equal-length mixed-edit short-read datasets. "
         "Insertions and deletions are present, but total inserted bases equals total deleted bases per pair. "
         "This avoids the current LEAP wrapper fallback on variable-length pairs and measures the native AVX512 path. "
         "These datasets do not cover arbitrary variable-length alignment cases.\n\n"
+        "## LEAP exact phase timing\n\n" + phase + "\n\n"
         "## Levenshtein speed\n\n" + lev + "\n\n"
         "## Affine speed\n\n" + aff + "\n\n"
+        "## Correctness issues\n\n" + correctness_issues + "\n\n"
         "## Correctness\n\n" + correctness + "\n\n"
-        "Unsupported methods and fallback rows are reported as N/A in speed tables. Correctness mismatches must be resolved before using a row as a final performance number.\n"
+        "Unsupported, failed, and fallback rows are reported as N/A in speed tables.\n"
     )
     (reports / "paper_result_section_draft.md").write_text(
         "# Paper-style result section draft\n\n"
@@ -165,6 +198,11 @@ def main() -> None:
         "Rows with nonzero mismatches are not eligible for final speed claims."
     )
     write_tex(tables / "table_correctness.tex", header, body)
+    header, body = correctness_issue_tables(rows)
+    write_md(
+        tables / "table_correctness_issues.md", header, body, "Correctness issues",
+        "These rows have nonzero or unavailable correctness counters. Timings are still shown in the speed tables."
+    )
     write_reports(results_dir)
     print(f"wrote tables under {tables}")
 

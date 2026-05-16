@@ -17,6 +17,55 @@ The framework is self-contained under `benchmark/`. Generated datasets and
 benchmark outputs are written only under `benchmark/data/generated` and
 `benchmark/results`.
 
+## LEAP exact phase benchmark
+
+The LEAP benchmark now measures exact Levenshtein alignment, not threshold
+pass/fail verification. The exact path is selected with `--mode
+levenshtein_exact` and does not require `--threshold`.
+
+For LEAP, timing is split into three phases:
+
+1. preprocessing: input loading, bit-vector conversion, mismatch-mask
+   generation, and state allocation/reset;
+2. forward: recurrence evaluation until the bottom-right terminal state is
+   reached;
+3. traceback: traceback from the final state and CIGAR generation.
+
+Correctness is evaluated only by exact score and CIGAR replay. The expected
+score is `dp_levenshtein_distance` from `metadata.tsv`; missing values are an
+error in the exact benchmark. The replay check requires the CIGAR to consume the
+entire read and reference and to reproduce the exact edit distance. Threshold
+pass/fail checks are not part of the new LEAP exact benchmark.
+
+Run the phase benchmark with:
+
+```bash
+python3 benchmark/scripts/run_leap_phase_bench.py \
+  --dataset benchmark/data/generated/SIM-SR100-EQLEN-BAL \
+  --repeat 3 \
+  --warmup 1
+```
+
+This produces:
+
+- `benchmark/results/raw/leap_exact.tsv`
+- `benchmark/results/leap_phase_timing.tsv`
+- `benchmark/results/leap_phase_timing.md`
+
+The underlying command is:
+
+```bash
+benchmark/build/bench_align \
+  --method leap \
+  --mode levenshtein_exact \
+  --input benchmark/data/generated/SIM-SR100-EQLEN-BAL/pairs.tsv \
+  --metadata benchmark/data/generated/SIM-SR100-EQLEN-BAL/metadata.tsv \
+  --repeat 1 \
+  --warmup 1 \
+  --output benchmark/results/raw/leap_exact.tsv \
+  --phase-output benchmark/results/leap_phase_timing.tsv
+```
+
 ## Phase 1-3 status
 
 Implemented now:
@@ -26,7 +75,7 @@ Implemented now:
    deletions.
 3. Dataset validation with exact Levenshtein and affine-gap DP oracles.
 
-Benchmark harnesses and method wrappers are intentionally left for later phases.
+Benchmark harnesses and method wrappers are available under `benchmark/src`.
 
 ## Dataset generation
 
