@@ -1,2 +1,0 @@
-method	mode	dataset	threshold	mismatch	gap_open	gap_extend	repeat	warmup	num_pairs	seconds	pairs_per_second	ns_per_pair	checksum	score_mismatches	pass_mismatches	cigar_replay_failures	notes
-ksw2	affine	SIM-SR100-EQLEN-GAP	30	2	3	1	0	0	10000	0.624669	16008.5	62466.9	59a3b6c248c7dda2	0	0	0	backend_actual=ksw2;mode=global;score_negated;dataset_equal_length=true

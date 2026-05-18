@@ -1,2 +1,0 @@
-method	mode	dataset	threshold	mismatch	gap_open	gap_extend	repeat	warmup	num_pairs	seconds	pairs_per_second	ns_per_pair	checksum	score_mismatches	pass_mismatches	cigar_replay_failures	notes
-leap	affine	SIM-SR100-EQLEN-GAP	5	2	3	1	0	0	10000	0.233135	42893.5	23313.5	9b3a8035d02ce86a	0	0	0	backend_actual=avx512;implementation=../leap/SIMD_ED;backend_actual=oracle_fallback;reason=leap_native_requires_equal_length_le_512;dataset_equal_length=true;fallback_used=true

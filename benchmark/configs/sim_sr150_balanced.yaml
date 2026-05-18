@@ -1,7 +1,0 @@
-name: SIM-SR150-BAL
-num_pairs: 100000
-ref_length: 150
-max_distance: 15
-alphabet: ACGT
-seed: 44
-

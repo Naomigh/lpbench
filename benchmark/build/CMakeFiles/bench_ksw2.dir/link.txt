@@ -1,2 +1,0 @@
-/usr/bin/ar qc libbench_ksw2.a CMakeFiles/bench_ksw2.dir/home/minghao/project/2026/leapbench/ksw2/ksw2_gg2.c.o
-/usr/bin/ranlib libbench_ksw2.a

@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/edlib_gt.dir/wrappers/edlib_gt.cpp.o -o edlib_gt  lib/libedlib.a 

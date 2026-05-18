@@ -1,8 +1,0 @@
-name: SIM-SR150-EQLEN-BAL
-model: eqlen_balanced
-num_pairs: 10000
-ref_length: 150
-max_distance: 15
-alphabet: ACGT
-seed: 44
-

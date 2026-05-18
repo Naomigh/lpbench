@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/wfa2_bench.dir/wrappers/wfa2_bench.cpp.o -o wfa2_bench  wfa2-build/libwfa2.a 

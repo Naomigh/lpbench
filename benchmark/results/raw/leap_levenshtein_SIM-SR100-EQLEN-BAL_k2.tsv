@@ -1,2 +1,0 @@
-method	mode	dataset	threshold	mismatch	gap_open	gap_extend	repeat	warmup	num_pairs	seconds	pairs_per_second	ns_per_pair	checksum	score_mismatches	pass_mismatches	cigar_replay_failures	notes
-leap	levenshtein	SIM-SR100-EQLEN-BAL	2	2	3	1	0	0	10000	12.0977	826.603	1.20977e+06	78152290bd718fcd	0	0	0	backend_actual=avx512;implementation=../leap/SIMD_ED;score_semantics=exact_score;dataset_equal_length=true;fallback_used=false

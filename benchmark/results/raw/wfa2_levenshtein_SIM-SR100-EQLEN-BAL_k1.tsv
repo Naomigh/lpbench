@@ -1,2 +1,0 @@
-method	mode	dataset	threshold	mismatch	gap_open	gap_extend	repeat	warmup	num_pairs	seconds	pairs_per_second	ns_per_pair	checksum	score_mismatches	pass_mismatches	cigar_replay_failures	notes
-wfa2	levenshtein	SIM-SR100-EQLEN-BAL	1	2	3	1	0	0	10000	0.0124305	804476	1243.05	7f895913c707ceb9	0	0	0	backend_actual=wfa2;memory=high;scope=score;threshold_mode=exact_score;dataset_equal_length=true

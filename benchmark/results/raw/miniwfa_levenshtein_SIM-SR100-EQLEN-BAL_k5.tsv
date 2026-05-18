@@ -1,2 +1,0 @@
-method	mode	dataset	threshold	mismatch	gap_open	gap_extend	repeat	warmup	num_pairs	seconds	pairs_per_second	ns_per_pair	checksum	score_mismatches	pass_mismatches	cigar_replay_failures	notes
-miniwfa	levenshtein	SIM-SR100-EQLEN-BAL	5	2	3	1	0	0	10000	0.00746196	1.34013e+06	746.196	f77d80d80a55327c	0	0	0	backend_actual=miniwfa;gap_convention=gap_open+gap_extend*L;max_s_exceeded_or_failed;dataset_equal_length=true

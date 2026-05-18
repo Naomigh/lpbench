@@ -63,12 +63,16 @@ CMAKE_BINARY_DIR = /home/minghao/project/2026/leapbench/benchmark/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/bench_align.dir/all
-all: CMakeFiles/bench_edlib.dir/all
-all: CMakeFiles/bench_lv89.dir/all
-all: CMakeFiles/bench_miniwfa.dir/all
-all: CMakeFiles/bench_ksw2.dir/all
-all: CMakeFiles/bench_leap.dir/all
+all: CMakeFiles/edlib_gt.dir/all
+all: CMakeFiles/lv89_obj.dir/all
+all: CMakeFiles/lv89_bench.dir/all
+all: CMakeFiles/miniwfa_obj.dir/all
+all: CMakeFiles/miniwfa_bench.dir/all
+all: CMakeFiles/wfa2_bench.dir/all
+all: CMakeFiles/leap_avx2_obj.dir/all
+all: CMakeFiles/leap_avx512_obj.dir/all
+all: CMakeFiles/leap_avx2_bench.dir/all
+all: CMakeFiles/leap_avx512_bench.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -76,14 +80,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/bench_align.dir/clean
-clean: CMakeFiles/bench_edlib.dir/clean
-clean: CMakeFiles/bench_lv89.dir/clean
-clean: CMakeFiles/bench_miniwfa.dir/clean
-clean: CMakeFiles/bench_ksw2.dir/clean
-clean: CMakeFiles/bench_leap.dir/clean
+clean: CMakeFiles/edlib_gt.dir/clean
+clean: CMakeFiles/lv89_obj.dir/clean
+clean: CMakeFiles/lv89_bench.dir/clean
+clean: CMakeFiles/miniwfa_obj.dir/clean
+clean: CMakeFiles/miniwfa_bench.dir/clean
+clean: CMakeFiles/wfa2_bench.dir/clean
+clean: CMakeFiles/leap_avx2_obj.dir/clean
+clean: CMakeFiles/leap_avx512_obj.dir/clean
+clean: CMakeFiles/leap_avx2_bench.dir/clean
+clean: CMakeFiles/leap_avx512_bench.dir/clean
+clean: edlib-build/clean
 clean: wfa2-build/clean
 .PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory edlib-build
+
+# Recursive "all" directory target.
+edlib-build/all: edlib-build/CMakeFiles/edlib.dir/all
+.PHONY : edlib-build/all
+
+# Recursive "preinstall" directory target.
+edlib-build/preinstall:
+.PHONY : edlib-build/preinstall
+
+# Recursive "clean" directory target.
+edlib-build/clean: edlib-build/CMakeFiles/edlib.dir/clean
+.PHONY : edlib-build/clean
 
 #=============================================================================
 # Directory level rules for directory wfa2-build
@@ -109,166 +133,290 @@ wfa2-build/clean: wfa2-build/CMakeFiles/align_benchmark.dir/clean
 .PHONY : wfa2-build/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/bench_align.dir
+# Target rules for target CMakeFiles/edlib_gt.dir
 
 # All Build rule for target.
-CMakeFiles/bench_align.dir/all: CMakeFiles/bench_edlib.dir/all
-CMakeFiles/bench_align.dir/all: CMakeFiles/bench_lv89.dir/all
-CMakeFiles/bench_align.dir/all: CMakeFiles/bench_miniwfa.dir/all
-CMakeFiles/bench_align.dir/all: CMakeFiles/bench_ksw2.dir/all
-CMakeFiles/bench_align.dir/all: CMakeFiles/bench_leap.dir/all
-CMakeFiles/bench_align.dir/all: wfa2-build/CMakeFiles/wfa2_static.dir/all
-CMakeFiles/bench_align.dir/all: wfa2-build/CMakeFiles/wfa2cpp_static.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench_align.dir/build.make CMakeFiles/bench_align.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench_align.dir/build.make CMakeFiles/bench_align.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles --progress-num=21,22,23,24,25,26,27,28,29,30 "Built target bench_align"
-.PHONY : CMakeFiles/bench_align.dir/all
+CMakeFiles/edlib_gt.dir/all: edlib-build/CMakeFiles/edlib.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/edlib_gt.dir/build.make CMakeFiles/edlib_gt.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/edlib_gt.dir/build.make CMakeFiles/edlib_gt.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles --progress-num=22,23 "Built target edlib_gt"
+.PHONY : CMakeFiles/edlib_gt.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/bench_align.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 50
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/bench_align.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 0
-.PHONY : CMakeFiles/bench_align.dir/rule
-
-# Convenience name for target.
-bench_align: CMakeFiles/bench_align.dir/rule
-.PHONY : bench_align
-
-# clean rule for target.
-CMakeFiles/bench_align.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench_align.dir/build.make CMakeFiles/bench_align.dir/clean
-.PHONY : CMakeFiles/bench_align.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/bench_edlib.dir
-
-# All Build rule for target.
-CMakeFiles/bench_edlib.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench_edlib.dir/build.make CMakeFiles/bench_edlib.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench_edlib.dir/build.make CMakeFiles/bench_edlib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles --progress-num=31,32 "Built target bench_edlib"
-.PHONY : CMakeFiles/bench_edlib.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/bench_edlib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/bench_edlib.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 0
-.PHONY : CMakeFiles/bench_edlib.dir/rule
-
-# Convenience name for target.
-bench_edlib: CMakeFiles/bench_edlib.dir/rule
-.PHONY : bench_edlib
-
-# clean rule for target.
-CMakeFiles/bench_edlib.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench_edlib.dir/build.make CMakeFiles/bench_edlib.dir/clean
-.PHONY : CMakeFiles/bench_edlib.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/bench_lv89.dir
-
-# All Build rule for target.
-CMakeFiles/bench_lv89.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench_lv89.dir/build.make CMakeFiles/bench_lv89.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench_lv89.dir/build.make CMakeFiles/bench_lv89.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles --progress-num=37 "Built target bench_lv89"
-.PHONY : CMakeFiles/bench_lv89.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/bench_lv89.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 1
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/bench_lv89.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 0
-.PHONY : CMakeFiles/bench_lv89.dir/rule
-
-# Convenience name for target.
-bench_lv89: CMakeFiles/bench_lv89.dir/rule
-.PHONY : bench_lv89
-
-# clean rule for target.
-CMakeFiles/bench_lv89.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench_lv89.dir/build.make CMakeFiles/bench_lv89.dir/clean
-.PHONY : CMakeFiles/bench_lv89.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/bench_miniwfa.dir
-
-# All Build rule for target.
-CMakeFiles/bench_miniwfa.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench_miniwfa.dir/build.make CMakeFiles/bench_miniwfa.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench_miniwfa.dir/build.make CMakeFiles/bench_miniwfa.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles --progress-num=38,39 "Built target bench_miniwfa"
-.PHONY : CMakeFiles/bench_miniwfa.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/bench_miniwfa.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/bench_miniwfa.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 0
-.PHONY : CMakeFiles/bench_miniwfa.dir/rule
-
-# Convenience name for target.
-bench_miniwfa: CMakeFiles/bench_miniwfa.dir/rule
-.PHONY : bench_miniwfa
-
-# clean rule for target.
-CMakeFiles/bench_miniwfa.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench_miniwfa.dir/build.make CMakeFiles/bench_miniwfa.dir/clean
-.PHONY : CMakeFiles/bench_miniwfa.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/bench_ksw2.dir
-
-# All Build rule for target.
-CMakeFiles/bench_ksw2.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench_ksw2.dir/build.make CMakeFiles/bench_ksw2.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench_ksw2.dir/build.make CMakeFiles/bench_ksw2.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles --progress-num=33 "Built target bench_ksw2"
-.PHONY : CMakeFiles/bench_ksw2.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/bench_ksw2.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 1
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/bench_ksw2.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 0
-.PHONY : CMakeFiles/bench_ksw2.dir/rule
-
-# Convenience name for target.
-bench_ksw2: CMakeFiles/bench_ksw2.dir/rule
-.PHONY : bench_ksw2
-
-# clean rule for target.
-CMakeFiles/bench_ksw2.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench_ksw2.dir/build.make CMakeFiles/bench_ksw2.dir/clean
-.PHONY : CMakeFiles/bench_ksw2.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/bench_leap.dir
-
-# All Build rule for target.
-CMakeFiles/bench_leap.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench_leap.dir/build.make CMakeFiles/bench_leap.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench_leap.dir/build.make CMakeFiles/bench_leap.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles --progress-num=34,35,36 "Built target bench_leap"
-.PHONY : CMakeFiles/bench_leap.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/bench_leap.dir/rule: cmake_check_build_system
+CMakeFiles/edlib_gt.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 3
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/bench_leap.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/edlib_gt.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 0
-.PHONY : CMakeFiles/bench_leap.dir/rule
+.PHONY : CMakeFiles/edlib_gt.dir/rule
 
 # Convenience name for target.
-bench_leap: CMakeFiles/bench_leap.dir/rule
-.PHONY : bench_leap
+edlib_gt: CMakeFiles/edlib_gt.dir/rule
+.PHONY : edlib_gt
 
 # clean rule for target.
-CMakeFiles/bench_leap.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench_leap.dir/build.make CMakeFiles/bench_leap.dir/clean
-.PHONY : CMakeFiles/bench_leap.dir/clean
+CMakeFiles/edlib_gt.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/edlib_gt.dir/build.make CMakeFiles/edlib_gt.dir/clean
+.PHONY : CMakeFiles/edlib_gt.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/lv89_obj.dir
+
+# All Build rule for target.
+CMakeFiles/lv89_obj.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lv89_obj.dir/build.make CMakeFiles/lv89_obj.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lv89_obj.dir/build.make CMakeFiles/lv89_obj.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles --progress-num= "Built target lv89_obj"
+.PHONY : CMakeFiles/lv89_obj.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/lv89_obj.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 0
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/lv89_obj.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 0
+.PHONY : CMakeFiles/lv89_obj.dir/rule
+
+# Convenience name for target.
+lv89_obj: CMakeFiles/lv89_obj.dir/rule
+.PHONY : lv89_obj
+
+# clean rule for target.
+CMakeFiles/lv89_obj.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lv89_obj.dir/build.make CMakeFiles/lv89_obj.dir/clean
+.PHONY : CMakeFiles/lv89_obj.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/lv89_bench.dir
+
+# All Build rule for target.
+CMakeFiles/lv89_bench.dir/all: CMakeFiles/lv89_obj.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lv89_bench.dir/build.make CMakeFiles/lv89_bench.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lv89_bench.dir/build.make CMakeFiles/lv89_bench.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles --progress-num=35,36 "Built target lv89_bench"
+.PHONY : CMakeFiles/lv89_bench.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/lv89_bench.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/lv89_bench.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 0
+.PHONY : CMakeFiles/lv89_bench.dir/rule
+
+# Convenience name for target.
+lv89_bench: CMakeFiles/lv89_bench.dir/rule
+.PHONY : lv89_bench
+
+# clean rule for target.
+CMakeFiles/lv89_bench.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lv89_bench.dir/build.make CMakeFiles/lv89_bench.dir/clean
+.PHONY : CMakeFiles/lv89_bench.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/miniwfa_obj.dir
+
+# All Build rule for target.
+CMakeFiles/miniwfa_obj.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/miniwfa_obj.dir/build.make CMakeFiles/miniwfa_obj.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/miniwfa_obj.dir/build.make CMakeFiles/miniwfa_obj.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles --progress-num=39 "Built target miniwfa_obj"
+.PHONY : CMakeFiles/miniwfa_obj.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/miniwfa_obj.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 1
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/miniwfa_obj.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 0
+.PHONY : CMakeFiles/miniwfa_obj.dir/rule
+
+# Convenience name for target.
+miniwfa_obj: CMakeFiles/miniwfa_obj.dir/rule
+.PHONY : miniwfa_obj
+
+# clean rule for target.
+CMakeFiles/miniwfa_obj.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/miniwfa_obj.dir/build.make CMakeFiles/miniwfa_obj.dir/clean
+.PHONY : CMakeFiles/miniwfa_obj.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/miniwfa_bench.dir
+
+# All Build rule for target.
+CMakeFiles/miniwfa_bench.dir/all: CMakeFiles/miniwfa_obj.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/miniwfa_bench.dir/build.make CMakeFiles/miniwfa_bench.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/miniwfa_bench.dir/build.make CMakeFiles/miniwfa_bench.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles --progress-num=37,38 "Built target miniwfa_bench"
+.PHONY : CMakeFiles/miniwfa_bench.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/miniwfa_bench.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/miniwfa_bench.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 0
+.PHONY : CMakeFiles/miniwfa_bench.dir/rule
+
+# Convenience name for target.
+miniwfa_bench: CMakeFiles/miniwfa_bench.dir/rule
+.PHONY : miniwfa_bench
+
+# clean rule for target.
+CMakeFiles/miniwfa_bench.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/miniwfa_bench.dir/build.make CMakeFiles/miniwfa_bench.dir/clean
+.PHONY : CMakeFiles/miniwfa_bench.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/wfa2_bench.dir
+
+# All Build rule for target.
+CMakeFiles/wfa2_bench.dir/all: wfa2-build/CMakeFiles/wfa2_static.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/wfa2_bench.dir/build.make CMakeFiles/wfa2_bench.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/wfa2_bench.dir/build.make CMakeFiles/wfa2_bench.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles --progress-num=68,69 "Built target wfa2_bench"
+.PHONY : CMakeFiles/wfa2_bench.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/wfa2_bench.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 30
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/wfa2_bench.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 0
+.PHONY : CMakeFiles/wfa2_bench.dir/rule
+
+# Convenience name for target.
+wfa2_bench: CMakeFiles/wfa2_bench.dir/rule
+.PHONY : wfa2_bench
+
+# clean rule for target.
+CMakeFiles/wfa2_bench.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/wfa2_bench.dir/build.make CMakeFiles/wfa2_bench.dir/clean
+.PHONY : CMakeFiles/wfa2_bench.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/leap_avx2_obj.dir
+
+# All Build rule for target.
+CMakeFiles/leap_avx2_obj.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx2_obj.dir/build.make CMakeFiles/leap_avx2_obj.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx2_obj.dir/build.make CMakeFiles/leap_avx2_obj.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles --progress-num=25,26,27,28,29 "Built target leap_avx2_obj"
+.PHONY : CMakeFiles/leap_avx2_obj.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/leap_avx2_obj.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 5
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/leap_avx2_obj.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 0
+.PHONY : CMakeFiles/leap_avx2_obj.dir/rule
+
+# Convenience name for target.
+leap_avx2_obj: CMakeFiles/leap_avx2_obj.dir/rule
+.PHONY : leap_avx2_obj
+
+# clean rule for target.
+CMakeFiles/leap_avx2_obj.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx2_obj.dir/build.make CMakeFiles/leap_avx2_obj.dir/clean
+.PHONY : CMakeFiles/leap_avx2_obj.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/leap_avx512_obj.dir
+
+# All Build rule for target.
+CMakeFiles/leap_avx512_obj.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx512_obj.dir/build.make CMakeFiles/leap_avx512_obj.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx512_obj.dir/build.make CMakeFiles/leap_avx512_obj.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles --progress-num=31,32,33,34 "Built target leap_avx512_obj"
+.PHONY : CMakeFiles/leap_avx512_obj.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/leap_avx512_obj.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/leap_avx512_obj.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 0
+.PHONY : CMakeFiles/leap_avx512_obj.dir/rule
+
+# Convenience name for target.
+leap_avx512_obj: CMakeFiles/leap_avx512_obj.dir/rule
+.PHONY : leap_avx512_obj
+
+# clean rule for target.
+CMakeFiles/leap_avx512_obj.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx512_obj.dir/build.make CMakeFiles/leap_avx512_obj.dir/clean
+.PHONY : CMakeFiles/leap_avx512_obj.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/leap_avx2_bench.dir
+
+# All Build rule for target.
+CMakeFiles/leap_avx2_bench.dir/all: CMakeFiles/leap_avx2_obj.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx2_bench.dir/build.make CMakeFiles/leap_avx2_bench.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx2_bench.dir/build.make CMakeFiles/leap_avx2_bench.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles --progress-num=24 "Built target leap_avx2_bench"
+.PHONY : CMakeFiles/leap_avx2_bench.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/leap_avx2_bench.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 6
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/leap_avx2_bench.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 0
+.PHONY : CMakeFiles/leap_avx2_bench.dir/rule
+
+# Convenience name for target.
+leap_avx2_bench: CMakeFiles/leap_avx2_bench.dir/rule
+.PHONY : leap_avx2_bench
+
+# clean rule for target.
+CMakeFiles/leap_avx2_bench.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx2_bench.dir/build.make CMakeFiles/leap_avx2_bench.dir/clean
+.PHONY : CMakeFiles/leap_avx2_bench.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/leap_avx512_bench.dir
+
+# All Build rule for target.
+CMakeFiles/leap_avx512_bench.dir/all: CMakeFiles/leap_avx512_obj.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx512_bench.dir/build.make CMakeFiles/leap_avx512_bench.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx512_bench.dir/build.make CMakeFiles/leap_avx512_bench.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles --progress-num=30 "Built target leap_avx512_bench"
+.PHONY : CMakeFiles/leap_avx512_bench.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/leap_avx512_bench.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 5
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/leap_avx512_bench.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 0
+.PHONY : CMakeFiles/leap_avx512_bench.dir/rule
+
+# Convenience name for target.
+leap_avx512_bench: CMakeFiles/leap_avx512_bench.dir/rule
+.PHONY : leap_avx512_bench
+
+# clean rule for target.
+CMakeFiles/leap_avx512_bench.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx512_bench.dir/build.make CMakeFiles/leap_avx512_bench.dir/clean
+.PHONY : CMakeFiles/leap_avx512_bench.dir/clean
+
+#=============================================================================
+# Target rules for target edlib-build/CMakeFiles/edlib.dir
+
+# All Build rule for target.
+edlib-build/CMakeFiles/edlib.dir/all:
+	$(MAKE) $(MAKESILENT) -f edlib-build/CMakeFiles/edlib.dir/build.make edlib-build/CMakeFiles/edlib.dir/depend
+	$(MAKE) $(MAKESILENT) -f edlib-build/CMakeFiles/edlib.dir/build.make edlib-build/CMakeFiles/edlib.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles --progress-num=21 "Built target edlib"
+.PHONY : edlib-build/CMakeFiles/edlib.dir/all
+
+# Build rule for subdir invocation for target.
+edlib-build/CMakeFiles/edlib.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 1
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 edlib-build/CMakeFiles/edlib.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 0
+.PHONY : edlib-build/CMakeFiles/edlib.dir/rule
+
+# Convenience name for target.
+edlib: edlib-build/CMakeFiles/edlib.dir/rule
+.PHONY : edlib
+
+# clean rule for target.
+edlib-build/CMakeFiles/edlib.dir/clean:
+	$(MAKE) $(MAKESILENT) -f edlib-build/CMakeFiles/edlib.dir/build.make edlib-build/CMakeFiles/edlib.dir/clean
+.PHONY : edlib-build/CMakeFiles/edlib.dir/clean
 
 #=============================================================================
 # Target rules for target wfa2-build/CMakeFiles/wfa2_static.dir
@@ -277,12 +425,12 @@ CMakeFiles/bench_leap.dir/clean:
 wfa2-build/CMakeFiles/wfa2_static.dir/all:
 	$(MAKE) $(MAKESILENT) -f wfa2-build/CMakeFiles/wfa2_static.dir/build.make wfa2-build/CMakeFiles/wfa2_static.dir/depend
 	$(MAKE) $(MAKESILENT) -f wfa2-build/CMakeFiles/wfa2_static.dir/build.make wfa2-build/CMakeFiles/wfa2_static.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles --progress-num=69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97 "Built target wfa2_static"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles --progress-num=70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97 "Built target wfa2_static"
 .PHONY : wfa2-build/CMakeFiles/wfa2_static.dir/all
 
 # Build rule for subdir invocation for target.
 wfa2-build/CMakeFiles/wfa2_static.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 29
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 wfa2-build/CMakeFiles/wfa2_static.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 0
 .PHONY : wfa2-build/CMakeFiles/wfa2_static.dir/rule
@@ -303,12 +451,12 @@ wfa2-build/CMakeFiles/wfa2_static.dir/clean:
 wfa2-build/CMakeFiles/wfa2.dir/all:
 	$(MAKE) $(MAKESILENT) -f wfa2-build/CMakeFiles/wfa2.dir/build.make wfa2-build/CMakeFiles/wfa2.dir/depend
 	$(MAKE) $(MAKESILENT) -f wfa2-build/CMakeFiles/wfa2.dir/build.make wfa2-build/CMakeFiles/wfa2.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles --progress-num=40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68 "Built target wfa2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles --progress-num=40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67 "Built target wfa2"
 .PHONY : wfa2-build/CMakeFiles/wfa2.dir/all
 
 # Build rule for subdir invocation for target.
 wfa2-build/CMakeFiles/wfa2.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 29
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 wfa2-build/CMakeFiles/wfa2.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 0
 .PHONY : wfa2-build/CMakeFiles/wfa2.dir/rule
@@ -334,7 +482,7 @@ wfa2-build/CMakeFiles/wfa2cpp_static.dir/all: wfa2-build/CMakeFiles/wfa2_static.
 
 # Build rule for subdir invocation for target.
 wfa2-build/CMakeFiles/wfa2cpp_static.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 31
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 30
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 wfa2-build/CMakeFiles/wfa2cpp_static.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 0
 .PHONY : wfa2-build/CMakeFiles/wfa2cpp_static.dir/rule
@@ -360,7 +508,7 @@ wfa2-build/CMakeFiles/wfa2cpp.dir/all: wfa2-build/CMakeFiles/wfa2.dir/all
 
 # Build rule for subdir invocation for target.
 wfa2-build/CMakeFiles/wfa2cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 30
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 29
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 wfa2-build/CMakeFiles/wfa2cpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 0
 .PHONY : wfa2-build/CMakeFiles/wfa2cpp.dir/rule
@@ -386,7 +534,7 @@ wfa2-build/CMakeFiles/align_benchmark.dir/all: wfa2-build/CMakeFiles/wfa2.dir/al
 
 # Build rule for subdir invocation for target.
 wfa2-build/CMakeFiles/align_benchmark.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 49
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 48
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 wfa2-build/CMakeFiles/align_benchmark.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles 0
 .PHONY : wfa2-build/CMakeFiles/align_benchmark.dir/rule

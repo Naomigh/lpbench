@@ -1,2 +1,0 @@
-/usr/bin/ar qc libbench_edlib.a CMakeFiles/bench_edlib.dir/home/minghao/project/2026/leapbench/edlib/edlib/src/edlib.cpp.o
-/usr/bin/ranlib libbench_edlib.a
