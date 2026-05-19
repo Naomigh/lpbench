@@ -117,147 +117,82 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named edlib_gt
+# Target rules for targets named threshold_verify_leap_avx2
 
 # Build rule for target.
-edlib_gt: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 edlib_gt
-.PHONY : edlib_gt
+threshold_verify_leap_avx2: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 threshold_verify_leap_avx2
+.PHONY : threshold_verify_leap_avx2
 
 # fast build rule for target.
-edlib_gt/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/edlib_gt.dir/build.make CMakeFiles/edlib_gt.dir/build
-.PHONY : edlib_gt/fast
+threshold_verify_leap_avx2/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx2.dir/build.make CMakeFiles/threshold_verify_leap_avx2.dir/build
+.PHONY : threshold_verify_leap_avx2/fast
 
 #=============================================================================
-# Target rules for targets named lv89_obj
+# Target rules for targets named threshold_verify_leap_avx512
 
 # Build rule for target.
-lv89_obj: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lv89_obj
-.PHONY : lv89_obj
+threshold_verify_leap_avx512: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 threshold_verify_leap_avx512
+.PHONY : threshold_verify_leap_avx512
 
 # fast build rule for target.
-lv89_obj/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lv89_obj.dir/build.make CMakeFiles/lv89_obj.dir/build
-.PHONY : lv89_obj/fast
+threshold_verify_leap_avx512/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx512.dir/build.make CMakeFiles/threshold_verify_leap_avx512.dir/build
+.PHONY : threshold_verify_leap_avx512/fast
 
 #=============================================================================
-# Target rules for targets named lv89_bench
+# Target rules for targets named threshold_verify_miniwfa
 
 # Build rule for target.
-lv89_bench: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lv89_bench
-.PHONY : lv89_bench
+threshold_verify_miniwfa: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 threshold_verify_miniwfa
+.PHONY : threshold_verify_miniwfa
 
 # fast build rule for target.
-lv89_bench/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lv89_bench.dir/build.make CMakeFiles/lv89_bench.dir/build
-.PHONY : lv89_bench/fast
+threshold_verify_miniwfa/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_miniwfa.dir/build.make CMakeFiles/threshold_verify_miniwfa.dir/build
+.PHONY : threshold_verify_miniwfa/fast
 
 #=============================================================================
-# Target rules for targets named miniwfa_obj
+# Target rules for targets named threshold_verify_lv89
 
 # Build rule for target.
-miniwfa_obj: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 miniwfa_obj
-.PHONY : miniwfa_obj
+threshold_verify_lv89: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 threshold_verify_lv89
+.PHONY : threshold_verify_lv89
 
 # fast build rule for target.
-miniwfa_obj/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/miniwfa_obj.dir/build.make CMakeFiles/miniwfa_obj.dir/build
-.PHONY : miniwfa_obj/fast
+threshold_verify_lv89/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_lv89.dir/build.make CMakeFiles/threshold_verify_lv89.dir/build
+.PHONY : threshold_verify_lv89/fast
 
 #=============================================================================
-# Target rules for targets named miniwfa_bench
+# Target rules for targets named threshold_verify_wfa2
 
 # Build rule for target.
-miniwfa_bench: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 miniwfa_bench
-.PHONY : miniwfa_bench
+threshold_verify_wfa2: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 threshold_verify_wfa2
+.PHONY : threshold_verify_wfa2
 
 # fast build rule for target.
-miniwfa_bench/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/miniwfa_bench.dir/build.make CMakeFiles/miniwfa_bench.dir/build
-.PHONY : miniwfa_bench/fast
+threshold_verify_wfa2/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_wfa2.dir/build.make CMakeFiles/threshold_verify_wfa2.dir/build
+.PHONY : threshold_verify_wfa2/fast
 
 #=============================================================================
-# Target rules for targets named wfa2_bench
+# Target rules for targets named threshold_verify_bench
 
 # Build rule for target.
-wfa2_bench: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 wfa2_bench
-.PHONY : wfa2_bench
+threshold_verify_bench: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 threshold_verify_bench
+.PHONY : threshold_verify_bench
 
 # fast build rule for target.
-wfa2_bench/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/wfa2_bench.dir/build.make CMakeFiles/wfa2_bench.dir/build
-.PHONY : wfa2_bench/fast
-
-#=============================================================================
-# Target rules for targets named leap_avx2_obj
-
-# Build rule for target.
-leap_avx2_obj: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 leap_avx2_obj
-.PHONY : leap_avx2_obj
-
-# fast build rule for target.
-leap_avx2_obj/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx2_obj.dir/build.make CMakeFiles/leap_avx2_obj.dir/build
-.PHONY : leap_avx2_obj/fast
-
-#=============================================================================
-# Target rules for targets named leap_avx512_obj
-
-# Build rule for target.
-leap_avx512_obj: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 leap_avx512_obj
-.PHONY : leap_avx512_obj
-
-# fast build rule for target.
-leap_avx512_obj/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx512_obj.dir/build.make CMakeFiles/leap_avx512_obj.dir/build
-.PHONY : leap_avx512_obj/fast
-
-#=============================================================================
-# Target rules for targets named leap_avx2_bench
-
-# Build rule for target.
-leap_avx2_bench: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 leap_avx2_bench
-.PHONY : leap_avx2_bench
-
-# fast build rule for target.
-leap_avx2_bench/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx2_bench.dir/build.make CMakeFiles/leap_avx2_bench.dir/build
-.PHONY : leap_avx2_bench/fast
-
-#=============================================================================
-# Target rules for targets named leap_avx512_bench
-
-# Build rule for target.
-leap_avx512_bench: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 leap_avx512_bench
-.PHONY : leap_avx512_bench
-
-# fast build rule for target.
-leap_avx512_bench/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx512_bench.dir/build.make CMakeFiles/leap_avx512_bench.dir/build
-.PHONY : leap_avx512_bench/fast
-
-#=============================================================================
-# Target rules for targets named edlib
-
-# Build rule for target.
-edlib: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 edlib
-.PHONY : edlib
-
-# fast build rule for target.
-edlib/fast:
-	$(MAKE) $(MAKESILENT) -f edlib-build/CMakeFiles/edlib.dir/build.make edlib-build/CMakeFiles/edlib.dir/build
-.PHONY : edlib/fast
+threshold_verify_bench/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_bench.dir/build.make CMakeFiles/threshold_verify_bench.dir/build
+.PHONY : threshold_verify_bench/fast
 
 #=============================================================================
 # Target rules for targets named wfa2_static
@@ -329,8 +264,8 @@ home/minghao/project/2026/leapbench/leap/SHD.o: home/minghao/project/2026/leapbe
 
 # target to build an object file
 home/minghao/project/2026/leapbench/leap/SHD.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx2_obj.dir/build.make CMakeFiles/leap_avx2_obj.dir/home/minghao/project/2026/leapbench/leap/SHD.cc.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx512_obj.dir/build.make CMakeFiles/leap_avx512_obj.dir/home/minghao/project/2026/leapbench/leap/SHD.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx2.dir/build.make CMakeFiles/threshold_verify_leap_avx2.dir/home/minghao/project/2026/leapbench/leap/SHD.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx512.dir/build.make CMakeFiles/threshold_verify_leap_avx512.dir/home/minghao/project/2026/leapbench/leap/SHD.cc.o
 .PHONY : home/minghao/project/2026/leapbench/leap/SHD.cc.o
 
 home/minghao/project/2026/leapbench/leap/SHD.i: home/minghao/project/2026/leapbench/leap/SHD.cc.i
@@ -338,8 +273,8 @@ home/minghao/project/2026/leapbench/leap/SHD.i: home/minghao/project/2026/leapbe
 
 # target to preprocess a source file
 home/minghao/project/2026/leapbench/leap/SHD.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx2_obj.dir/build.make CMakeFiles/leap_avx2_obj.dir/home/minghao/project/2026/leapbench/leap/SHD.cc.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx512_obj.dir/build.make CMakeFiles/leap_avx512_obj.dir/home/minghao/project/2026/leapbench/leap/SHD.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx2.dir/build.make CMakeFiles/threshold_verify_leap_avx2.dir/home/minghao/project/2026/leapbench/leap/SHD.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx512.dir/build.make CMakeFiles/threshold_verify_leap_avx512.dir/home/minghao/project/2026/leapbench/leap/SHD.cc.i
 .PHONY : home/minghao/project/2026/leapbench/leap/SHD.cc.i
 
 home/minghao/project/2026/leapbench/leap/SHD.s: home/minghao/project/2026/leapbench/leap/SHD.cc.s
@@ -347,8 +282,8 @@ home/minghao/project/2026/leapbench/leap/SHD.s: home/minghao/project/2026/leapbe
 
 # target to generate assembly for a file
 home/minghao/project/2026/leapbench/leap/SHD.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx2_obj.dir/build.make CMakeFiles/leap_avx2_obj.dir/home/minghao/project/2026/leapbench/leap/SHD.cc.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx512_obj.dir/build.make CMakeFiles/leap_avx512_obj.dir/home/minghao/project/2026/leapbench/leap/SHD.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx2.dir/build.make CMakeFiles/threshold_verify_leap_avx2.dir/home/minghao/project/2026/leapbench/leap/SHD.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx512.dir/build.make CMakeFiles/threshold_verify_leap_avx512.dir/home/minghao/project/2026/leapbench/leap/SHD.cc.s
 .PHONY : home/minghao/project/2026/leapbench/leap/SHD.cc.s
 
 home/minghao/project/2026/leapbench/leap/SIMD_ED.o: home/minghao/project/2026/leapbench/leap/SIMD_ED.cc.o
@@ -356,8 +291,8 @@ home/minghao/project/2026/leapbench/leap/SIMD_ED.o: home/minghao/project/2026/le
 
 # target to build an object file
 home/minghao/project/2026/leapbench/leap/SIMD_ED.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx2_obj.dir/build.make CMakeFiles/leap_avx2_obj.dir/home/minghao/project/2026/leapbench/leap/SIMD_ED.cc.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx512_obj.dir/build.make CMakeFiles/leap_avx512_obj.dir/home/minghao/project/2026/leapbench/leap/SIMD_ED.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx2.dir/build.make CMakeFiles/threshold_verify_leap_avx2.dir/home/minghao/project/2026/leapbench/leap/SIMD_ED.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx512.dir/build.make CMakeFiles/threshold_verify_leap_avx512.dir/home/minghao/project/2026/leapbench/leap/SIMD_ED.cc.o
 .PHONY : home/minghao/project/2026/leapbench/leap/SIMD_ED.cc.o
 
 home/minghao/project/2026/leapbench/leap/SIMD_ED.i: home/minghao/project/2026/leapbench/leap/SIMD_ED.cc.i
@@ -365,8 +300,8 @@ home/minghao/project/2026/leapbench/leap/SIMD_ED.i: home/minghao/project/2026/le
 
 # target to preprocess a source file
 home/minghao/project/2026/leapbench/leap/SIMD_ED.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx2_obj.dir/build.make CMakeFiles/leap_avx2_obj.dir/home/minghao/project/2026/leapbench/leap/SIMD_ED.cc.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx512_obj.dir/build.make CMakeFiles/leap_avx512_obj.dir/home/minghao/project/2026/leapbench/leap/SIMD_ED.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx2.dir/build.make CMakeFiles/threshold_verify_leap_avx2.dir/home/minghao/project/2026/leapbench/leap/SIMD_ED.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx512.dir/build.make CMakeFiles/threshold_verify_leap_avx512.dir/home/minghao/project/2026/leapbench/leap/SIMD_ED.cc.i
 .PHONY : home/minghao/project/2026/leapbench/leap/SIMD_ED.cc.i
 
 home/minghao/project/2026/leapbench/leap/SIMD_ED.s: home/minghao/project/2026/leapbench/leap/SIMD_ED.cc.s
@@ -374,8 +309,8 @@ home/minghao/project/2026/leapbench/leap/SIMD_ED.s: home/minghao/project/2026/le
 
 # target to generate assembly for a file
 home/minghao/project/2026/leapbench/leap/SIMD_ED.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx2_obj.dir/build.make CMakeFiles/leap_avx2_obj.dir/home/minghao/project/2026/leapbench/leap/SIMD_ED.cc.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx512_obj.dir/build.make CMakeFiles/leap_avx512_obj.dir/home/minghao/project/2026/leapbench/leap/SIMD_ED.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx2.dir/build.make CMakeFiles/threshold_verify_leap_avx2.dir/home/minghao/project/2026/leapbench/leap/SIMD_ED.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx512.dir/build.make CMakeFiles/threshold_verify_leap_avx512.dir/home/minghao/project/2026/leapbench/leap/SIMD_ED.cc.s
 .PHONY : home/minghao/project/2026/leapbench/leap/SIMD_ED.cc.s
 
 home/minghao/project/2026/leapbench/leap/bit_convert.o: home/minghao/project/2026/leapbench/leap/bit_convert.c.o
@@ -383,8 +318,8 @@ home/minghao/project/2026/leapbench/leap/bit_convert.o: home/minghao/project/202
 
 # target to build an object file
 home/minghao/project/2026/leapbench/leap/bit_convert.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx2_obj.dir/build.make CMakeFiles/leap_avx2_obj.dir/home/minghao/project/2026/leapbench/leap/bit_convert.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx512_obj.dir/build.make CMakeFiles/leap_avx512_obj.dir/home/minghao/project/2026/leapbench/leap/bit_convert.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx2.dir/build.make CMakeFiles/threshold_verify_leap_avx2.dir/home/minghao/project/2026/leapbench/leap/bit_convert.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx512.dir/build.make CMakeFiles/threshold_verify_leap_avx512.dir/home/minghao/project/2026/leapbench/leap/bit_convert.c.o
 .PHONY : home/minghao/project/2026/leapbench/leap/bit_convert.c.o
 
 home/minghao/project/2026/leapbench/leap/bit_convert.i: home/minghao/project/2026/leapbench/leap/bit_convert.c.i
@@ -392,8 +327,8 @@ home/minghao/project/2026/leapbench/leap/bit_convert.i: home/minghao/project/202
 
 # target to preprocess a source file
 home/minghao/project/2026/leapbench/leap/bit_convert.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx2_obj.dir/build.make CMakeFiles/leap_avx2_obj.dir/home/minghao/project/2026/leapbench/leap/bit_convert.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx512_obj.dir/build.make CMakeFiles/leap_avx512_obj.dir/home/minghao/project/2026/leapbench/leap/bit_convert.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx2.dir/build.make CMakeFiles/threshold_verify_leap_avx2.dir/home/minghao/project/2026/leapbench/leap/bit_convert.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx512.dir/build.make CMakeFiles/threshold_verify_leap_avx512.dir/home/minghao/project/2026/leapbench/leap/bit_convert.c.i
 .PHONY : home/minghao/project/2026/leapbench/leap/bit_convert.c.i
 
 home/minghao/project/2026/leapbench/leap/bit_convert.s: home/minghao/project/2026/leapbench/leap/bit_convert.c.s
@@ -401,8 +336,8 @@ home/minghao/project/2026/leapbench/leap/bit_convert.s: home/minghao/project/202
 
 # target to generate assembly for a file
 home/minghao/project/2026/leapbench/leap/bit_convert.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx2_obj.dir/build.make CMakeFiles/leap_avx2_obj.dir/home/minghao/project/2026/leapbench/leap/bit_convert.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx512_obj.dir/build.make CMakeFiles/leap_avx512_obj.dir/home/minghao/project/2026/leapbench/leap/bit_convert.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx2.dir/build.make CMakeFiles/threshold_verify_leap_avx2.dir/home/minghao/project/2026/leapbench/leap/bit_convert.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx512.dir/build.make CMakeFiles/threshold_verify_leap_avx512.dir/home/minghao/project/2026/leapbench/leap/bit_convert.c.s
 .PHONY : home/minghao/project/2026/leapbench/leap/bit_convert.c.s
 
 home/minghao/project/2026/leapbench/leap/mask.o: home/minghao/project/2026/leapbench/leap/mask.c.o
@@ -410,8 +345,8 @@ home/minghao/project/2026/leapbench/leap/mask.o: home/minghao/project/2026/leapb
 
 # target to build an object file
 home/minghao/project/2026/leapbench/leap/mask.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx2_obj.dir/build.make CMakeFiles/leap_avx2_obj.dir/home/minghao/project/2026/leapbench/leap/mask.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx512_obj.dir/build.make CMakeFiles/leap_avx512_obj.dir/home/minghao/project/2026/leapbench/leap/mask.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx2.dir/build.make CMakeFiles/threshold_verify_leap_avx2.dir/home/minghao/project/2026/leapbench/leap/mask.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx512.dir/build.make CMakeFiles/threshold_verify_leap_avx512.dir/home/minghao/project/2026/leapbench/leap/mask.c.o
 .PHONY : home/minghao/project/2026/leapbench/leap/mask.c.o
 
 home/minghao/project/2026/leapbench/leap/mask.i: home/minghao/project/2026/leapbench/leap/mask.c.i
@@ -419,8 +354,8 @@ home/minghao/project/2026/leapbench/leap/mask.i: home/minghao/project/2026/leapb
 
 # target to preprocess a source file
 home/minghao/project/2026/leapbench/leap/mask.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx2_obj.dir/build.make CMakeFiles/leap_avx2_obj.dir/home/minghao/project/2026/leapbench/leap/mask.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx512_obj.dir/build.make CMakeFiles/leap_avx512_obj.dir/home/minghao/project/2026/leapbench/leap/mask.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx2.dir/build.make CMakeFiles/threshold_verify_leap_avx2.dir/home/minghao/project/2026/leapbench/leap/mask.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx512.dir/build.make CMakeFiles/threshold_verify_leap_avx512.dir/home/minghao/project/2026/leapbench/leap/mask.c.i
 .PHONY : home/minghao/project/2026/leapbench/leap/mask.c.i
 
 home/minghao/project/2026/leapbench/leap/mask.s: home/minghao/project/2026/leapbench/leap/mask.c.s
@@ -428,8 +363,8 @@ home/minghao/project/2026/leapbench/leap/mask.s: home/minghao/project/2026/leapb
 
 # target to generate assembly for a file
 home/minghao/project/2026/leapbench/leap/mask.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx2_obj.dir/build.make CMakeFiles/leap_avx2_obj.dir/home/minghao/project/2026/leapbench/leap/mask.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx512_obj.dir/build.make CMakeFiles/leap_avx512_obj.dir/home/minghao/project/2026/leapbench/leap/mask.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx2.dir/build.make CMakeFiles/threshold_verify_leap_avx2.dir/home/minghao/project/2026/leapbench/leap/mask.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx512.dir/build.make CMakeFiles/threshold_verify_leap_avx512.dir/home/minghao/project/2026/leapbench/leap/mask.c.s
 .PHONY : home/minghao/project/2026/leapbench/leap/mask.c.s
 
 home/minghao/project/2026/leapbench/leap/popcount.o: home/minghao/project/2026/leapbench/leap/popcount.c.o
@@ -437,8 +372,8 @@ home/minghao/project/2026/leapbench/leap/popcount.o: home/minghao/project/2026/l
 
 # target to build an object file
 home/minghao/project/2026/leapbench/leap/popcount.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx2_obj.dir/build.make CMakeFiles/leap_avx2_obj.dir/home/minghao/project/2026/leapbench/leap/popcount.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx512_obj.dir/build.make CMakeFiles/leap_avx512_obj.dir/home/minghao/project/2026/leapbench/leap/popcount.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx2.dir/build.make CMakeFiles/threshold_verify_leap_avx2.dir/home/minghao/project/2026/leapbench/leap/popcount.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx512.dir/build.make CMakeFiles/threshold_verify_leap_avx512.dir/home/minghao/project/2026/leapbench/leap/popcount.c.o
 .PHONY : home/minghao/project/2026/leapbench/leap/popcount.c.o
 
 home/minghao/project/2026/leapbench/leap/popcount.i: home/minghao/project/2026/leapbench/leap/popcount.c.i
@@ -446,8 +381,8 @@ home/minghao/project/2026/leapbench/leap/popcount.i: home/minghao/project/2026/l
 
 # target to preprocess a source file
 home/minghao/project/2026/leapbench/leap/popcount.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx2_obj.dir/build.make CMakeFiles/leap_avx2_obj.dir/home/minghao/project/2026/leapbench/leap/popcount.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx512_obj.dir/build.make CMakeFiles/leap_avx512_obj.dir/home/minghao/project/2026/leapbench/leap/popcount.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx2.dir/build.make CMakeFiles/threshold_verify_leap_avx2.dir/home/minghao/project/2026/leapbench/leap/popcount.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx512.dir/build.make CMakeFiles/threshold_verify_leap_avx512.dir/home/minghao/project/2026/leapbench/leap/popcount.c.i
 .PHONY : home/minghao/project/2026/leapbench/leap/popcount.c.i
 
 home/minghao/project/2026/leapbench/leap/popcount.s: home/minghao/project/2026/leapbench/leap/popcount.c.s
@@ -455,8 +390,8 @@ home/minghao/project/2026/leapbench/leap/popcount.s: home/minghao/project/2026/l
 
 # target to generate assembly for a file
 home/minghao/project/2026/leapbench/leap/popcount.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx2_obj.dir/build.make CMakeFiles/leap_avx2_obj.dir/home/minghao/project/2026/leapbench/leap/popcount.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx512_obj.dir/build.make CMakeFiles/leap_avx512_obj.dir/home/minghao/project/2026/leapbench/leap/popcount.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx2.dir/build.make CMakeFiles/threshold_verify_leap_avx2.dir/home/minghao/project/2026/leapbench/leap/popcount.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx512.dir/build.make CMakeFiles/threshold_verify_leap_avx512.dir/home/minghao/project/2026/leapbench/leap/popcount.c.s
 .PHONY : home/minghao/project/2026/leapbench/leap/popcount.c.s
 
 home/minghao/project/2026/leapbench/leap/print.o: home/minghao/project/2026/leapbench/leap/print.c.o
@@ -464,8 +399,8 @@ home/minghao/project/2026/leapbench/leap/print.o: home/minghao/project/2026/leap
 
 # target to build an object file
 home/minghao/project/2026/leapbench/leap/print.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx2_obj.dir/build.make CMakeFiles/leap_avx2_obj.dir/home/minghao/project/2026/leapbench/leap/print.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx512_obj.dir/build.make CMakeFiles/leap_avx512_obj.dir/home/minghao/project/2026/leapbench/leap/print.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx2.dir/build.make CMakeFiles/threshold_verify_leap_avx2.dir/home/minghao/project/2026/leapbench/leap/print.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx512.dir/build.make CMakeFiles/threshold_verify_leap_avx512.dir/home/minghao/project/2026/leapbench/leap/print.c.o
 .PHONY : home/minghao/project/2026/leapbench/leap/print.c.o
 
 home/minghao/project/2026/leapbench/leap/print.i: home/minghao/project/2026/leapbench/leap/print.c.i
@@ -473,8 +408,8 @@ home/minghao/project/2026/leapbench/leap/print.i: home/minghao/project/2026/leap
 
 # target to preprocess a source file
 home/minghao/project/2026/leapbench/leap/print.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx2_obj.dir/build.make CMakeFiles/leap_avx2_obj.dir/home/minghao/project/2026/leapbench/leap/print.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx512_obj.dir/build.make CMakeFiles/leap_avx512_obj.dir/home/minghao/project/2026/leapbench/leap/print.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx2.dir/build.make CMakeFiles/threshold_verify_leap_avx2.dir/home/minghao/project/2026/leapbench/leap/print.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx512.dir/build.make CMakeFiles/threshold_verify_leap_avx512.dir/home/minghao/project/2026/leapbench/leap/print.c.i
 .PHONY : home/minghao/project/2026/leapbench/leap/print.c.i
 
 home/minghao/project/2026/leapbench/leap/print.s: home/minghao/project/2026/leapbench/leap/print.c.s
@@ -482,8 +417,8 @@ home/minghao/project/2026/leapbench/leap/print.s: home/minghao/project/2026/leap
 
 # target to generate assembly for a file
 home/minghao/project/2026/leapbench/leap/print.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx2_obj.dir/build.make CMakeFiles/leap_avx2_obj.dir/home/minghao/project/2026/leapbench/leap/print.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx512_obj.dir/build.make CMakeFiles/leap_avx512_obj.dir/home/minghao/project/2026/leapbench/leap/print.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx2.dir/build.make CMakeFiles/threshold_verify_leap_avx2.dir/home/minghao/project/2026/leapbench/leap/print.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx512.dir/build.make CMakeFiles/threshold_verify_leap_avx512.dir/home/minghao/project/2026/leapbench/leap/print.c.s
 .PHONY : home/minghao/project/2026/leapbench/leap/print.c.s
 
 home/minghao/project/2026/leapbench/leap/shift.o: home/minghao/project/2026/leapbench/leap/shift.c.o
@@ -491,8 +426,8 @@ home/minghao/project/2026/leapbench/leap/shift.o: home/minghao/project/2026/leap
 
 # target to build an object file
 home/minghao/project/2026/leapbench/leap/shift.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx2_obj.dir/build.make CMakeFiles/leap_avx2_obj.dir/home/minghao/project/2026/leapbench/leap/shift.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx512_obj.dir/build.make CMakeFiles/leap_avx512_obj.dir/home/minghao/project/2026/leapbench/leap/shift.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx2.dir/build.make CMakeFiles/threshold_verify_leap_avx2.dir/home/minghao/project/2026/leapbench/leap/shift.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx512.dir/build.make CMakeFiles/threshold_verify_leap_avx512.dir/home/minghao/project/2026/leapbench/leap/shift.c.o
 .PHONY : home/minghao/project/2026/leapbench/leap/shift.c.o
 
 home/minghao/project/2026/leapbench/leap/shift.i: home/minghao/project/2026/leapbench/leap/shift.c.i
@@ -500,8 +435,8 @@ home/minghao/project/2026/leapbench/leap/shift.i: home/minghao/project/2026/leap
 
 # target to preprocess a source file
 home/minghao/project/2026/leapbench/leap/shift.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx2_obj.dir/build.make CMakeFiles/leap_avx2_obj.dir/home/minghao/project/2026/leapbench/leap/shift.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx512_obj.dir/build.make CMakeFiles/leap_avx512_obj.dir/home/minghao/project/2026/leapbench/leap/shift.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx2.dir/build.make CMakeFiles/threshold_verify_leap_avx2.dir/home/minghao/project/2026/leapbench/leap/shift.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx512.dir/build.make CMakeFiles/threshold_verify_leap_avx512.dir/home/minghao/project/2026/leapbench/leap/shift.c.i
 .PHONY : home/minghao/project/2026/leapbench/leap/shift.c.i
 
 home/minghao/project/2026/leapbench/leap/shift.s: home/minghao/project/2026/leapbench/leap/shift.c.s
@@ -509,8 +444,8 @@ home/minghao/project/2026/leapbench/leap/shift.s: home/minghao/project/2026/leap
 
 # target to generate assembly for a file
 home/minghao/project/2026/leapbench/leap/shift.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx2_obj.dir/build.make CMakeFiles/leap_avx2_obj.dir/home/minghao/project/2026/leapbench/leap/shift.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx512_obj.dir/build.make CMakeFiles/leap_avx512_obj.dir/home/minghao/project/2026/leapbench/leap/shift.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx2.dir/build.make CMakeFiles/threshold_verify_leap_avx2.dir/home/minghao/project/2026/leapbench/leap/shift.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx512.dir/build.make CMakeFiles/threshold_verify_leap_avx512.dir/home/minghao/project/2026/leapbench/leap/shift.c.s
 .PHONY : home/minghao/project/2026/leapbench/leap/shift.c.s
 
 home/minghao/project/2026/leapbench/lv89/lv89.o: home/minghao/project/2026/leapbench/lv89/lv89.c.o
@@ -518,7 +453,7 @@ home/minghao/project/2026/leapbench/lv89/lv89.o: home/minghao/project/2026/leapb
 
 # target to build an object file
 home/minghao/project/2026/leapbench/lv89/lv89.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lv89_obj.dir/build.make CMakeFiles/lv89_obj.dir/home/minghao/project/2026/leapbench/lv89/lv89.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_lv89.dir/build.make CMakeFiles/threshold_verify_lv89.dir/home/minghao/project/2026/leapbench/lv89/lv89.c.o
 .PHONY : home/minghao/project/2026/leapbench/lv89/lv89.c.o
 
 home/minghao/project/2026/leapbench/lv89/lv89.i: home/minghao/project/2026/leapbench/lv89/lv89.c.i
@@ -526,7 +461,7 @@ home/minghao/project/2026/leapbench/lv89/lv89.i: home/minghao/project/2026/leapb
 
 # target to preprocess a source file
 home/minghao/project/2026/leapbench/lv89/lv89.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lv89_obj.dir/build.make CMakeFiles/lv89_obj.dir/home/minghao/project/2026/leapbench/lv89/lv89.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_lv89.dir/build.make CMakeFiles/threshold_verify_lv89.dir/home/minghao/project/2026/leapbench/lv89/lv89.c.i
 .PHONY : home/minghao/project/2026/leapbench/lv89/lv89.c.i
 
 home/minghao/project/2026/leapbench/lv89/lv89.s: home/minghao/project/2026/leapbench/lv89/lv89.c.s
@@ -534,7 +469,7 @@ home/minghao/project/2026/leapbench/lv89/lv89.s: home/minghao/project/2026/leapb
 
 # target to generate assembly for a file
 home/minghao/project/2026/leapbench/lv89/lv89.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lv89_obj.dir/build.make CMakeFiles/lv89_obj.dir/home/minghao/project/2026/leapbench/lv89/lv89.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_lv89.dir/build.make CMakeFiles/threshold_verify_lv89.dir/home/minghao/project/2026/leapbench/lv89/lv89.c.s
 .PHONY : home/minghao/project/2026/leapbench/lv89/lv89.c.s
 
 home/minghao/project/2026/leapbench/miniwfa/kalloc.o: home/minghao/project/2026/leapbench/miniwfa/kalloc.c.o
@@ -542,7 +477,7 @@ home/minghao/project/2026/leapbench/miniwfa/kalloc.o: home/minghao/project/2026/
 
 # target to build an object file
 home/minghao/project/2026/leapbench/miniwfa/kalloc.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/miniwfa_obj.dir/build.make CMakeFiles/miniwfa_obj.dir/home/minghao/project/2026/leapbench/miniwfa/kalloc.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_miniwfa.dir/build.make CMakeFiles/threshold_verify_miniwfa.dir/home/minghao/project/2026/leapbench/miniwfa/kalloc.c.o
 .PHONY : home/minghao/project/2026/leapbench/miniwfa/kalloc.c.o
 
 home/minghao/project/2026/leapbench/miniwfa/kalloc.i: home/minghao/project/2026/leapbench/miniwfa/kalloc.c.i
@@ -550,7 +485,7 @@ home/minghao/project/2026/leapbench/miniwfa/kalloc.i: home/minghao/project/2026/
 
 # target to preprocess a source file
 home/minghao/project/2026/leapbench/miniwfa/kalloc.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/miniwfa_obj.dir/build.make CMakeFiles/miniwfa_obj.dir/home/minghao/project/2026/leapbench/miniwfa/kalloc.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_miniwfa.dir/build.make CMakeFiles/threshold_verify_miniwfa.dir/home/minghao/project/2026/leapbench/miniwfa/kalloc.c.i
 .PHONY : home/minghao/project/2026/leapbench/miniwfa/kalloc.c.i
 
 home/minghao/project/2026/leapbench/miniwfa/kalloc.s: home/minghao/project/2026/leapbench/miniwfa/kalloc.c.s
@@ -558,7 +493,7 @@ home/minghao/project/2026/leapbench/miniwfa/kalloc.s: home/minghao/project/2026/
 
 # target to generate assembly for a file
 home/minghao/project/2026/leapbench/miniwfa/kalloc.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/miniwfa_obj.dir/build.make CMakeFiles/miniwfa_obj.dir/home/minghao/project/2026/leapbench/miniwfa/kalloc.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_miniwfa.dir/build.make CMakeFiles/threshold_verify_miniwfa.dir/home/minghao/project/2026/leapbench/miniwfa/kalloc.c.s
 .PHONY : home/minghao/project/2026/leapbench/miniwfa/kalloc.c.s
 
 home/minghao/project/2026/leapbench/miniwfa/miniwfa.o: home/minghao/project/2026/leapbench/miniwfa/miniwfa.c.o
@@ -566,7 +501,7 @@ home/minghao/project/2026/leapbench/miniwfa/miniwfa.o: home/minghao/project/2026
 
 # target to build an object file
 home/minghao/project/2026/leapbench/miniwfa/miniwfa.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/miniwfa_obj.dir/build.make CMakeFiles/miniwfa_obj.dir/home/minghao/project/2026/leapbench/miniwfa/miniwfa.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_miniwfa.dir/build.make CMakeFiles/threshold_verify_miniwfa.dir/home/minghao/project/2026/leapbench/miniwfa/miniwfa.c.o
 .PHONY : home/minghao/project/2026/leapbench/miniwfa/miniwfa.c.o
 
 home/minghao/project/2026/leapbench/miniwfa/miniwfa.i: home/minghao/project/2026/leapbench/miniwfa/miniwfa.c.i
@@ -574,7 +509,7 @@ home/minghao/project/2026/leapbench/miniwfa/miniwfa.i: home/minghao/project/2026
 
 # target to preprocess a source file
 home/minghao/project/2026/leapbench/miniwfa/miniwfa.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/miniwfa_obj.dir/build.make CMakeFiles/miniwfa_obj.dir/home/minghao/project/2026/leapbench/miniwfa/miniwfa.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_miniwfa.dir/build.make CMakeFiles/threshold_verify_miniwfa.dir/home/minghao/project/2026/leapbench/miniwfa/miniwfa.c.i
 .PHONY : home/minghao/project/2026/leapbench/miniwfa/miniwfa.c.i
 
 home/minghao/project/2026/leapbench/miniwfa/miniwfa.s: home/minghao/project/2026/leapbench/miniwfa/miniwfa.c.s
@@ -582,131 +517,44 @@ home/minghao/project/2026/leapbench/miniwfa/miniwfa.s: home/minghao/project/2026
 
 # target to generate assembly for a file
 home/minghao/project/2026/leapbench/miniwfa/miniwfa.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/miniwfa_obj.dir/build.make CMakeFiles/miniwfa_obj.dir/home/minghao/project/2026/leapbench/miniwfa/miniwfa.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_miniwfa.dir/build.make CMakeFiles/threshold_verify_miniwfa.dir/home/minghao/project/2026/leapbench/miniwfa/miniwfa.c.s
 .PHONY : home/minghao/project/2026/leapbench/miniwfa/miniwfa.c.s
 
-wrappers/edlib_gt.o: wrappers/edlib_gt.cpp.o
-.PHONY : wrappers/edlib_gt.o
+src/threshold_verify_bench.o: src/threshold_verify_bench.cpp.o
+.PHONY : src/threshold_verify_bench.o
 
 # target to build an object file
-wrappers/edlib_gt.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/edlib_gt.dir/build.make CMakeFiles/edlib_gt.dir/wrappers/edlib_gt.cpp.o
-.PHONY : wrappers/edlib_gt.cpp.o
+src/threshold_verify_bench.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx2.dir/build.make CMakeFiles/threshold_verify_leap_avx2.dir/src/threshold_verify_bench.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx512.dir/build.make CMakeFiles/threshold_verify_leap_avx512.dir/src/threshold_verify_bench.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_miniwfa.dir/build.make CMakeFiles/threshold_verify_miniwfa.dir/src/threshold_verify_bench.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_lv89.dir/build.make CMakeFiles/threshold_verify_lv89.dir/src/threshold_verify_bench.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_wfa2.dir/build.make CMakeFiles/threshold_verify_wfa2.dir/src/threshold_verify_bench.cpp.o
+.PHONY : src/threshold_verify_bench.cpp.o
 
-wrappers/edlib_gt.i: wrappers/edlib_gt.cpp.i
-.PHONY : wrappers/edlib_gt.i
-
-# target to preprocess a source file
-wrappers/edlib_gt.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/edlib_gt.dir/build.make CMakeFiles/edlib_gt.dir/wrappers/edlib_gt.cpp.i
-.PHONY : wrappers/edlib_gt.cpp.i
-
-wrappers/edlib_gt.s: wrappers/edlib_gt.cpp.s
-.PHONY : wrappers/edlib_gt.s
-
-# target to generate assembly for a file
-wrappers/edlib_gt.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/edlib_gt.dir/build.make CMakeFiles/edlib_gt.dir/wrappers/edlib_gt.cpp.s
-.PHONY : wrappers/edlib_gt.cpp.s
-
-wrappers/leap_bench.o: wrappers/leap_bench.cpp.o
-.PHONY : wrappers/leap_bench.o
-
-# target to build an object file
-wrappers/leap_bench.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx2_bench.dir/build.make CMakeFiles/leap_avx2_bench.dir/wrappers/leap_bench.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx512_bench.dir/build.make CMakeFiles/leap_avx512_bench.dir/wrappers/leap_bench.cpp.o
-.PHONY : wrappers/leap_bench.cpp.o
-
-wrappers/leap_bench.i: wrappers/leap_bench.cpp.i
-.PHONY : wrappers/leap_bench.i
+src/threshold_verify_bench.i: src/threshold_verify_bench.cpp.i
+.PHONY : src/threshold_verify_bench.i
 
 # target to preprocess a source file
-wrappers/leap_bench.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx2_bench.dir/build.make CMakeFiles/leap_avx2_bench.dir/wrappers/leap_bench.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx512_bench.dir/build.make CMakeFiles/leap_avx512_bench.dir/wrappers/leap_bench.cpp.i
-.PHONY : wrappers/leap_bench.cpp.i
+src/threshold_verify_bench.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx2.dir/build.make CMakeFiles/threshold_verify_leap_avx2.dir/src/threshold_verify_bench.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx512.dir/build.make CMakeFiles/threshold_verify_leap_avx512.dir/src/threshold_verify_bench.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_miniwfa.dir/build.make CMakeFiles/threshold_verify_miniwfa.dir/src/threshold_verify_bench.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_lv89.dir/build.make CMakeFiles/threshold_verify_lv89.dir/src/threshold_verify_bench.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_wfa2.dir/build.make CMakeFiles/threshold_verify_wfa2.dir/src/threshold_verify_bench.cpp.i
+.PHONY : src/threshold_verify_bench.cpp.i
 
-wrappers/leap_bench.s: wrappers/leap_bench.cpp.s
-.PHONY : wrappers/leap_bench.s
-
-# target to generate assembly for a file
-wrappers/leap_bench.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx2_bench.dir/build.make CMakeFiles/leap_avx2_bench.dir/wrappers/leap_bench.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leap_avx512_bench.dir/build.make CMakeFiles/leap_avx512_bench.dir/wrappers/leap_bench.cpp.s
-.PHONY : wrappers/leap_bench.cpp.s
-
-wrappers/lv89_bench.o: wrappers/lv89_bench.cpp.o
-.PHONY : wrappers/lv89_bench.o
-
-# target to build an object file
-wrappers/lv89_bench.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lv89_bench.dir/build.make CMakeFiles/lv89_bench.dir/wrappers/lv89_bench.cpp.o
-.PHONY : wrappers/lv89_bench.cpp.o
-
-wrappers/lv89_bench.i: wrappers/lv89_bench.cpp.i
-.PHONY : wrappers/lv89_bench.i
-
-# target to preprocess a source file
-wrappers/lv89_bench.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lv89_bench.dir/build.make CMakeFiles/lv89_bench.dir/wrappers/lv89_bench.cpp.i
-.PHONY : wrappers/lv89_bench.cpp.i
-
-wrappers/lv89_bench.s: wrappers/lv89_bench.cpp.s
-.PHONY : wrappers/lv89_bench.s
+src/threshold_verify_bench.s: src/threshold_verify_bench.cpp.s
+.PHONY : src/threshold_verify_bench.s
 
 # target to generate assembly for a file
-wrappers/lv89_bench.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lv89_bench.dir/build.make CMakeFiles/lv89_bench.dir/wrappers/lv89_bench.cpp.s
-.PHONY : wrappers/lv89_bench.cpp.s
-
-wrappers/miniwfa_bench.o: wrappers/miniwfa_bench.cpp.o
-.PHONY : wrappers/miniwfa_bench.o
-
-# target to build an object file
-wrappers/miniwfa_bench.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/miniwfa_bench.dir/build.make CMakeFiles/miniwfa_bench.dir/wrappers/miniwfa_bench.cpp.o
-.PHONY : wrappers/miniwfa_bench.cpp.o
-
-wrappers/miniwfa_bench.i: wrappers/miniwfa_bench.cpp.i
-.PHONY : wrappers/miniwfa_bench.i
-
-# target to preprocess a source file
-wrappers/miniwfa_bench.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/miniwfa_bench.dir/build.make CMakeFiles/miniwfa_bench.dir/wrappers/miniwfa_bench.cpp.i
-.PHONY : wrappers/miniwfa_bench.cpp.i
-
-wrappers/miniwfa_bench.s: wrappers/miniwfa_bench.cpp.s
-.PHONY : wrappers/miniwfa_bench.s
-
-# target to generate assembly for a file
-wrappers/miniwfa_bench.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/miniwfa_bench.dir/build.make CMakeFiles/miniwfa_bench.dir/wrappers/miniwfa_bench.cpp.s
-.PHONY : wrappers/miniwfa_bench.cpp.s
-
-wrappers/wfa2_bench.o: wrappers/wfa2_bench.cpp.o
-.PHONY : wrappers/wfa2_bench.o
-
-# target to build an object file
-wrappers/wfa2_bench.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/wfa2_bench.dir/build.make CMakeFiles/wfa2_bench.dir/wrappers/wfa2_bench.cpp.o
-.PHONY : wrappers/wfa2_bench.cpp.o
-
-wrappers/wfa2_bench.i: wrappers/wfa2_bench.cpp.i
-.PHONY : wrappers/wfa2_bench.i
-
-# target to preprocess a source file
-wrappers/wfa2_bench.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/wfa2_bench.dir/build.make CMakeFiles/wfa2_bench.dir/wrappers/wfa2_bench.cpp.i
-.PHONY : wrappers/wfa2_bench.cpp.i
-
-wrappers/wfa2_bench.s: wrappers/wfa2_bench.cpp.s
-.PHONY : wrappers/wfa2_bench.s
-
-# target to generate assembly for a file
-wrappers/wfa2_bench.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/wfa2_bench.dir/build.make CMakeFiles/wfa2_bench.dir/wrappers/wfa2_bench.cpp.s
-.PHONY : wrappers/wfa2_bench.cpp.s
+src/threshold_verify_bench.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx2.dir/build.make CMakeFiles/threshold_verify_leap_avx2.dir/src/threshold_verify_bench.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_leap_avx512.dir/build.make CMakeFiles/threshold_verify_leap_avx512.dir/src/threshold_verify_bench.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_miniwfa.dir/build.make CMakeFiles/threshold_verify_miniwfa.dir/src/threshold_verify_bench.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_lv89.dir/build.make CMakeFiles/threshold_verify_lv89.dir/src/threshold_verify_bench.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/threshold_verify_wfa2.dir/build.make CMakeFiles/threshold_verify_wfa2.dir/src/threshold_verify_bench.cpp.s
+.PHONY : src/threshold_verify_bench.cpp.s
 
 # Help Target
 help:
@@ -716,19 +564,14 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... threshold_verify_bench"
 	@echo "... align_benchmark"
-	@echo "... edlib"
-	@echo "... edlib_gt"
-	@echo "... leap_avx2_bench"
-	@echo "... leap_avx2_obj"
-	@echo "... leap_avx512_bench"
-	@echo "... leap_avx512_obj"
-	@echo "... lv89_bench"
-	@echo "... lv89_obj"
-	@echo "... miniwfa_bench"
-	@echo "... miniwfa_obj"
+	@echo "... threshold_verify_leap_avx2"
+	@echo "... threshold_verify_leap_avx512"
+	@echo "... threshold_verify_lv89"
+	@echo "... threshold_verify_miniwfa"
+	@echo "... threshold_verify_wfa2"
 	@echo "... wfa2"
-	@echo "... wfa2_bench"
 	@echo "... wfa2_static"
 	@echo "... wfa2cpp"
 	@echo "... wfa2cpp_static"
@@ -762,21 +605,9 @@ help:
 	@echo "... home/minghao/project/2026/leapbench/miniwfa/miniwfa.o"
 	@echo "... home/minghao/project/2026/leapbench/miniwfa/miniwfa.i"
 	@echo "... home/minghao/project/2026/leapbench/miniwfa/miniwfa.s"
-	@echo "... wrappers/edlib_gt.o"
-	@echo "... wrappers/edlib_gt.i"
-	@echo "... wrappers/edlib_gt.s"
-	@echo "... wrappers/leap_bench.o"
-	@echo "... wrappers/leap_bench.i"
-	@echo "... wrappers/leap_bench.s"
-	@echo "... wrappers/lv89_bench.o"
-	@echo "... wrappers/lv89_bench.i"
-	@echo "... wrappers/lv89_bench.s"
-	@echo "... wrappers/miniwfa_bench.o"
-	@echo "... wrappers/miniwfa_bench.i"
-	@echo "... wrappers/miniwfa_bench.s"
-	@echo "... wrappers/wfa2_bench.o"
-	@echo "... wrappers/wfa2_bench.i"
-	@echo "... wrappers/wfa2_bench.s"
+	@echo "... src/threshold_verify_bench.o"
+	@echo "... src/threshold_verify_bench.i"
+	@echo "... src/threshold_verify_bench.s"
 .PHONY : help
 
 

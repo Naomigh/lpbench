@@ -6,5 +6,5 @@ C_DEFINES = -DVERSION=\"v2.3\" -DWFA2LIB_VERSION=\"v2.3\"
 
 C_INCLUDES = -I/home/minghao/project/2026/leapbench/WFA2-lib/. -I/home/minghao/project/2026/leapbench/WFA2-lib/wavefront -I/home/minghao/project/2026/leapbench/WFA2-lib/system -I/home/minghao/project/2026/leapbench/WFA2-lib/utils -I/home/minghao/project/2026/leapbench/WFA2-lib/tools/align_benchmark
 
-C_FLAGS =   -march=native -D_FILE_OFFSET_BITS=64 -O3 -DNDEBUG -std=gnu11 -fPIE -O3
+C_FLAGS =   -march=native -D_FILE_OFFSET_BITS=64 -O3 -DNDEBUG -fPIE
 

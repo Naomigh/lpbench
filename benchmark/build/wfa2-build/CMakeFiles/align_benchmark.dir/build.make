@@ -540,45 +540,45 @@ align_benchmark_OBJECTS = \
 # External object files for target align_benchmark
 align_benchmark_EXTERNAL_OBJECTS =
 
-align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/tools/align_benchmark/align_benchmark_params.c.o
-align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/tools/align_benchmark/align_benchmark.c.o
-align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/tools/align_benchmark/benchmark/benchmark_check.c.o
-align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/tools/align_benchmark/benchmark/benchmark_edit.c.o
-align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/tools/align_benchmark/benchmark/benchmark_gap_affine2p.c.o
-align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/tools/align_benchmark/benchmark/benchmark_gap_affine.c.o
-align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/tools/align_benchmark/benchmark/benchmark_gap_linear.c.o
-align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/tools/align_benchmark/benchmark/benchmark_indel.c.o
-align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/tools/align_benchmark/benchmark/benchmark_utils.c.o
-align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/system/mm_allocator.c.o
-align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/system/mm_stack.c.o
-align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/system/profiler_counter.c.o
-align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/system/profiler_timer.c.o
-align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/utils/bitmap.c.o
-align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/utils/commons.c.o
-align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/utils/dna_text.c.o
-align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/utils/heatmap.c.o
-align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/utils/sequence_buffer.c.o
-align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/utils/vector.c.o
-align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/alignment/affine2p_penalties.c.o
-align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/alignment/affine_penalties.c.o
-align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/alignment/cigar.c.o
-align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/alignment/score_matrix.c.o
-align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/tools/align_benchmark/gap_affine/affine_matrix.c.o
-align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/tools/align_benchmark/gap_affine/swg.c.o
-align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/tools/align_benchmark/gap_linear/nw.c.o
-align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/tools/align_benchmark/gap_affine2p/affine2p_dp.c.o
-align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/tools/align_benchmark/gap_affine2p/affine2p_matrix.c.o
-align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/tools/align_benchmark/edit/edit_bpm.c.o
-align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/tools/align_benchmark/edit/edit_dp.c.o
-align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/tools/align_benchmark/indel/indel_dp.c.o
-align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/build.make
-align_benchmark: wfa2-build/libwfa2.so.0
-align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Linking C executable ../align_benchmark"
+wfa2-build/align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/tools/align_benchmark/align_benchmark_params.c.o
+wfa2-build/align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/tools/align_benchmark/align_benchmark.c.o
+wfa2-build/align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/tools/align_benchmark/benchmark/benchmark_check.c.o
+wfa2-build/align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/tools/align_benchmark/benchmark/benchmark_edit.c.o
+wfa2-build/align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/tools/align_benchmark/benchmark/benchmark_gap_affine2p.c.o
+wfa2-build/align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/tools/align_benchmark/benchmark/benchmark_gap_affine.c.o
+wfa2-build/align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/tools/align_benchmark/benchmark/benchmark_gap_linear.c.o
+wfa2-build/align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/tools/align_benchmark/benchmark/benchmark_indel.c.o
+wfa2-build/align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/tools/align_benchmark/benchmark/benchmark_utils.c.o
+wfa2-build/align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/system/mm_allocator.c.o
+wfa2-build/align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/system/mm_stack.c.o
+wfa2-build/align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/system/profiler_counter.c.o
+wfa2-build/align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/system/profiler_timer.c.o
+wfa2-build/align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/utils/bitmap.c.o
+wfa2-build/align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/utils/commons.c.o
+wfa2-build/align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/utils/dna_text.c.o
+wfa2-build/align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/utils/heatmap.c.o
+wfa2-build/align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/utils/sequence_buffer.c.o
+wfa2-build/align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/utils/vector.c.o
+wfa2-build/align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/alignment/affine2p_penalties.c.o
+wfa2-build/align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/alignment/affine_penalties.c.o
+wfa2-build/align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/alignment/cigar.c.o
+wfa2-build/align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/alignment/score_matrix.c.o
+wfa2-build/align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/tools/align_benchmark/gap_affine/affine_matrix.c.o
+wfa2-build/align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/tools/align_benchmark/gap_affine/swg.c.o
+wfa2-build/align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/tools/align_benchmark/gap_linear/nw.c.o
+wfa2-build/align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/tools/align_benchmark/gap_affine2p/affine2p_dp.c.o
+wfa2-build/align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/tools/align_benchmark/gap_affine2p/affine2p_matrix.c.o
+wfa2-build/align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/tools/align_benchmark/edit/edit_bpm.c.o
+wfa2-build/align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/tools/align_benchmark/edit/edit_dp.c.o
+wfa2-build/align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/tools/align_benchmark/indel/indel_dp.c.o
+wfa2-build/align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/build.make
+wfa2-build/align_benchmark: wfa2-build/libwfa2.so.0
+wfa2-build/align_benchmark: wfa2-build/CMakeFiles/align_benchmark.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/minghao/project/2026/leapbench/benchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Linking C executable align_benchmark"
 	cd /home/minghao/project/2026/leapbench/benchmark/build/wfa2-build && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/align_benchmark.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-wfa2-build/CMakeFiles/align_benchmark.dir/build: align_benchmark
+wfa2-build/CMakeFiles/align_benchmark.dir/build: wfa2-build/align_benchmark
 .PHONY : wfa2-build/CMakeFiles/align_benchmark.dir/build
 
 wfa2-build/CMakeFiles/align_benchmark.dir/clean:

@@ -1,6 +1,4 @@
 file(REMOVE_RECURSE
-  "../align_benchmark"
-  "../align_benchmark.pdb"
   "CMakeFiles/align_benchmark.dir/alignment/affine2p_penalties.c.o"
   "CMakeFiles/align_benchmark.dir/alignment/affine2p_penalties.c.o.d"
   "CMakeFiles/align_benchmark.dir/alignment/affine_penalties.c.o"
@@ -63,6 +61,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/align_benchmark.dir/utils/sequence_buffer.c.o.d"
   "CMakeFiles/align_benchmark.dir/utils/vector.c.o"
   "CMakeFiles/align_benchmark.dir/utils/vector.c.o.d"
+  "align_benchmark"
+  "align_benchmark.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

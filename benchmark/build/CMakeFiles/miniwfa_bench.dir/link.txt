@@ -1,1 +1,0 @@
-/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/miniwfa_bench.dir/wrappers/miniwfa_bench.cpp.o CMakeFiles/miniwfa_obj.dir/home/minghao/project/2026/leapbench/miniwfa/miniwfa.c.o CMakeFiles/miniwfa_obj.dir/home/minghao/project/2026/leapbench/miniwfa/kalloc.c.o -o miniwfa_bench 
