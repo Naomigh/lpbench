@@ -1,0 +1,10 @@
+/build/
+/data/generated/*
+!/data/generated/.gitkeep
+/results/raw/*
+!/results/raw/.gitkeep
+/results/summary/*
+!/results/summary/.gitkeep
+!/results/summary/report.md
+!/results/summary/leap_phase_report.md
+!/results/summary/environment.txt
