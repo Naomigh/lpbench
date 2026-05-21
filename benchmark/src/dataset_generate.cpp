@@ -5,229 +5,150 @@
 #include <fstream>
 #include <iostream>
 #include <random>
-#include <set>
 #include <stdexcept>
 #include <string>
 #include <vector>
 
 namespace {
 
-struct Args {
-    int length = bench::kDefaultLength;
-    int true_ed_min = bench::kDefaultTrueEdMin;
-    int true_ed_max = bench::kDefaultTrueEdMax;
-    int pairs_per_ed = bench::kDefaultPairsPerEd;
-    int seed = bench::kDefaultSeed;
-    std::string out = bench::default_dataset_path(length, true_ed_min, true_ed_max);
-};
-
-struct GeneratedPair {
-    std::string read;
-    std::string reference;
-    int num_sub = 0;
-    int num_ins = 0;
-    int num_del = 0;
-    std::string pattern;
-};
-
-Args parse_args(int argc, char** argv) {
-    Args args;
-    for (int i = 1; i < argc; ++i) {
-        std::string key = argv[i];
-        auto require_value = [&](const char* name) -> std::string {
-            if (i + 1 >= argc) {
-                throw std::runtime_error(std::string("missing value for ") + name);
-            }
-            return argv[++i];
-        };
-        if (key == "--length") {
-            args.length = bench::parse_int(require_value("--length"), "--length");
-        } else if (key == "--true-ed-min") {
-            args.true_ed_min = bench::parse_int(require_value("--true-ed-min"), "--true-ed-min");
-        } else if (key == "--true-ed-max") {
-            args.true_ed_max = bench::parse_int(require_value("--true-ed-max"), "--true-ed-max");
-        } else if (key == "--pairs-per-ed") {
-            args.pairs_per_ed = bench::parse_int(require_value("--pairs-per-ed"), "--pairs-per-ed");
-        } else if (key == "--seed") {
-            args.seed = bench::parse_int(require_value("--seed"), "--seed");
-        } else if (key == "--out") {
-            args.out = require_value("--out");
-        } else {
-            throw std::runtime_error("unknown argument: " + key);
-        }
-    }
-    if (args.out.empty()) {
-        args.out = bench::default_dataset_path(args.length, args.true_ed_min, args.true_ed_max);
-    }
-    return args;
-}
-
 char random_base(std::mt19937_64& rng) {
-    static constexpr char bases[] = {'A', 'C', 'G', 'T'};
-    std::uniform_int_distribution<int> dist(0, 3);
-    return bases[dist(rng)];
+  static constexpr char bases[] = {'A', 'C', 'G', 'T'};
+  return bases[std::uniform_int_distribution<int>(0, 3)(rng)];
 }
 
-char different_base(char current, std::mt19937_64& rng) {
-    char b = random_base(rng);
-    while (b == current) {
-        b = random_base(rng);
-    }
-    return b;
+char different_base(char c, std::mt19937_64& rng) {
+  char b = random_base(rng);
+  while (b == c) b = random_base(rng);
+  return b;
 }
 
 std::string random_dna(int length, std::mt19937_64& rng) {
-    std::string s;
-    s.reserve(static_cast<std::size_t>(length));
-    for (int i = 0; i < length; ++i) {
-        s.push_back(random_base(rng));
-    }
-    return s;
+  std::string s;
+  s.reserve(length);
+  for (int i = 0; i < length; ++i) s.push_back(random_base(rng));
+  return s;
 }
 
-void apply_substitutions(std::string& read, int count, std::mt19937_64& rng, int& num_sub) {
-    if (count <= 0) {
-        return;
-    }
-    std::uniform_int_distribution<int> pos_dist(0, static_cast<int>(read.size()) - 1);
-    std::set<int> used;
-    while (static_cast<int>(used.size()) < count) {
-        used.insert(pos_dist(rng));
-    }
-    for (int pos : used) {
-        read[static_cast<std::size_t>(pos)] = different_base(read[static_cast<std::size_t>(pos)], rng);
-        ++num_sub;
-    }
+struct Candidate {
+  std::string read;
+  int num_sub = 0;
+  int num_ins = 0;
+  int num_del = 0;
+  std::string pattern;
+};
+
+void apply_subs(std::string& read, int count, std::mt19937_64& rng) {
+  std::vector<int> positions(read.size());
+  for (int i = 0; i < int(read.size()); ++i) positions[i] = i;
+  std::shuffle(positions.begin(), positions.end(), rng);
+  for (int i = 0; i < count; ++i) {
+    const int pos = positions[i % positions.size()];
+    read[pos] = different_base(read[pos], rng);
+  }
 }
 
-void apply_balanced_indels(std::string& read, int pairs, std::mt19937_64& rng, int& num_ins, int& num_del) {
-    for (int i = 0; i < pairs; ++i) {
-        std::uniform_int_distribution<int> del_dist(0, static_cast<int>(read.size()) - 1);
-        int del_pos = del_dist(rng);
-        read.erase(static_cast<std::size_t>(del_pos), 1);
-        ++num_del;
-
-        std::uniform_int_distribution<int> ins_dist(0, static_cast<int>(read.size()));
-        int ins_pos = ins_dist(rng);
-        read.insert(read.begin() + ins_pos, random_base(rng));
-        ++num_ins;
-    }
+bool apply_balanced_indels(std::string& read, int pairs, int final_length,
+                           std::mt19937_64& rng) {
+  if (pairs <= 0) return true;
+  for (int i = 0; i < pairs; ++i) {
+    if (read.empty()) return false;
+    int del = std::uniform_int_distribution<int>(0, int(read.size()) - 1)(rng);
+    read.erase(read.begin() + del);
+    int ins = std::uniform_int_distribution<int>(0, int(read.size()))(rng);
+    read.insert(read.begin() + ins, random_base(rng));
+  }
+  return int(read.size()) == final_length;
 }
 
-GeneratedPair make_candidate(int length, int target_ed, int variant, std::mt19937_64& rng) {
-    GeneratedPair p;
-    p.reference = random_dna(length, rng);
-    p.read = p.reference;
-
-    if (target_ed == 0) {
-        p.pattern = "exact";
-        return p;
+Candidate make_candidate(const std::string& ref, int target_ed, int variant,
+                         std::mt19937_64& rng) {
+  Candidate c;
+  c.read = ref;
+  if (target_ed == 0) {
+    c.pattern = "exact";
+    return c;
+  }
+  if (variant % 3 == 0 || target_ed == 1) {
+    c.num_sub = target_ed;
+    c.pattern = "sub_only";
+    apply_subs(c.read, c.num_sub, rng);
+    return c;
+  }
+  if (variant % 3 == 1 && target_ed >= 2) {
+    c.num_ins = target_ed / 2;
+    c.num_del = target_ed / 2;
+    c.pattern = "indel_balanced";
+    apply_balanced_indels(c.read, c.num_ins, ref.size(), rng);
+    if (target_ed % 2) {
+      c.num_sub = 1;
+      apply_subs(c.read, 1, rng);
+      c.pattern = "mixed";
     }
-
-    if (variant == 0 || target_ed == 1) {
-        p.pattern = "sub_only";
-        apply_substitutions(p.read, target_ed, rng, p.num_sub);
-    } else if (variant == 1 && target_ed >= 2) {
-        p.pattern = "indel_balanced";
-        int indel_pairs = std::max(1, target_ed / 2);
-        if (target_ed % 2 != 0) {
-            --indel_pairs;
-        }
-        apply_balanced_indels(p.read, indel_pairs, rng, p.num_ins, p.num_del);
-        apply_substitutions(p.read, target_ed - 2 * indel_pairs, rng, p.num_sub);
-        if (p.num_sub > 0) {
-            p.pattern = "mixed";
-        }
-    } else {
-        p.pattern = "mixed";
-        int indel_pairs = std::max(1, target_ed / 3);
-        while (2 * indel_pairs >= target_ed && indel_pairs > 0) {
-            --indel_pairs;
-        }
-        apply_substitutions(p.read, target_ed - 2 * indel_pairs, rng, p.num_sub);
-        apply_balanced_indels(p.read, indel_pairs, rng, p.num_ins, p.num_del);
-    }
-    return p;
+    return c;
+  }
+  c.num_ins = std::max(1, target_ed / 3);
+  c.num_del = c.num_ins;
+  c.num_sub = std::max(0, target_ed - 2 * c.num_ins);
+  c.pattern = "mixed";
+  apply_balanced_indels(c.read, c.num_ins, ref.size(), rng);
+  if (c.num_sub > 0) apply_subs(c.read, c.num_sub, rng);
+  return c;
 }
 
-GeneratedPair generate_verified_pair(int length, int target_ed, int pair_index, std::mt19937_64& rng) {
-    if (target_ed == 0) {
-        auto p = make_candidate(length, target_ed, 0, rng);
-        if (bench::trusted_edit_distance(p.read, p.reference) != 0) {
-            throw std::runtime_error("internal generator error for exact pair");
-        }
-        return p;
-    }
+int parse_int_arg(int argc, char** argv, const std::string& name, int def) {
+  for (int i = 1; i + 1 < argc; ++i)
+    if (argv[i] == name) return std::stoi(argv[i + 1]);
+  return def;
+}
 
-    for (int attempt = 0; attempt < 20000; ++attempt) {
-        int variant = (pair_index + attempt) % 3;
-        auto p = make_candidate(length, target_ed, variant, rng);
-        if (static_cast<int>(p.read.size()) != length || static_cast<int>(p.reference.size()) != length) {
-            continue;
-        }
-        int ed = bench::trusted_edit_distance(p.read, p.reference);
-        if (ed == target_ed) {
-            return p;
-        }
-    }
-    throw std::runtime_error("failed to generate verified pair for true_ed=" + std::to_string(target_ed));
+std::string parse_string_arg(int argc, char** argv, const std::string& name,
+                             const std::string& def) {
+  for (int i = 1; i + 1 < argc; ++i)
+    if (argv[i] == name) return argv[i + 1];
+  return def;
 }
 
 }  // namespace
 
 int main(int argc, char** argv) {
-    try {
-        Args args = parse_args(argc, argv);
-        if (args.length <= 0 || args.true_ed_min < 0 || args.true_ed_max < args.true_ed_min ||
-            args.pairs_per_ed <= 0) {
-            throw std::runtime_error("invalid dataset generation arguments");
-        }
+  const int length = parse_int_arg(argc, argv, "--length", 100);
+  const int ed_min = parse_int_arg(argc, argv, "--true-ed-min", 0);
+  const int ed_max = parse_int_arg(argc, argv, "--true-ed-max", 15);
+  const int pairs_per_ed = parse_int_arg(argc, argv, "--pairs-per-ed", 10000);
+  const uint64_t seed = uint64_t(parse_int_arg(argc, argv, "--seed", 1));
+  const std::string out = parse_string_arg(
+      argc, argv, "--out", "benchmark/data/generated/pairs_len100_ed0_15.tsv");
 
-        std::filesystem::create_directories(std::filesystem::path(args.out).parent_path());
-        std::ofstream out(args.out);
-        if (!out) {
-            throw std::runtime_error("failed to open output dataset: " + args.out);
-        }
+  std::filesystem::create_directories(std::filesystem::path(out).parent_path());
+  std::ofstream os(out);
+  if (!os) throw std::runtime_error("failed to write " + out);
+  os << "pair_id\tlength\ttrue_ed\tread\treference\tnum_sub\tnum_ins\tnum_del\t"
+        "edit_pattern\tseed\tpass_k1\tpass_k2\tpass_k3\tpass_k4\tpass_k5\n";
 
-        out << "pair_id\tlength\ttrue_ed\tread\treference\tnum_sub\tnum_ins\tnum_del\t"
-               "edit_pattern\tseed\tpass_k1\tpass_k2\tpass_k3\tpass_k4\tpass_k5\n";
-
-        std::mt19937_64 rng(static_cast<uint64_t>(args.seed));
-        int pair_id = 0;
-        int total_sub = 0;
-        int total_ins = 0;
-        int total_del = 0;
-        for (int ed = args.true_ed_min; ed <= args.true_ed_max; ++ed) {
-            for (int i = 0; i < args.pairs_per_ed; ++i) {
-                auto p = generate_verified_pair(args.length, ed, i, rng);
-                total_sub += p.num_sub;
-                total_ins += p.num_ins;
-                total_del += p.num_del;
-                out << pair_id++ << '\t'
-                    << args.length << '\t'
-                    << ed << '\t'
-                    << p.read << '\t'
-                    << p.reference << '\t'
-                    << p.num_sub << '\t'
-                    << p.num_ins << '\t'
-                    << p.num_del << '\t'
-                    << p.pattern << '\t'
-                    << args.seed;
-                for (int k = 1; k <= 5; ++k) {
-                    out << '\t' << (ed <= k ? 1 : 0);
-                }
-                out << '\n';
-            }
-        }
-
-        if (args.true_ed_max > 0 && (total_sub == 0 || total_ins == 0 || total_del == 0)) {
-            throw std::runtime_error("generated dataset did not include all edit operation types");
-        }
-
-        std::cerr << "Generated " << pair_id << " pairs at " << args.out << "\n";
-        return 0;
-    } catch (const std::exception& e) {
-        std::cerr << "dataset_generate: " << e.what() << "\n";
-        return 1;
+  uint64_t pair_id = 0;
+  std::mt19937_64 rng(seed);
+  for (int ed = ed_min; ed <= ed_max; ++ed) {
+    int accepted = 0;
+    uint64_t attempts = 0;
+    while (accepted < pairs_per_ed) {
+      if (++attempts > uint64_t(pairs_per_ed) * 5000ull) {
+        throw std::runtime_error("too many rejected generated pairs");
+      }
+      const std::string ref = random_dna(length, rng);
+      Candidate c = make_candidate(ref, ed, accepted + int(attempts), rng);
+      if (int(c.read.size()) != length) continue;
+      const int verified =
+          bench::trusted_edit_distance(c.read.data(), length, ref.data(), length);
+      if (verified != ed) continue;
+      os << pair_id++ << '\t' << length << '\t' << ed << '\t' << c.read << '\t'
+         << ref << '\t' << c.num_sub << '\t' << c.num_ins << '\t' << c.num_del
+         << '\t' << c.pattern << '\t' << seed;
+      for (int k = 1; k <= 5; ++k) os << '\t' << (ed <= k ? 1 : 0);
+      os << '\n';
+      ++accepted;
     }
+  }
+  std::cerr << "wrote " << pair_id << " pairs to " << out << "\n";
+  return 0;
 }
+

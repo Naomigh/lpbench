@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="640" viewBox="0 0 1120 640">
+<rect width="100%" height="100%" fill="white"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#111}.grid{stroke:#ddd;stroke-width:1}.axis{stroke:#111;stroke-width:1.5}.line{fill:none;stroke-width:2.5}.fit{fill:none;stroke-width:1.8;stroke-dasharray:6 4}.dot{stroke:white;stroke-width:1}</style>
+<text x="560.0" y="30" text-anchor="middle" font-size="18" font-weight="700">Fixed k=2: total CPU time after subtracting fitted intercept</text>
+<line class="grid" x1="105" y1="560.00" x2="910" y2="560.00"/>
+<text x="95" y="564.00" text-anchor="end" font-size="12">0.00000</text>
+<line class="grid" x1="105" y1="458.00" x2="910" y2="458.00"/>
+<text x="95" y="462.00" text-anchor="end" font-size="12">0.02590</text>
+<line class="grid" x1="105" y1="356.00" x2="910" y2="356.00"/>
+<text x="95" y="360.00" text-anchor="end" font-size="12">0.05181</text>
+<line class="grid" x1="105" y1="254.00" x2="910" y2="254.00"/>
+<text x="95" y="258.00" text-anchor="end" font-size="12">0.07771</text>
+<line class="grid" x1="105" y1="152.00" x2="910" y2="152.00"/>
+<text x="95" y="156.00" text-anchor="end" font-size="12">0.10361</text>
+<line class="grid" x1="105" y1="50.00" x2="910" y2="50.00"/>
+<text x="95" y="54.00" text-anchor="end" font-size="12">0.12952</text>
+<line class="grid" x1="105.00" y1="50" x2="105.00" y2="560"/>
+<text x="105.00" y="582" text-anchor="middle" font-size="12">1000</text>
+<line class="grid" x1="194.44" y1="50" x2="194.44" y2="560"/>
+<text x="194.44" y="582" text-anchor="middle" font-size="12">2000</text>
+<line class="grid" x1="283.89" y1="50" x2="283.89" y2="560"/>
+<text x="283.89" y="582" text-anchor="middle" font-size="12">3000</text>
+<line class="grid" x1="373.33" y1="50" x2="373.33" y2="560"/>
+<text x="373.33" y="582" text-anchor="middle" font-size="12">4000</text>
+<line class="grid" x1="462.78" y1="50" x2="462.78" y2="560"/>
+<text x="462.78" y="582" text-anchor="middle" font-size="12">5000</text>
+<line class="grid" x1="552.22" y1="50" x2="552.22" y2="560"/>
+<text x="552.22" y="582" text-anchor="middle" font-size="12">6000</text>
+<line class="grid" x1="641.67" y1="50" x2="641.67" y2="560"/>
+<text x="641.67" y="582" text-anchor="middle" font-size="12">7000</text>
+<line class="grid" x1="731.11" y1="50" x2="731.11" y2="560"/>
+<text x="731.11" y="582" text-anchor="middle" font-size="12">8000</text>
+<line class="grid" x1="820.56" y1="50" x2="820.56" y2="560"/>
+<text x="820.56" y="582" text-anchor="middle" font-size="12">9000</text>
+<line class="grid" x1="910.00" y1="50" x2="910.00" y2="560"/>
+<text x="910.00" y="582" text-anchor="middle" font-size="12">10000</text>
+<line class="axis" x1="105" y1="560" x2="910" y2="560"/>
+<line class="axis" x1="105" y1="50" x2="105" y2="560"/>
+<polyline class="line" stroke="#2563eb" points="105.00,541.82 194.44,521.76 283.89,501.02 373.33,475.04 462.78,464.77 552.22,445.02 641.67,423.67 731.11,395.45 820.56,380.47 910.00,369.02"/>
+<circle class="dot" fill="#2563eb" cx="105.00" cy="541.82" r="3.5"/>
+<circle class="dot" fill="#2563eb" cx="194.44" cy="521.76" r="3.5"/>
+<circle class="dot" fill="#2563eb" cx="283.89" cy="501.02" r="3.5"/>
+<circle class="dot" fill="#2563eb" cx="373.33" cy="475.04" r="3.5"/>
+<circle class="dot" fill="#2563eb" cx="462.78" cy="464.77" r="3.5"/>
+<circle class="dot" fill="#2563eb" cx="552.22" cy="445.02" r="3.5"/>
+<circle class="dot" fill="#2563eb" cx="641.67" cy="423.67" r="3.5"/>
+<circle class="dot" fill="#2563eb" cx="731.11" cy="395.45" r="3.5"/>
+<circle class="dot" fill="#2563eb" cx="820.56" cy="380.47" r="3.5"/>
+<circle class="dot" fill="#2563eb" cx="910.00" cy="369.02" r="3.5"/>
+<polyline class="fit" stroke="#2563eb" points="105.00,540.33 910.00,363.28"/>
+<line x1="930" y1="60" x2="962" y2="60" stroke="#2563eb" stroke-width="3"/>
+<text x="970" y="64" font-size="12">leap_avx2</text>
+<polyline class="line" stroke="#dc2626" points="105.00,538.36 194.44,520.54 283.89,500.93 373.33,483.68 462.78,463.11 552.22,445.53 641.67,422.52 731.11,403.77 820.56,382.51 910.00,363.53"/>
+<circle class="dot" fill="#dc2626" cx="105.00" cy="538.36" r="3.5"/>
+<circle class="dot" fill="#dc2626" cx="194.44" cy="520.54" r="3.5"/>
+<circle class="dot" fill="#dc2626" cx="283.89" cy="500.93" r="3.5"/>
+<circle class="dot" fill="#dc2626" cx="373.33" cy="483.68" r="3.5"/>
+<circle class="dot" fill="#dc2626" cx="462.78" cy="463.11" r="3.5"/>
+<circle class="dot" fill="#dc2626" cx="552.22" cy="445.53" r="3.5"/>
+<circle class="dot" fill="#dc2626" cx="641.67" cy="422.52" r="3.5"/>
+<circle class="dot" fill="#dc2626" cx="731.11" cy="403.77" r="3.5"/>
+<circle class="dot" fill="#dc2626" cx="820.56" cy="382.51" r="3.5"/>
+<circle class="dot" fill="#dc2626" cx="910.00" cy="363.53" r="3.5"/>
+<polyline class="fit" stroke="#dc2626" points="105.00,540.44 910.00,364.45"/>
+<line x1="930" y1="88" x2="962" y2="88" stroke="#dc2626" stroke-width="3"/>
+<text x="970" y="92" font-size="12">leap_avx512</text>
+<polyline class="line" stroke="#059669" points="105.00,542.57 194.44,527.29 283.89,511.52 373.33,496.01 462.78,478.66 552.22,461.86 641.67,447.45 731.11,430.11 820.56,415.57 910.00,394.62"/>
+<circle class="dot" fill="#059669" cx="105.00" cy="542.57" r="3.5"/>
+<circle class="dot" fill="#059669" cx="194.44" cy="527.29" r="3.5"/>
+<circle class="dot" fill="#059669" cx="283.89" cy="511.52" r="3.5"/>
+<circle class="dot" fill="#059669" cx="373.33" cy="496.01" r="3.5"/>
+<circle class="dot" fill="#059669" cx="462.78" cy="478.66" r="3.5"/>
+<circle class="dot" fill="#059669" cx="552.22" cy="461.86" r="3.5"/>
+<circle class="dot" fill="#059669" cx="641.67" cy="447.45" r="3.5"/>
+<circle class="dot" fill="#059669" cx="731.11" cy="430.11" r="3.5"/>
+<circle class="dot" fill="#059669" cx="820.56" cy="415.57" r="3.5"/>
+<circle class="dot" fill="#059669" cx="910.00" cy="394.62" r="3.5"/>
+<polyline class="fit" stroke="#059669" points="105.00,543.74 910.00,397.39"/>
+<line x1="930" y1="116" x2="962" y2="116" stroke="#059669" stroke-width="3"/>
+<text x="970" y="120" font-size="12">lv89</text>
+<polyline class="line" stroke="#7c3aed" points="105.00,535.85 194.44,510.86 283.89,486.11 373.33,454.33 462.78,437.05 552.22,412.52 641.67,381.52 731.11,360.55 820.56,333.87 910.00,311.72"/>
+<circle class="dot" fill="#7c3aed" cx="105.00" cy="535.85" r="3.5"/>
+<circle class="dot" fill="#7c3aed" cx="194.44" cy="510.86" r="3.5"/>
+<circle class="dot" fill="#7c3aed" cx="283.89" cy="486.11" r="3.5"/>
+<circle class="dot" fill="#7c3aed" cx="373.33" cy="454.33" r="3.5"/>
+<circle class="dot" fill="#7c3aed" cx="462.78" cy="437.05" r="3.5"/>
+<circle class="dot" fill="#7c3aed" cx="552.22" cy="412.52" r="3.5"/>
+<circle class="dot" fill="#7c3aed" cx="641.67" cy="381.52" r="3.5"/>
+<circle class="dot" fill="#7c3aed" cx="731.11" cy="360.55" r="3.5"/>
+<circle class="dot" fill="#7c3aed" cx="820.56" cy="333.87" r="3.5"/>
+<circle class="dot" fill="#7c3aed" cx="910.00" cy="311.72" r="3.5"/>
+<polyline class="fit" stroke="#7c3aed" points="105.00,534.99 910.00,309.89"/>
+<line x1="930" y1="144" x2="962" y2="144" stroke="#7c3aed" stroke-width="3"/>
+<text x="970" y="148" font-size="12">miniwfa</text>
+<polyline class="line" stroke="#ea580c" points="105.00,517.41 194.44,471.54 283.89,424.86 373.33,341.85 462.78,300.15 552.22,283.26 641.67,256.98 731.11,146.49 820.56,96.36 910.00,110.51"/>
+<circle class="dot" fill="#ea580c" cx="105.00" cy="517.41" r="3.5"/>
+<circle class="dot" fill="#ea580c" cx="194.44" cy="471.54" r="3.5"/>
+<circle class="dot" fill="#ea580c" cx="283.89" cy="424.86" r="3.5"/>
+<circle class="dot" fill="#ea580c" cx="373.33" cy="341.85" r="3.5"/>
+<circle class="dot" fill="#ea580c" cx="462.78" cy="300.15" r="3.5"/>
+<circle class="dot" fill="#ea580c" cx="552.22" cy="283.26" r="3.5"/>
+<circle class="dot" fill="#ea580c" cx="641.67" cy="256.98" r="3.5"/>
+<circle class="dot" fill="#ea580c" cx="731.11" cy="146.49" r="3.5"/>
+<circle class="dot" fill="#ea580c" cx="820.56" cy="96.36" r="3.5"/>
+<circle class="dot" fill="#ea580c" cx="910.00" cy="110.51" r="3.5"/>
+<polyline class="fit" stroke="#ea580c" points="105.00,511.81 910.00,78.08"/>
+<line x1="930" y1="172" x2="962" y2="172" stroke="#ea580c" stroke-width="3"/>
+<text x="970" y="176" font-size="12">wfa2_fresh</text>
+<polyline class="line" stroke="#0891b2" points="105.00,536.41 194.44,510.78 283.89,481.92 373.33,452.58 462.78,433.63 552.22,409.47 641.67,383.28 731.11,349.62 820.56,331.53 910.00,307.27"/>
+<circle class="dot" fill="#0891b2" cx="105.00" cy="536.41" r="3.5"/>
+<circle class="dot" fill="#0891b2" cx="194.44" cy="510.78" r="3.5"/>
+<circle class="dot" fill="#0891b2" cx="283.89" cy="481.92" r="3.5"/>
+<circle class="dot" fill="#0891b2" cx="373.33" cy="452.58" r="3.5"/>
+<circle class="dot" fill="#0891b2" cx="462.78" cy="433.63" r="3.5"/>
+<circle class="dot" fill="#0891b2" cx="552.22" cy="409.47" r="3.5"/>
+<circle class="dot" fill="#0891b2" cx="641.67" cy="383.28" r="3.5"/>
+<circle class="dot" fill="#0891b2" cx="731.11" cy="349.62" r="3.5"/>
+<circle class="dot" fill="#0891b2" cx="820.56" cy="331.53" r="3.5"/>
+<circle class="dot" fill="#0891b2" cx="910.00" cy="307.27" r="3.5"/>
+<polyline class="fit" stroke="#0891b2" points="105.00,534.48 910.00,304.82"/>
+<line x1="930" y1="200" x2="962" y2="200" stroke="#0891b2" stroke-width="3"/>
+<text x="970" y="204" font-size="12">wfa2_reuse</text>
+<text x="560.0" y="614" text-anchor="middle" font-size="14">pairs per true_ed group, k=2</text>
+<text x="20" y="320.0" transform="rotate(-90 20 320.0)" text-anchor="middle" font-size="14">total_cpu_seconds - fitted intercept</text>
+</svg>

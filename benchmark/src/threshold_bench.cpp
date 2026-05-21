@@ -1,259 +1,248 @@
-#include "bench_common.hpp"
-#include "cpu_memory_path.hpp"
 #include "dataset.hpp"
 #include "method_interface.hpp"
 #include "perf_schema.hpp"
 #include "timing.hpp"
 
+#include <algorithm>
 #include <filesystem>
 #include <fstream>
-#include <iomanip>
 #include <iostream>
 #include <map>
+#include <numeric>
 #include <stdexcept>
 #include <string>
+#include <unordered_map>
 #include <vector>
 
 namespace {
 
-static volatile uint64_t g_pass_sink = 0;
+volatile uint64_t g_pass_sink = 0;
 
-struct Args {
-    std::string dataset;
-    std::string out_dir = "benchmark/results";
-    std::vector<std::string> methods = {
-        "leap_avx2", "leap_avx512", "lv89", "miniwfa", "wfa2_fresh", "wfa2_reuse"};
-    std::vector<int> ks = {1, 2, 3, 4, 5};
-    int length = bench::kDefaultLength;
-    int true_ed_min = bench::kDefaultTrueEdMin;
-    int true_ed_max = bench::kDefaultTrueEdMax;
-    int seed = bench::kDefaultSeed;
-    std::string cache_mode = "warm";
+struct Options {
+  std::string dataset = "benchmark/data/generated/pairs_len100_ed0_15.tsv";
+  std::vector<std::string> methods = {"leap_avx2", "leap_avx512", "lv89",
+                                      "miniwfa", "wfa2_fresh", "wfa2_reuse"};
+  std::vector<int> ks = {1, 2, 3, 4, 5};
+  int length = 100;
+  int true_ed_min = 0;
+  int true_ed_max = 15;
+  std::string cache_mode = "warm";
+  std::string out_dir = "benchmark/results";
+  uint64_t seed = 1;
 };
 
-std::vector<std::string> read_values(int& i, int argc, char** argv, const char* name) {
-    std::vector<std::string> values;
-    while (i + 1 < argc && !bench::starts_with_dash(argv[i + 1])) {
-        values.emplace_back(argv[++i]);
-    }
-    if (values.empty()) {
-        throw std::runtime_error(std::string("missing value for ") + name);
-    }
-    return values;
+bool is_option(const char* s) { return std::string(s).rfind("--", 0) == 0; }
+
+std::vector<std::string> parse_strings(int argc, char** argv,
+                                       const std::string& name,
+                                       std::vector<std::string> def) {
+  for (int i = 1; i < argc; ++i) {
+    if (argv[i] != name) continue;
+    std::vector<std::string> out;
+    for (++i; i < argc && !is_option(argv[i]); ++i) out.emplace_back(argv[i]);
+    return out.empty() ? def : out;
+  }
+  return def;
 }
 
-Args parse_args(int argc, char** argv) {
-    Args args;
-    for (int i = 1; i < argc; ++i) {
-        std::string key = argv[i];
-        auto one = [&](const char* name) -> std::string {
-            if (i + 1 >= argc) {
-                throw std::runtime_error(std::string("missing value for ") + name);
-            }
-            return argv[++i];
-        };
-        if (key == "--dataset") {
-            args.dataset = one("--dataset");
-        } else if (key == "--out-dir") {
-            args.out_dir = one("--out-dir");
-        } else if (key == "--methods") {
-            args.methods = read_values(i, argc, argv, "--methods");
-        } else if (key == "--method") {
-            args.methods = {one("--method")};
-        } else if (key == "--ks") {
-            args.ks.clear();
-            for (const auto& v : read_values(i, argc, argv, "--ks")) {
-                args.ks.push_back(bench::parse_int(v, "--ks"));
-            }
-        } else if (key == "--k") {
-            args.ks = {bench::parse_int(one("--k"), "--k")};
-        } else if (key == "--length") {
-            args.length = bench::parse_int(one("--length"), "--length");
-        } else if (key == "--true-ed-min") {
-            args.true_ed_min = bench::parse_int(one("--true-ed-min"), "--true-ed-min");
-        } else if (key == "--true-ed-max") {
-            args.true_ed_max = bench::parse_int(one("--true-ed-max"), "--true-ed-max");
-        } else if (key == "--seed") {
-            args.seed = bench::parse_int(one("--seed"), "--seed");
-        } else if (key == "--cache-mode") {
-            args.cache_mode = one("--cache-mode");
-        } else {
-            throw std::runtime_error("unknown argument: " + key);
-        }
-    }
-    if (args.dataset.empty()) {
-        args.dataset = bench::default_dataset_path(args.length, args.true_ed_min, args.true_ed_max);
-    }
-    if (args.cache_mode != "warm" && args.cache_mode != "cold-ish") {
-        throw std::runtime_error("--cache-mode must be warm or cold-ish");
-    }
-    return args;
+std::vector<int> parse_ints(int argc, char** argv, const std::string& name,
+                            std::vector<int> def) {
+  for (int i = 1; i < argc; ++i) {
+    if (argv[i] != name) continue;
+    std::vector<int> out;
+    for (++i; i < argc && !is_option(argv[i]); ++i) out.push_back(std::stoi(argv[i]));
+    return out.empty() ? def : out;
+  }
+  return def;
 }
 
-std::map<std::string, bench::MethodSpec> method_map() {
-    std::map<std::string, bench::MethodSpec> out;
-    for (auto method : bench::all_methods()) {
-        out.emplace(method.method, method);
-    }
-    return out;
+std::string parse_string(int argc, char** argv, const std::string& name,
+                         const std::string& def) {
+  for (int i = 1; i + 1 < argc; ++i)
+    if (argv[i] == name) return argv[i + 1];
+  return def;
 }
 
-void prepare_cache(const std::string& cache_mode,
-                   const bench::MethodSpec& method,
-                   const std::vector<const bench::PairRecord*>& pairs,
-                   int k,
-                   std::vector<uint8_t>& eviction_buffer) {
-    if (cache_mode == "warm") {
-        for (const auto* p : pairs) {
-            bench::touch_bytes(p->read, g_pass_sink);
-            bench::touch_bytes(p->reference, g_pass_sink);
-        }
-        for (const auto* p : pairs) {
-            bench::VerifyInput input{p->read.data(), p->reference.data(), p->length, k};
-            auto r = method.verify(input);
-            g_pass_sink += r.pass ? 1 : 0;
-        }
-    } else {
-        bench::evict_coldish_cache(eviction_buffer, g_pass_sink);
-    }
+int parse_int(int argc, char** argv, const std::string& name, int def) {
+  for (int i = 1; i + 1 < argc; ++i)
+    if (argv[i] == name) return std::stoi(argv[i + 1]);
+  return def;
 }
 
-struct RunResult {
-    uint64_t total_cpu_ns = 0;
-    uint64_t pass_count = 0;
-    uint64_t fail_count = 0;
-    uint64_t mismatch_count = 0;
-    uint64_t result_sink = 0;
+Options parse_options(int argc, char** argv) {
+  Options o;
+  o.dataset = parse_string(argc, argv, "--dataset", o.dataset);
+  o.methods = parse_strings(argc, argv, "--methods", o.methods);
+  o.ks = parse_ints(argc, argv, "--ks", o.ks);
+  auto lengths = parse_ints(argc, argv, "--lengths", {o.length});
+  o.length = lengths.front();
+  o.true_ed_min = parse_int(argc, argv, "--true-ed-min", o.true_ed_min);
+  o.true_ed_max = parse_int(argc, argv, "--true-ed-max", o.true_ed_max);
+  o.cache_mode = parse_string(argc, argv, "--cache-mode", o.cache_mode);
+  o.out_dir = parse_string(argc, argv, "--out-dir", o.out_dir);
+  o.seed = uint64_t(parse_int(argc, argv, "--seed", int(o.seed)));
+  return o;
+}
+
+std::vector<bench::MethodSpec> all_methods() {
+  return {
+      {"leap_avx2", "avx2", "forward", bench::verify_leap_avx2,
+       bench::method_available_avx2, nullptr, nullptr},
+      {"leap_avx512", "avx512", "forward", bench::verify_leap_avx512,
+       bench::method_available_avx512, nullptr, nullptr},
+      {"lv89", "lv89", "default", bench::verify_lv89, nullptr, nullptr, nullptr},
+      {"miniwfa", "miniwfa", "default", bench::verify_miniwfa, nullptr, nullptr,
+       nullptr},
+      {"wfa2_fresh", "wfa2", "fresh", bench::verify_wfa2_fresh, nullptr, nullptr,
+       nullptr},
+      {"wfa2_reuse", "wfa2", "reuse", bench::verify_wfa2_reuse, nullptr,
+       bench::method_prepare_wfa2_reuse, bench::method_cleanup_wfa2_reuse},
+  };
+}
+
+void touch_rows(const std::vector<const bench::PairRecord*>& rows) {
+  volatile uint64_t sink = 0;
+  for (const auto* r : rows) {
+    for (char c : r->read) sink += uint8_t(c);
+    for (char c : r->reference) sink += uint8_t(c);
+  }
+  g_pass_sink += sink & 1u;
+}
+
+void evict_cache() {
+  static std::vector<uint8_t> eviction(256ull * 1024ull * 1024ull, 1);
+  volatile uint64_t sink = 0;
+  for (size_t i = 0; i < eviction.size(); i += 64) sink += eviction[i];
+  g_pass_sink += sink & 1u;
+}
+
+void warmup(const bench::MethodSpec& method,
+            const std::vector<const bench::PairRecord*>& rows, int k) {
+  touch_rows(rows);
+  for (const auto* r : rows) {
+    bench::VerifyInput input{r->read.data(), r->reference.data(), r->length, k};
+    const auto result = method.verify(input);
+    g_pass_sink += result.pass ? 1 : 0;
+  }
+}
+
+struct RunStats {
+  uint64_t total_cpu_ns = 0;
+  uint64_t pass_count = 0;
+  uint64_t mismatch_count = 0;
+  uint64_t sink = 0;
 };
 
-RunResult run_once(const std::string& cache_mode,
-                   const bench::MethodSpec& method,
-                   const std::vector<const bench::PairRecord*>& pairs,
-                   int k,
-                   std::vector<uint8_t>& eviction_buffer) {
-    if (pairs.empty()) {
-        return {};
-    }
-    std::vector<uint8_t> measured(pairs.size(), 0);
-    prepare_cache(cache_mode, method, pairs, k, eviction_buffer);
+RunStats run_timed(const bench::MethodSpec& method,
+                   const std::vector<const bench::PairRecord*>& rows, int k,
+                   const std::string& cache_mode) {
+  if (method.method == "leap_avx2" || method.method == "leap_avx512") {
+    const auto leap_stats = method.method == "leap_avx2"
+                                ? bench::run_leap_avx2_forward_timed(
+                                      rows, k, cache_mode, &g_pass_sink)
+                                : bench::run_leap_avx512_forward_timed(
+                                      rows, k, cache_mode, &g_pass_sink);
+    return {leap_stats.total_cpu_ns, leap_stats.pass_count,
+            leap_stats.mismatch_count, leap_stats.sink};
+  }
 
-    uint64_t start_ns = bench::thread_cpu_time_ns();
-    for (std::size_t i = 0; i < pairs.size(); ++i) {
-        const auto* p = pairs[i];
-        bench::VerifyInput input{p->read.data(), p->reference.data(), p->length, k};
-        bench::VerifyResult r = method.verify(input);
-        uint8_t pass = r.pass ? 1 : 0;
-        measured[i] = pass;
-        g_pass_sink += pass;
-    }
-    uint64_t end_ns = bench::thread_cpu_time_ns();
+  if (cache_mode == "warm") {
+    warmup(method, rows, k);
+  } else if (cache_mode == "cold-ish") {
+    evict_cache();
+  } else {
+    throw std::runtime_error("unknown cache mode: " + cache_mode);
+  }
 
-    RunResult result;
-    result.total_cpu_ns = end_ns - start_ns;
-    result.result_sink = g_pass_sink;
-    for (std::size_t i = 0; i < pairs.size(); ++i) {
-        result.pass_count += measured[i] ? 1 : 0;
-        result.fail_count += measured[i] ? 0 : 1;
-        result.mismatch_count += measured[i] != bench::expected_pass_for_k(*pairs[i], k) ? 1 : 0;
-    }
-    return result;
-}
+  std::vector<uint8_t> measured(rows.size());
+  uint64_t local_sink = 0;
+  const uint64_t start = bench::thread_cpu_time_ns();
+  for (size_t i = 0; i < rows.size(); ++i) {
+    const auto* r = rows[i];
+    bench::VerifyInput input{r->read.data(), r->reference.data(), r->length, k};
+    const auto result = method.verify(input);
+    measured[i] = result.pass ? 1 : 0;
+    local_sink += measured[i];
+    g_pass_sink += measured[i];
+  }
+  const uint64_t end = bench::thread_cpu_time_ns();
 
-void write_threshold_raw_row(std::ofstream& out,
-                             const bench::MethodSpec& method,
-                             const Args& args,
-                             int k,
-                             const RunResult& result,
-                             std::size_t pair_count) {
-    double avg = pair_count == 0 ? 0.0 : static_cast<double>(result.total_cpu_ns) / static_cast<double>(pair_count);
-    double seconds_10m = avg * 10000000.0 / 1e9;
-    out << method.method << '\t'
-        << method.backend << '\t'
-        << method.mode << '\t'
-        << args.cache_mode << '\t'
-        << args.length << '\t'
-        << k << '\t'
-        << pair_count << '\t'
-        << result.pass_count << '\t'
-        << result.fail_count << '\t'
-        << result.mismatch_count << '\t'
-        << result.total_cpu_ns << '\t'
-        << std::fixed << std::setprecision(3) << avg << '\t'
-        << std::fixed << std::setprecision(6) << seconds_10m << '\t'
-        << result.result_sink << '\t'
-        << args.seed << '\n';
-}
-
-void write_by_ed_row(std::ofstream& out,
-                     const bench::MethodSpec& method,
-                     const Args& args,
-                     int k,
-                     int ed,
-                     const RunResult& result,
-                     std::size_t pair_count) {
-    double avg = pair_count == 0 ? 0.0 : static_cast<double>(result.total_cpu_ns) / static_cast<double>(pair_count);
-    out << method.method << '\t'
-        << method.backend << '\t'
-        << method.mode << '\t'
-        << args.cache_mode << '\t'
-        << args.length << '\t'
-        << k << '\t'
-        << ed << '\t'
-        << pair_count << '\t'
-        << result.pass_count << '\t'
-        << result.fail_count << '\t'
-        << result.mismatch_count << '\t'
-        << result.total_cpu_ns << '\t'
-        << std::fixed << std::setprecision(3) << avg << '\t'
-        << args.seed << '\n';
+  RunStats stats;
+  stats.total_cpu_ns = end - start;
+  stats.pass_count = local_sink;
+  stats.sink = g_pass_sink;
+  for (size_t i = 0; i < rows.size(); ++i) {
+    if (measured[i] != expected_pass_label(*rows[i], k)) ++stats.mismatch_count;
+  }
+  return stats;
 }
 
 }  // namespace
 
 int main(int argc, char** argv) {
-    try {
-        Args args = parse_args(argc, argv);
-        auto pairs = bench::load_dataset_tsv(args.dataset);
-        auto selected = bench::select_pairs(pairs, args.length, args.true_ed_min, args.true_ed_max);
-        if (selected.empty()) {
-            throw std::runtime_error("no dataset rows selected");
-        }
+  try {
+    const Options opt = parse_options(argc, argv);
+    const auto dataset = bench::load_dataset_tsv(opt.dataset);
 
-        std::filesystem::create_directories(std::filesystem::path(args.out_dir) / "raw");
-        std::ofstream threshold_raw(std::filesystem::path(args.out_dir) / "raw" / "threshold_raw.tsv");
-        std::ofstream threshold_by_ed(std::filesystem::path(args.out_dir) / "raw" / "threshold_by_ed.tsv");
-        if (!threshold_raw || !threshold_by_ed) {
-            throw std::runtime_error("failed to open threshold output files");
-        }
-        threshold_raw << bench::kThresholdRawHeader;
-        threshold_by_ed << bench::kThresholdByEdHeader;
-
-        auto methods = method_map();
-        std::vector<uint8_t> eviction_buffer(256ull * 1024ull * 1024ull, 0);
-
-        for (const auto& method_name : args.methods) {
-            auto it = methods.find(method_name);
-            if (it == methods.end()) {
-                throw std::runtime_error("unknown method: " + method_name);
-            }
-            const auto& method = it->second;
-            for (int k : args.ks) {
-                auto result = run_once(args.cache_mode, method, selected, k, eviction_buffer);
-                write_threshold_raw_row(threshold_raw, method, args, k, result, selected.size());
-
-                for (int ed = args.true_ed_min; ed <= args.true_ed_max; ++ed) {
-                    auto by_ed = bench::select_pairs_by_ed(pairs, args.length, ed);
-                    auto ed_result = run_once(args.cache_mode, method, by_ed, k, eviction_buffer);
-                    write_by_ed_row(threshold_by_ed, method, args, k, ed, ed_result, by_ed.size());
-                }
-            }
-        }
-
-        std::cerr << "Wrote " << (std::filesystem::path(args.out_dir) / "raw" / "threshold_raw.tsv") << "\n";
-        std::cerr << "Wrote " << (std::filesystem::path(args.out_dir) / "raw" / "threshold_by_ed.tsv") << "\n";
-        return 0;
-    } catch (const std::exception& e) {
-        std::cerr << "threshold_bench: " << e.what() << "\n";
-        return 1;
+    std::vector<const bench::PairRecord*> selected;
+    std::map<int, std::vector<const bench::PairRecord*>> by_ed;
+    for (const auto& row : dataset) {
+      if (row.length != opt.length) continue;
+      if (row.true_ed < opt.true_ed_min || row.true_ed > opt.true_ed_max) continue;
+      selected.push_back(&row);
+      by_ed[row.true_ed].push_back(&row);
     }
+    if (selected.empty()) throw std::runtime_error("no rows selected from dataset");
+
+    std::filesystem::create_directories(opt.out_dir + "/raw");
+    std::ofstream raw(opt.out_dir + "/raw/threshold_raw.tsv");
+    std::ofstream grouped(opt.out_dir + "/raw/threshold_by_ed.tsv");
+    raw << bench::kThresholdRawHeader;
+    grouped << bench::kThresholdByEdHeader;
+
+    std::unordered_map<std::string, bench::MethodSpec> registry;
+    for (auto& m : all_methods()) registry.emplace(m.method, m);
+
+    for (const auto& method_name : opt.methods) {
+      if (!registry.count(method_name)) {
+        throw std::runtime_error("unknown method: " + method_name);
+      }
+      const auto method = registry.at(method_name);
+      if (method.available && !method.available()) {
+        throw std::runtime_error(method.method + " requested but backend is unavailable");
+      }
+      if (method.prepare && !method.prepare()) {
+        throw std::runtime_error("failed to prepare method: " + method.method);
+      }
+      for (const int k : opt.ks) {
+        const auto total = run_timed(method, selected, k, opt.cache_mode);
+        const uint64_t fail_count = selected.size() - total.pass_count;
+        const double avg = double(total.total_cpu_ns) / double(selected.size());
+        raw << method.method << '\t' << method.backend << '\t' << method.mode
+            << '\t' << opt.cache_mode << '\t' << opt.length << '\t' << k << '\t'
+            << selected.size() << '\t' << total.pass_count << '\t' << fail_count
+            << '\t' << total.mismatch_count << '\t' << total.total_cpu_ns << '\t'
+            << avg << '\t' << (avg * 10000000.0 / 1.0e9) << '\t'
+            << total.sink << '\t' << opt.seed << '\n';
+
+        for (const auto& [ed, rows] : by_ed) {
+          const auto stats = run_timed(method, rows, k, opt.cache_mode);
+          const uint64_t ed_fail_count = rows.size() - stats.pass_count;
+          const double ed_avg = double(stats.total_cpu_ns) / double(rows.size());
+          grouped << method.method << '\t' << method.backend << '\t' << method.mode
+                  << '\t' << opt.cache_mode << '\t' << opt.length << '\t' << k
+                  << '\t' << ed << '\t' << rows.size() << '\t' << stats.pass_count
+                  << '\t' << ed_fail_count << '\t' << stats.mismatch_count << '\t'
+                  << stats.total_cpu_ns << '\t' << ed_avg << '\t' << opt.seed
+                  << '\n';
+        }
+      }
+      if (method.cleanup) method.cleanup();
+    }
+    return 0;
+  } catch (const std::exception& e) {
+    std::cerr << "threshold_bench: " << e.what() << "\n";
+    return 1;
+  }
 }
+

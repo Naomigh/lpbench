@@ -4,26 +4,25 @@ import pathlib
 import subprocess
 
 
-def default_dataset_path(length: int, ed_min: int, ed_max: int) -> str:
-    return f"benchmark/data/generated/pairs_len{length}_ed{ed_min}_{ed_max}.tsv"
-
-
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Generate verified synthetic DNA benchmark dataset.")
-    parser.add_argument("--binary", default="benchmark/build/dataset_generate")
+    parser = argparse.ArgumentParser()
     parser.add_argument("--length", type=int, default=100)
-    parser.add_argument("--true-ed-min", type=int, default=0)
-    parser.add_argument("--true-ed-max", type=int, default=15)
+    parser.add_argument("--true-ed-min", "--min-ed", "--min-edit-distance", dest="true_ed_min", type=int, default=0)
+    parser.add_argument("--true-ed-max", "--max-ed", "--max-edit-distance", dest="true_ed_max", type=int, default=15)
     parser.add_argument("--pairs-per-ed", type=int, default=10000)
     parser.add_argument("--seed", type=int, default=1)
-    parser.add_argument("--out")
+    parser.add_argument("--out", default="benchmark/data/generated/pairs_len100_ed0_15.tsv")
+    parser.add_argument("--build-dir", default="benchmark/build")
     args = parser.parse_args()
 
-    out = args.out or default_dataset_path(args.length, args.true_ed_min, args.true_ed_max)
-    pathlib.Path(out).parent.mkdir(parents=True, exist_ok=True)
+    binary = pathlib.Path(args.build_dir) / "dataset_generate"
+    if not binary.exists():
+        subprocess.run(["python3", "benchmark/scripts/build_benchmark.py"], check=True)
+
+    pathlib.Path(args.out).parent.mkdir(parents=True, exist_ok=True)
     subprocess.run(
         [
-            args.binary,
+            str(binary),
             "--length",
             str(args.length),
             "--true-ed-min",
@@ -35,7 +34,7 @@ def main() -> int:
             "--seed",
             str(args.seed),
             "--out",
-            out,
+            args.out,
         ],
         check=True,
     )
@@ -44,3 +43,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+

@@ -1,0 +1,210 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760">
+<rect width="100%" height="100%" fill="white"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#111}.grid{stroke:#e5e7eb;stroke-width:1}.axis{stroke:#111;stroke-width:1.3}.line{fill:none;stroke-width:2.4}.dot{stroke:white;stroke-width:1}</style>
+<text x="640" y="30" text-anchor="middle" font-size="19" font-weight="700">Large matrix average CPU time per pair</text>
+<text x="227.67" y="40" text-anchor="middle" font-size="15" font-weight="700">100 bp</text>
+<line class="grid" x1="72.00" y1="690.00" x2="383.33" y2="690.00"/>
+<text x="62.00" y="694.00" text-anchor="end" font-size="11">0</text>
+<line class="grid" x1="72.00" y1="532.00" x2="383.33" y2="532.00"/>
+<text x="62.00" y="536.00" text-anchor="end" font-size="11">600</text>
+<line class="grid" x1="72.00" y1="374.00" x2="383.33" y2="374.00"/>
+<text x="62.00" y="378.00" text-anchor="end" font-size="11">1200</text>
+<line class="grid" x1="72.00" y1="216.00" x2="383.33" y2="216.00"/>
+<text x="62.00" y="220.00" text-anchor="end" font-size="11">1800</text>
+<line class="grid" x1="72.00" y1="58.00" x2="383.33" y2="58.00"/>
+<text x="62.00" y="62.00" text-anchor="end" font-size="11">2400</text>
+<line class="grid" x1="72.00" y1="58" x2="72.00" y2="690"/>
+<text x="72.00" y="712" text-anchor="middle" font-size="11">0</text>
+<line class="grid" x1="134.27" y1="58" x2="134.27" y2="690"/>
+<text x="134.27" y="712" text-anchor="middle" font-size="11">1</text>
+<line class="grid" x1="196.53" y1="58" x2="196.53" y2="690"/>
+<text x="196.53" y="712" text-anchor="middle" font-size="11">2</text>
+<line class="grid" x1="258.80" y1="58" x2="258.80" y2="690"/>
+<text x="258.80" y="712" text-anchor="middle" font-size="11">3</text>
+<line class="grid" x1="321.07" y1="58" x2="321.07" y2="690"/>
+<text x="321.07" y="712" text-anchor="middle" font-size="11">4</text>
+<line class="grid" x1="383.33" y1="58" x2="383.33" y2="690"/>
+<text x="383.33" y="712" text-anchor="middle" font-size="11">5</text>
+<line class="axis" x1="72.00" y1="690.00" x2="383.33" y2="690.00"/>
+<line class="axis" x1="72.00" y1="58.00" x2="72.00" y2="690.00"/>
+<polyline class="line" stroke="#2563eb" points="72.00,683.86 134.27,673.92 196.53,661.08 258.80,641.13 321.07,616.62 383.33,566.49"/>
+<circle class="dot" fill="#2563eb" cx="72.00" cy="683.86" r="3.4"/>
+<circle class="dot" fill="#2563eb" cx="134.27" cy="673.92" r="3.4"/>
+<circle class="dot" fill="#2563eb" cx="196.53" cy="661.08" r="3.4"/>
+<circle class="dot" fill="#2563eb" cx="258.80" cy="641.13" r="3.4"/>
+<circle class="dot" fill="#2563eb" cx="321.07" cy="616.62" r="3.4"/>
+<circle class="dot" fill="#2563eb" cx="383.33" cy="566.49" r="3.4"/>
+<polyline class="line" stroke="#dc2626" points="72.00,681.25 134.27,665.35 196.53,649.75 258.80,590.31 321.07,574.39 383.33,516.01"/>
+<circle class="dot" fill="#dc2626" cx="72.00" cy="681.25" r="3.4"/>
+<circle class="dot" fill="#dc2626" cx="134.27" cy="665.35" r="3.4"/>
+<circle class="dot" fill="#dc2626" cx="196.53" cy="649.75" r="3.4"/>
+<circle class="dot" fill="#dc2626" cx="258.80" cy="590.31" r="3.4"/>
+<circle class="dot" fill="#dc2626" cx="321.07" cy="574.39" r="3.4"/>
+<circle class="dot" fill="#dc2626" cx="383.33" cy="516.01" r="3.4"/>
+<polyline class="line" stroke="#059669" points="72.00,677.16 134.27,674.99 196.53,671.69 258.80,670.71 321.07,666.31 383.33,664.06"/>
+<circle class="dot" fill="#059669" cx="72.00" cy="677.16" r="3.4"/>
+<circle class="dot" fill="#059669" cx="134.27" cy="674.99" r="3.4"/>
+<circle class="dot" fill="#059669" cx="196.53" cy="671.69" r="3.4"/>
+<circle class="dot" fill="#059669" cx="258.80" cy="670.71" r="3.4"/>
+<circle class="dot" fill="#059669" cx="321.07" cy="666.31" r="3.4"/>
+<circle class="dot" fill="#059669" cx="383.33" cy="664.06" r="3.4"/>
+<polyline class="line" stroke="#7c3aed" points="72.00,615.58 134.27,610.12 196.53,603.59 258.80,599.25 321.07,591.53 383.33,586.72"/>
+<circle class="dot" fill="#7c3aed" cx="72.00" cy="615.58" r="3.4"/>
+<circle class="dot" fill="#7c3aed" cx="134.27" cy="610.12" r="3.4"/>
+<circle class="dot" fill="#7c3aed" cx="196.53" cy="603.59" r="3.4"/>
+<circle class="dot" fill="#7c3aed" cx="258.80" cy="599.25" r="3.4"/>
+<circle class="dot" fill="#7c3aed" cx="321.07" cy="591.53" r="3.4"/>
+<circle class="dot" fill="#7c3aed" cx="383.33" cy="586.72" r="3.4"/>
+<polyline class="line" stroke="#ea580c" points="72.00,548.50 134.27,516.99 196.53,514.18 258.80,516.39 321.07,529.84 383.33,185.51"/>
+<circle class="dot" fill="#ea580c" cx="72.00" cy="548.50" r="3.4"/>
+<circle class="dot" fill="#ea580c" cx="134.27" cy="516.99" r="3.4"/>
+<circle class="dot" fill="#ea580c" cx="196.53" cy="514.18" r="3.4"/>
+<circle class="dot" fill="#ea580c" cx="258.80" cy="516.39" r="3.4"/>
+<circle class="dot" fill="#ea580c" cx="321.07" cy="529.84" r="3.4"/>
+<circle class="dot" fill="#ea580c" cx="383.33" cy="185.51" r="3.4"/>
+<polyline class="line" stroke="#0891b2" points="72.00,679.29 134.27,673.20 196.53,668.26 258.80,662.13 321.07,657.14 383.33,651.76"/>
+<circle class="dot" fill="#0891b2" cx="72.00" cy="679.29" r="3.4"/>
+<circle class="dot" fill="#0891b2" cx="134.27" cy="673.20" r="3.4"/>
+<circle class="dot" fill="#0891b2" cx="196.53" cy="668.26" r="3.4"/>
+<circle class="dot" fill="#0891b2" cx="258.80" cy="662.13" r="3.4"/>
+<circle class="dot" fill="#0891b2" cx="321.07" cy="657.14" r="3.4"/>
+<circle class="dot" fill="#0891b2" cx="383.33" cy="651.76" r="3.4"/>
+<text x="581.00" y="40" text-anchor="middle" font-size="15" font-weight="700">200 bp</text>
+<line class="grid" x1="425.33" y1="690.00" x2="736.67" y2="690.00"/>
+<line class="grid" x1="425.33" y1="532.00" x2="736.67" y2="532.00"/>
+<line class="grid" x1="425.33" y1="374.00" x2="736.67" y2="374.00"/>
+<line class="grid" x1="425.33" y1="216.00" x2="736.67" y2="216.00"/>
+<line class="grid" x1="425.33" y1="58.00" x2="736.67" y2="58.00"/>
+<line class="grid" x1="425.33" y1="58" x2="425.33" y2="690"/>
+<text x="425.33" y="712" text-anchor="middle" font-size="11">0</text>
+<line class="grid" x1="487.60" y1="58" x2="487.60" y2="690"/>
+<text x="487.60" y="712" text-anchor="middle" font-size="11">1</text>
+<line class="grid" x1="549.87" y1="58" x2="549.87" y2="690"/>
+<text x="549.87" y="712" text-anchor="middle" font-size="11">2</text>
+<line class="grid" x1="612.13" y1="58" x2="612.13" y2="690"/>
+<text x="612.13" y="712" text-anchor="middle" font-size="11">3</text>
+<line class="grid" x1="674.40" y1="58" x2="674.40" y2="690"/>
+<text x="674.40" y="712" text-anchor="middle" font-size="11">4</text>
+<line class="grid" x1="736.67" y1="58" x2="736.67" y2="690"/>
+<text x="736.67" y="712" text-anchor="middle" font-size="11">5</text>
+<line class="axis" x1="425.33" y1="690.00" x2="736.67" y2="690.00"/>
+<line class="axis" x1="425.33" y1="58.00" x2="425.33" y2="690.00"/>
+<polyline class="line" stroke="#2563eb" points="425.33,683.01 487.60,673.75 549.87,660.17 612.13,638.57 674.40,614.29 736.67,594.72"/>
+<circle class="dot" fill="#2563eb" cx="425.33" cy="683.01" r="3.4"/>
+<circle class="dot" fill="#2563eb" cx="487.60" cy="673.75" r="3.4"/>
+<circle class="dot" fill="#2563eb" cx="549.87" cy="660.17" r="3.4"/>
+<circle class="dot" fill="#2563eb" cx="612.13" cy="638.57" r="3.4"/>
+<circle class="dot" fill="#2563eb" cx="674.40" cy="614.29" r="3.4"/>
+<circle class="dot" fill="#2563eb" cx="736.67" cy="594.72" r="3.4"/>
+<polyline class="line" stroke="#dc2626" points="425.33,680.05 487.60,662.02 549.87,648.42 612.13,574.98 674.40,572.84 736.67,516.68"/>
+<circle class="dot" fill="#dc2626" cx="425.33" cy="680.05" r="3.4"/>
+<circle class="dot" fill="#dc2626" cx="487.60" cy="662.02" r="3.4"/>
+<circle class="dot" fill="#dc2626" cx="549.87" cy="648.42" r="3.4"/>
+<circle class="dot" fill="#dc2626" cx="612.13" cy="574.98" r="3.4"/>
+<circle class="dot" fill="#dc2626" cx="674.40" cy="572.84" r="3.4"/>
+<circle class="dot" fill="#dc2626" cx="736.67" cy="516.68" r="3.4"/>
+<polyline class="line" stroke="#059669" points="425.33,680.27 487.60,676.67 549.87,666.65 612.13,664.60 674.40,665.74 736.67,661.89"/>
+<circle class="dot" fill="#059669" cx="425.33" cy="680.27" r="3.4"/>
+<circle class="dot" fill="#059669" cx="487.60" cy="676.67" r="3.4"/>
+<circle class="dot" fill="#059669" cx="549.87" cy="666.65" r="3.4"/>
+<circle class="dot" fill="#059669" cx="612.13" cy="664.60" r="3.4"/>
+<circle class="dot" fill="#059669" cx="674.40" cy="665.74" r="3.4"/>
+<circle class="dot" fill="#059669" cx="736.67" cy="661.89" r="3.4"/>
+<polyline class="line" stroke="#7c3aed" points="425.33,601.51 487.60,597.08 549.87,591.18 612.13,583.65 674.40,575.61 736.67,572.38"/>
+<circle class="dot" fill="#7c3aed" cx="425.33" cy="601.51" r="3.4"/>
+<circle class="dot" fill="#7c3aed" cx="487.60" cy="597.08" r="3.4"/>
+<circle class="dot" fill="#7c3aed" cx="549.87" cy="591.18" r="3.4"/>
+<circle class="dot" fill="#7c3aed" cx="612.13" cy="583.65" r="3.4"/>
+<circle class="dot" fill="#7c3aed" cx="674.40" cy="575.61" r="3.4"/>
+<circle class="dot" fill="#7c3aed" cx="736.67" cy="572.38" r="3.4"/>
+<polyline class="line" stroke="#ea580c" points="425.33,531.27 487.60,507.45 549.87,496.13 612.13,502.79 674.40,522.55 736.67,170.02"/>
+<circle class="dot" fill="#ea580c" cx="425.33" cy="531.27" r="3.4"/>
+<circle class="dot" fill="#ea580c" cx="487.60" cy="507.45" r="3.4"/>
+<circle class="dot" fill="#ea580c" cx="549.87" cy="496.13" r="3.4"/>
+<circle class="dot" fill="#ea580c" cx="612.13" cy="502.79" r="3.4"/>
+<circle class="dot" fill="#ea580c" cx="674.40" cy="522.55" r="3.4"/>
+<circle class="dot" fill="#ea580c" cx="736.67" cy="170.02" r="3.4"/>
+<polyline class="line" stroke="#0891b2" points="425.33,675.51 487.60,669.06 549.87,664.25 612.13,657.46 674.40,652.61 736.67,646.58"/>
+<circle class="dot" fill="#0891b2" cx="425.33" cy="675.51" r="3.4"/>
+<circle class="dot" fill="#0891b2" cx="487.60" cy="669.06" r="3.4"/>
+<circle class="dot" fill="#0891b2" cx="549.87" cy="664.25" r="3.4"/>
+<circle class="dot" fill="#0891b2" cx="612.13" cy="657.46" r="3.4"/>
+<circle class="dot" fill="#0891b2" cx="674.40" cy="652.61" r="3.4"/>
+<circle class="dot" fill="#0891b2" cx="736.67" cy="646.58" r="3.4"/>
+<text x="934.33" y="40" text-anchor="middle" font-size="15" font-weight="700">500 bp</text>
+<line class="grid" x1="778.67" y1="690.00" x2="1090.00" y2="690.00"/>
+<line class="grid" x1="778.67" y1="532.00" x2="1090.00" y2="532.00"/>
+<line class="grid" x1="778.67" y1="374.00" x2="1090.00" y2="374.00"/>
+<line class="grid" x1="778.67" y1="216.00" x2="1090.00" y2="216.00"/>
+<line class="grid" x1="778.67" y1="58.00" x2="1090.00" y2="58.00"/>
+<line class="grid" x1="778.67" y1="58" x2="778.67" y2="690"/>
+<text x="778.67" y="712" text-anchor="middle" font-size="11">0</text>
+<line class="grid" x1="840.93" y1="58" x2="840.93" y2="690"/>
+<text x="840.93" y="712" text-anchor="middle" font-size="11">1</text>
+<line class="grid" x1="903.20" y1="58" x2="903.20" y2="690"/>
+<text x="903.20" y="712" text-anchor="middle" font-size="11">2</text>
+<line class="grid" x1="965.47" y1="58" x2="965.47" y2="690"/>
+<text x="965.47" y="712" text-anchor="middle" font-size="11">3</text>
+<line class="grid" x1="1027.73" y1="58" x2="1027.73" y2="690"/>
+<text x="1027.73" y="712" text-anchor="middle" font-size="11">4</text>
+<line class="grid" x1="1090.00" y1="58" x2="1090.00" y2="690"/>
+<text x="1090.00" y="712" text-anchor="middle" font-size="11">5</text>
+<line class="axis" x1="778.67" y1="690.00" x2="1090.00" y2="690.00"/>
+<line class="axis" x1="778.67" y1="58.00" x2="778.67" y2="690.00"/>
+<polyline class="line" stroke="#2563eb" points="778.67,660.70 840.93,626.11 903.20,599.23 965.47,510.75 1027.73,515.00 1090.00,462.66"/>
+<circle class="dot" fill="#2563eb" cx="778.67" cy="660.70" r="3.4"/>
+<circle class="dot" fill="#2563eb" cx="840.93" cy="626.11" r="3.4"/>
+<circle class="dot" fill="#2563eb" cx="903.20" cy="599.23" r="3.4"/>
+<circle class="dot" fill="#2563eb" cx="965.47" cy="510.75" r="3.4"/>
+<circle class="dot" fill="#2563eb" cx="1027.73" cy="515.00" r="3.4"/>
+<circle class="dot" fill="#2563eb" cx="1090.00" cy="462.66" r="3.4"/>
+<polyline class="line" stroke="#dc2626" points="778.67,673.94 840.93,658.75 903.20,641.88 965.47,568.41 1027.73,563.49 1090.00,496.00"/>
+<circle class="dot" fill="#dc2626" cx="778.67" cy="673.94" r="3.4"/>
+<circle class="dot" fill="#dc2626" cx="840.93" cy="658.75" r="3.4"/>
+<circle class="dot" fill="#dc2626" cx="903.20" cy="641.88" r="3.4"/>
+<circle class="dot" fill="#dc2626" cx="965.47" cy="568.41" r="3.4"/>
+<circle class="dot" fill="#dc2626" cx="1027.73" cy="563.49" r="3.4"/>
+<circle class="dot" fill="#dc2626" cx="1090.00" cy="496.00" r="3.4"/>
+<polyline class="line" stroke="#059669" points="778.67,650.00 840.93,647.76 903.20,640.51 965.47,636.68 1027.73,638.60 1090.00,635.52"/>
+<circle class="dot" fill="#059669" cx="778.67" cy="650.00" r="3.4"/>
+<circle class="dot" fill="#059669" cx="840.93" cy="647.76" r="3.4"/>
+<circle class="dot" fill="#059669" cx="903.20" cy="640.51" r="3.4"/>
+<circle class="dot" fill="#059669" cx="965.47" cy="636.68" r="3.4"/>
+<circle class="dot" fill="#059669" cx="1027.73" cy="638.60" r="3.4"/>
+<circle class="dot" fill="#059669" cx="1090.00" cy="635.52" r="3.4"/>
+<polyline class="line" stroke="#7c3aed" points="778.67,544.56 840.93,537.42 903.20,531.12 965.47,524.77 1027.73,513.43 1090.00,512.97"/>
+<circle class="dot" fill="#7c3aed" cx="778.67" cy="544.56" r="3.4"/>
+<circle class="dot" fill="#7c3aed" cx="840.93" cy="537.42" r="3.4"/>
+<circle class="dot" fill="#7c3aed" cx="903.20" cy="531.12" r="3.4"/>
+<circle class="dot" fill="#7c3aed" cx="965.47" cy="524.77" r="3.4"/>
+<circle class="dot" fill="#7c3aed" cx="1027.73" cy="513.43" r="3.4"/>
+<circle class="dot" fill="#7c3aed" cx="1090.00" cy="512.97" r="3.4"/>
+<polyline class="line" stroke="#ea580c" points="778.67,486.58 840.93,476.53 903.20,469.43 965.47,485.39 1027.73,489.68 1090.00,135.94"/>
+<circle class="dot" fill="#ea580c" cx="778.67" cy="486.58" r="3.4"/>
+<circle class="dot" fill="#ea580c" cx="840.93" cy="476.53" r="3.4"/>
+<circle class="dot" fill="#ea580c" cx="903.20" cy="469.43" r="3.4"/>
+<circle class="dot" fill="#ea580c" cx="965.47" cy="485.39" r="3.4"/>
+<circle class="dot" fill="#ea580c" cx="1027.73" cy="489.68" r="3.4"/>
+<circle class="dot" fill="#ea580c" cx="1090.00" cy="135.94" r="3.4"/>
+<polyline class="line" stroke="#0891b2" points="778.67,631.34 840.93,626.61 903.20,622.89 965.47,619.41 1027.73,613.56 1090.00,608.50"/>
+<circle class="dot" fill="#0891b2" cx="778.67" cy="631.34" r="3.4"/>
+<circle class="dot" fill="#0891b2" cx="840.93" cy="626.61" r="3.4"/>
+<circle class="dot" fill="#0891b2" cx="903.20" cy="622.89" r="3.4"/>
+<circle class="dot" fill="#0891b2" cx="965.47" cy="619.41" r="3.4"/>
+<circle class="dot" fill="#0891b2" cx="1027.73" cy="613.56" r="3.4"/>
+<circle class="dot" fill="#0891b2" cx="1090.00" cy="608.50" r="3.4"/>
+<line x1="1112" y1="82" x2="1146" y2="82" stroke="#2563eb" stroke-width="3"/>
+<text x="1156" y="86" font-size="12">leap_avx2</text>
+<line x1="1112" y1="110" x2="1146" y2="110" stroke="#dc2626" stroke-width="3"/>
+<text x="1156" y="114" font-size="12">leap_avx512</text>
+<line x1="1112" y1="138" x2="1146" y2="138" stroke="#059669" stroke-width="3"/>
+<text x="1156" y="142" font-size="12">lv89</text>
+<line x1="1112" y1="166" x2="1146" y2="166" stroke="#7c3aed" stroke-width="3"/>
+<text x="1156" y="170" font-size="12">miniwfa</text>
+<line x1="1112" y1="194" x2="1146" y2="194" stroke="#ea580c" stroke-width="3"/>
+<text x="1156" y="198" font-size="12">wfa2_fresh</text>
+<line x1="1112" y1="222" x2="1146" y2="222" stroke="#0891b2" stroke-width="3"/>
+<text x="1156" y="226" font-size="12">wfa2_reuse</text>
+<text x="581.00" y="736" text-anchor="middle" font-size="14">maximum edit distance; k = maximum edit distance</text>
+<text x="20" y="380.0" transform="rotate(-90 20 380.0)" text-anchor="middle" font-size="14">avg CPU ns / pair</text>
+</svg>

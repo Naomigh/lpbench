@@ -1,51 +1,49 @@
 #pragma once
 
 #include <cstdint>
-#include <cstdlib>
-#include <stdexcept>
 #include <string>
-#include <string_view>
 #include <vector>
 
 namespace bench {
 
-constexpr int kDefaultLength = 100;
-constexpr int kDefaultTrueEdMin = 0;
-constexpr int kDefaultTrueEdMax = 15;
-constexpr int kDefaultPairsPerEd = 10000;
-constexpr int kDefaultSeed = 1;
+struct PairRecord {
+  uint64_t pair_id = 0;
+  int length = 0;
+  int true_ed = 0;
+  std::string read;
+  std::string reference;
+  int num_sub = 0;
+  int num_ins = 0;
+  int num_del = 0;
+  std::string edit_pattern;
+  uint64_t seed = 0;
+  uint8_t pass[6] = {};
+};
 
-inline bool starts_with_dash(std::string_view s) {
-    return s.size() >= 2 && s[0] == '-' && s[1] == '-';
+inline uint8_t expected_pass_label(const PairRecord& row, int k) {
+  return row.true_ed <= k ? 1 : 0;
 }
 
-inline int parse_int(const std::string& value, const char* name) {
-    char* end = nullptr;
-    long parsed = std::strtol(value.c_str(), &end, 10);
-    if (end == value.c_str() || *end != '\0') {
-        throw std::runtime_error(std::string("invalid integer for ") + name + ": " + value);
-    }
-    return static_cast<int>(parsed);
+int trusted_edit_distance(const char* a, int n, const char* b, int m);
+
+inline bool cpu_has_avx512() {
+#if defined(__x86_64__) || defined(__i386__)
+  __builtin_cpu_init();
+  return __builtin_cpu_supports("avx512f") &&
+         __builtin_cpu_supports("avx512bw");
+#else
+  return false;
+#endif
 }
 
-inline std::string default_dataset_path(int length, int ed_min, int ed_max) {
-    return "benchmark/data/generated/pairs_len" + std::to_string(length) +
-           "_ed" + std::to_string(ed_min) + "_" + std::to_string(ed_max) + ".tsv";
+inline bool cpu_has_avx2() {
+#if defined(__x86_64__) || defined(__i386__)
+  __builtin_cpu_init();
+  return __builtin_cpu_supports("avx2");
+#else
+  return false;
+#endif
 }
-
-inline std::vector<std::pair<int, int>> chunks_for_length(int length, int chunk_size) {
-    if (length <= 0) {
-        return {};
-    }
-    std::vector<std::pair<int, int>> chunks;
-    for (int offset = 0; offset < length; offset += chunk_size) {
-        int n = std::min(chunk_size, length - offset);
-        chunks.emplace_back(offset, n);
-    }
-    return chunks;
-}
-
-int trusted_edit_distance(std::string_view a, std::string_view b);
-int trusted_edit_distance_banded(std::string_view a, std::string_view b, int max_distance);
 
 }  // namespace bench
+

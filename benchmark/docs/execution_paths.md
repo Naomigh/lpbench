@@ -1,15 +1,13 @@
 # Execution Paths
 
-This document describes the logical execution path requested by the benchmark and the likely CPU/cache/memory behavior. It does not claim exact cache residency for every byte.
-
-## Dataset and File Path Common to All Methods
+## Dataset And File Path Common To All Methods
 
 1. Dataset TSV resides on disk / filesystem storage.
 2. Before timing, benchmark opens and reads the TSV.
 3. OS page cache may serve the file if it was previously read.
 4. The benchmark parses each row into in-memory arrays/vectors.
-5. Read/reference sequences are stored in heap memory as `std::string` payloads inside dataset records.
-6. Ground-truth pass/fail labels are stored in memory.
+5. read/reference sequences are stored in heap memory, preferably contiguous buffers.
+6. ground-truth pass/fail labels are stored in memory.
 7. File I/O and TSV parsing happen before timing and are excluded.
 8. During timing, methods read read/reference bytes from heap memory.
 9. The CPU accesses these bytes through cache hierarchy: memory / LLC / L2 / L1D -> registers.
@@ -23,21 +21,23 @@ The benchmark does not manually "put data into cache". It touches/warmups data t
 
 Input:
 
-- Read/reference bytes are already in heap memory.
-- Timed code receives char pointers.
+- read/reference bytes are already in heap memory.
+- timed code receives char pointers.
 
-Timed path:
+Main threshold benchmark timing path:
 
-1. CPU loads read/reference bytes from memory/cache as required.
-2. LEAP constructs SIMD_ED object.
-3. `init_levenshtein` initializes threshold/max energy state.
-4. `load_reads` copies/loads sequence data into LEAP internal representation.
-5. DNA chars are converted into LEAP bit-plane / bit-vector representation.
-6. `calculate_masks` builds mismatch/match masks.
-7. `reset` initializes LEAP state for traversal.
-8. `run` executes the LEAP bit-vector lane/state transition.
-9. `check_pass` reads final state and returns threshold pass/fail.
-10. Boolean result is written to sink / result array.
+1. Before timing, CPU loads read/reference bytes from memory/cache as required by preparation.
+2. Before timing, LEAP constructs `SIMD_ED` object.
+3. Before timing, `init_levenshtein` initializes threshold/max energy state.
+4. Before timing, `load_reads` copies/loads sequence data into LEAP internal representation.
+5. Before timing, DNA chars are converted into LEAP bit-plane / bit-vector representation.
+6. Before timing, `calculate_masks` builds mismatch/match masks.
+7. Before timing, `reset` initializes LEAP state for traversal.
+8. Timed region: `run` executes the LEAP bit-vector lane/state transition.
+9. After timing, `check_pass` reads final state and returns threshold pass/fail.
+10. After timing, pass/fail is compared against stored labels for mismatch counting.
+
+The main `threshold_raw.tsv` rows for `leap_avx2` and `leap_avx512` therefore use `mode=forward` and measure only LEAP forward/run time. The separate `leap_phase_bench` still reports per-phase timings for construct/init, load, mask, reset, run, check, and sink.
 
 Chunking:
 
@@ -47,29 +47,26 @@ Chunking:
 
 Memory/cache note:
 
-- Read/reference input bytes are loaded through cache hierarchy.
+- read/reference input bytes are loaded through cache hierarchy.
 - LEAP internal bit-vectors/masks are stored in stack or heap/object memory depending on implementation.
 - SIMD operations use vector registers after data is loaded.
 - Stores to result variables and internal state update cache lines first; write-back to main memory is hardware-managed.
-
-The LEAP wrappers call the cloned `SIMD_ED` implementation with backend-specific compilation flags. SHD prefiltering is disabled in the threshold benchmark wrapper.
 
 ## lv89 Execution Path
 
 Input:
 
-- Read/reference bytes are already in heap memory.
-- Timed code passes char pointers and length to lv89.
+- read/reference bytes are already in heap memory.
+- timed code passes char pointers and length to lv89.
 
 Timed path:
 
 1. CPU loads read/reference bytes from memory/cache when lv89 accesses them.
 2. lv89 runs its edit-distance/banded algorithm.
-3. If lv89 supports a band/threshold parameter, pass `k` as the band/threshold.
-4. If it does not stop exactly at threshold, compute score and then compare `score <= k`.
-5. Extract score and endpoint information if needed for global alignment.
-6. Return pass/fail.
-7. Store pass/fail to sink/result array.
+3. The benchmark passes `k` as the bandwidth/threshold argument.
+4. The wrapper extracts the score and compares `score <= k`.
+5. Return pass/fail.
+6. Store pass/fail to sink/result array.
 
 Memory/cache note:
 
@@ -77,21 +74,19 @@ Memory/cache note:
 - The benchmark does not count file I/O.
 - It counts memory/cache effects during lv89 execution.
 
-The lv89 wrapper calls `lv_ed_basic` in score-only mode with `bw=k`.
-
 ## miniwfa Execution Path
 
 Input:
 
-- Read/reference bytes are already in heap memory.
+- read/reference bytes are already in heap memory.
 
 Timed path:
 
 1. CPU loads read/reference bytes from memory/cache during miniwfa execution.
 2. Initialize miniwfa options for edit-distance-like scoring.
 3. Disable CIGAR/traceback.
-4. Set `max_s = k` if supported.
-5. Run `mwf_wfa_exact` or the appropriate miniwfa score function.
+4. Set `max_s = k`.
+5. Run `mwf_wfa_exact`.
 6. Extract score.
 7. Free temporary result/cigar if allocated.
 8. Return `score <= k`.
@@ -101,8 +96,6 @@ Memory/cache note:
 
 - miniwfa may allocate or touch temporary wavefront/state memory.
 - These accesses are part of timed CPU time.
-
-The miniwfa wrapper calls `mwf_wfa_exact` in score-only mode with CIGAR disabled and `max_s=k`.
 
 ## WFA2-lib Execution Path
 
@@ -127,6 +120,5 @@ Memory/cache note:
 
 - `wfa2_fresh` includes per-pair allocation/init/delete overhead.
 - `wfa2_reuse` excludes aligner creation but includes per-pair reset/reap.
-- Report these as separate methods and never merge them.
+- These are reported as separate methods and never merged.
 
-The WFA2 wrappers use `wfa::WFAlignerEdit` in score-only mode, with separate fresh and reused aligner paths.

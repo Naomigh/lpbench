@@ -5,20 +5,19 @@ import subprocess
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Build lpbench threshold benchmark binaries.")
-    parser.add_argument("--source", default="benchmark")
+    parser = argparse.ArgumentParser()
     parser.add_argument("--build-dir", default="benchmark/build")
-    parser.add_argument("--config", default="Release")
     args = parser.parse_args()
-
-    pathlib.Path(args.build_dir).mkdir(parents=True, exist_ok=True)
+    build_dir = pathlib.Path(args.build_dir)
+    build_dir.mkdir(parents=True, exist_ok=True)
     subprocess.run(
-        ["cmake", "-S", args.source, "-B", args.build_dir, f"-DCMAKE_BUILD_TYPE={args.config}"],
+        ["cmake", "-S", "benchmark", "-B", str(build_dir), "-DCMAKE_BUILD_TYPE=Release"],
         check=True,
     )
-    subprocess.run(["cmake", "--build", args.build_dir, "--target", "threshold_verify_bench", "-j"], check=True)
+    subprocess.run(["cmake", "--build", str(build_dir), "-j"], check=True)
     return 0
 
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
