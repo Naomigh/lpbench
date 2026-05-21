@@ -1,0 +1,2 @@
+/usr/bin/ar qc liblv89_bench.a CMakeFiles/lv89_bench.dir/home/minghao/project/2026/leapbench/lv89/lv89.c.o
+/usr/bin/ranlib liblv89_bench.a

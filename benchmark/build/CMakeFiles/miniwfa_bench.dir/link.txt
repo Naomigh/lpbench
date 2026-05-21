@@ -1,0 +1,2 @@
+/usr/bin/ar qc libminiwfa_bench.a CMakeFiles/miniwfa_bench.dir/home/minghao/project/2026/leapbench/miniwfa/miniwfa.c.o CMakeFiles/miniwfa_bench.dir/home/minghao/project/2026/leapbench/miniwfa/kalloc.c.o
+/usr/bin/ranlib libminiwfa_bench.a

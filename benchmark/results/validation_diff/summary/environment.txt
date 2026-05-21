@@ -1,8 +1,8 @@
-generated_utc: 2026-05-21T08:14:23.803686+00:00
+generated_utc: 2026-05-21T04:31:24.184488+00:00
 repo_root: /home/minghao/project/2026/leapbench
 platform: Linux-6.17.0-14-generic-x86_64-with-glibc2.39
 python: 3.12.2 | packaged by conda-forge | (main, Feb 16 2024, 20:50:58) [GCC 12.3.0]
-runner_args: --length 500 --max-edit-distance 0 --k 0 --pairs 200000 --methods leap_avx2 leap_avx512 lv89 miniwfa wfa2_reuse wfa2_fresh --timing-mode diff --n1 100000 --n2 200000 --warmup-passes 1 --seed 1
+runner_args: --length 500 --max-edit-distance 5 --k 5 --pairs 80 --methods leap_avx2 leap_avx512 lv89 miniwfa wfa2_reuse --timing-mode diff --n1 40 --n2 80 --warmup-passes 1 --seed 9 --out-dir benchmark/results/validation_diff
 
 $ uname -a
 Linux mhvm 6.17.0-14-generic #14~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Jan 15 15:52:10 UTC 2 x86_64 x86_64 x86_64 GNU/Linux

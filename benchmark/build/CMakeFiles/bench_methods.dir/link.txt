@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/bench_methods.dir/src/bench_methods.cpp.o -o bench_methods  liblv89_bench.a libminiwfa_bench.a wfa2/libwfa2.a -ldl -lm 
